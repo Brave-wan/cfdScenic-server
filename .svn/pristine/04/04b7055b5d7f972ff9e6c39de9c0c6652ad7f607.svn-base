@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.RestaurantPackageDao">
+	<select id="findPackageGoodsById" parameterType="long" resultType="map">
+		select 
+			rp.id,rp.name,rp.price,rp.new_price,rp.head_img
+		from
+			restaurant_package rp 
+		where 
+			rp.shop_information_id = #{id}
+	</select>
+	<select id="findPackageByPackageId" parameterType="long" resultType="map">
+		select
+			rp.name,
+			si.address,
+			rp.goods_ids,
+			ht.html_url,
+			si.phone
+		from
+			restaurant_package rp left join shop_information si on rp.shop_information_id = si.id left join html_text ht on ht.id = rp.notice_id 
+		where
+			rp.id = #{id}
+	</select>
+	<select id="selectRestaurantOrderByOrderCode" parameterType="string" resultType="map">
+		select 
+			ro.id,
+			ro.goods_type,
+			si.name,
+			DATE_FORMAT(ro.eat_date,'%Y-%m-%d %h:%i:%s') AS eat_date,
+			DATE_FORMAT(ro.create_time,'%Y-%m-%d %h:%i:%s') AS create_time,
+			sum(ro.quantity) as quantity,
+			sum(ro.real_price) as real_price,
+			ro.order_code,
+			ua.balance
+		from
+			restaurant_order ro join shop_information si on ro.shop_information_id = si.id left join user_account ua on ro.user_id = ua.user_id
+		where
+			ro.order_code = #{order_code,jdbcType=VARCHAR}	
+	</select>
+</mapper>

@@ -1,0 +1,47 @@
+package com.htkj.cfdScenic.app.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.htkj.cfdScenic.app.model.PublicPlaces;
+import com.htkj.cfdScenic.app.service.PublicPlacesService;
+import com.htrj.common.base.BaseController;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.Json;
+import com.htrj.common.page.PagerForm;
+
+@Controller
+@RequestMapping("/background/publicPlaces")
+public class PublicPlacesManagerController extends BaseController{
+	
+	@Autowired
+	private PublicPlacesService publicPlacesService;
+	
+	@RequestMapping("/toPublicPlaces")
+	public String toPublicPlaces(){
+		return "/background/publicPlaces/Manager";
+	}
+	//获取列表
+	@RequestMapping("/checkPublicPlaces")
+	@ResponseBody
+	public DataGrid checkPublicPlaces(PagerForm pagerForm){
+		Map map = new HashMap();
+		return publicPlacesService.checkPublicPlaces(pagerForm.getPageRequest(map));
+	}
+	//跳转添加页面
+	@RequestMapping("/toSavePublicPlaces")
+	public String toSavePublicPlaces(){
+		return "/background/publicPlaces/editPage";
+	}
+	
+	@RequestMapping("/savePublicPlaces")
+	@ResponseBody
+	public Json savePublicPlaces(PublicPlaces publicPlaces){
+		return publicPlacesService.savePublicPlaces(publicPlaces);
+	}
+}

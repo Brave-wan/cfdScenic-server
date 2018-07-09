@@ -1,0 +1,389 @@
+var refundManager = {
+	checkUrl : "./background/Order/checkRefund",
+	setCheckNoCauseUrl : "./background/Order/setCheckNoCause",
+	init : function(){
+		$(window).load(function(){
+			$('#refundManagerGid').datagrid({
+				url:'./background/Order/refundData.json',
+				border:false,
+				fit:true,
+				singleSelect:true,
+				idField:'id',
+				pagination:true,
+				pageSize:20,
+				striped:true,
+				fitColumns:true,
+				queryParams : {
+					type : 1,
+					status : 4
+				},
+				columns : [ [ {
+					field : 'id',
+					title : 'id',
+					align:'center',width:100,hidden:true
+
+				}, {
+					field : 'fromuser',
+					title : '人id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'travelinfo',
+					title : '行程id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'status',
+					title : '状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 4:
+							return "申请退款中";
+						case 5:
+							return "申请退款失败";
+						case 6:
+							return "申请退款成功";
+						}
+					}
+				},{
+					field : 'nickname',
+					title : '申请认证人',
+					align:'center',width:100
+				}, {
+					field : 'days',
+					title : '天数',
+					align:'center',width:100
+				}, {
+					field : 'membercount',
+					title : '人数',
+					align:'center',width:100
+				},{
+					field : 'workbegintime',
+					title : '开始时间',
+					align:'center',width:100
+				},{
+					field : 'workendtime',
+					title : '结束时间',
+					align:'center',width:100
+				},{
+					field : 'appointtime',
+					title : '预约小时',
+					align:'center',width:100
+				},{
+					field : 'addr',
+					title : '集合地点',
+					align:'center',width:100
+				},{
+					field : 'orderamt',
+					title : '订单金额',
+					align:'center',width:100
+				},{
+					field : 'attentions',
+					title : '注意事项',
+					align:'center',width:100
+				},{
+					field : 'name',
+					title : '姓名',
+					align:'center',width:100
+				},{
+					field : 'idcard',
+					title : '身份证号',
+					align:'center',width:100
+				},{
+					field : 'telphone',
+					title : '手机号码',
+					align:'center',width:100
+				},{
+					field : 'ctime',
+					title : '创建时间',
+					align:'center',width:100
+				},{
+					field : 'refundtime',
+					title : '申请退款时间',
+					align:'center',width:100
+				},{
+					field : 'cause',
+					title : '退款失败原因',
+					align:'center',width:100
+				},{
+					field : 'refundratio',
+					title : '退款比例',
+					align:'center',width:100
+				} ] ]
+			});
+		});
+	},
+	toCheck : function(t){
+		var row=$('#refundManagerGid').datagrid('getSelected');
+		var tTemp = t;
+		if(!row){
+			eu.showMsg("请选择一行再进行审核");
+			return;
+		}
+		$.messager.confirm("提示信息","您确定要对该订单进行退款操作吗？",function(r){
+			if(r){
+				if(tTemp == 1){
+					$.post(refundManager.checkUrl,{id : row.id , status:tTemp,type : $('#nowType').val(),cause : ''})
+					.success(function(data){
+									if(data.success){
+										eu.showMsg("操作成功！");
+										$("#refundManagerGid").datagrid('reload');
+									}else{
+										eu.showMsg(data.message);
+									}
+								}
+							).error(function(data){
+					        	eu.showMsg("系统错误，请联系管理员！");
+					        })
+				}else if(tTemp == 2){
+					$('#refundManagerWindow').window('open');
+					$('#nowId').val(row.id);
+				}
+			}else{
+				$('#refundManagerGid').datagrid('clearSelections');
+			}
+			});
+	},
+	serch : function () {
+ 		var type = $('#searchValue').combobox('getValue');
+		$('#refundManagerGid').datagrid('clearSelections');
+		switch (type) {
+		case '1'://旅行订单
+			$('#refundManagerGid').datagrid({
+				url:'./background/Order/refundData.json',
+				border:false,
+				fit:true,
+				singleSelect:true,
+				idField:'id',
+				pagination:true,
+				pageSize:20,
+				striped:true,
+				fitColumns:true,
+				queryParams : {
+					type : type,
+					status:$('#searchValue1').combobox('getValue')
+				},
+				columns : [ [ {
+					field : 'id',
+					title : 'id',
+					align:'center',width:100,hidden:true
+
+				}, {
+					field : 'fromuser',
+					title : '人id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'travelinfo',
+					title : '行程id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'status',
+					title : '状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 4:
+							return "申请退款中";
+						case 5:
+							return "申请退款失败";
+						case 6:
+							return "申请退款成功";
+						}
+					}
+				},{
+					field : 'nickname',
+					title : '申请认证人',
+					align:'center',width:100
+				}, {
+					field : 'days',
+					title : '天数',
+					align:'center',width:100
+				}, {
+					field : 'membercount',
+					title : '人数',
+					align:'center',width:100
+				},{
+					field : 'workbegintime',
+					title : '开始时间',
+					align:'center',width:100
+				},{
+					field : 'workendtime',
+					title : '结束时间',
+					align:'center',width:100
+				},{
+					field : 'appointtime',
+					title : '预约小时',
+					align:'center',width:100
+				},{
+					field : 'addr',
+					title : '集合地点',
+					align:'center',width:100
+				},{
+					field : 'orderamt',
+					title : '订单金额',
+					align:'center',width:100
+				},{
+					field : 'attentions',
+					title : '注意事项',
+					align:'center',width:100
+				},{
+					field : 'name',
+					title : '姓名',
+					align:'center',width:100
+				},{
+					field : 'idcard',
+					title : '身份证号',
+					align:'center',width:100
+				},{
+					field : 'telphone',
+					title : '手机号码',
+					align:'center',width:100
+				},{
+					field : 'ctime',
+					title : '创建时间',
+					align:'center',width:100
+				},{
+					field : 'refundtime',
+					title : '申请退款时间',
+					align:'center',width:100
+				},{
+					field : 'cause',
+					title : '退款失败原因',
+					align:'center',width:100
+				},{
+					field : 'refundratio',
+					title : '退款比例',
+					align:'center',width:100
+				} ] ]
+			});
+			break;
+		case '2'://嗨服务
+			var sTemp = $('#searchValue1').combobox('getValue');
+			switch (sTemp) {
+			case '4':
+				sTemp = 5;
+				break;
+			case '5':
+				sTemp = 7;
+				break;
+			case '6':
+				sTemp = 6;
+				break;
+			}
+			$('#refundManagerGid').datagrid({
+				url:'./background/Order/refundData.json',
+				border:false,
+				fit:true,
+				singleSelect:true,
+				idField:'id',
+				pagination:true,
+				pageSize:20,
+				striped:true,
+				fitColumns:true,
+				queryParams : {
+					type : type,
+					status:sTemp
+				},
+				columns : [ [ {
+					field : 'id',
+					title : 'id',
+					align:'center',width:100,hidden:true
+
+				}, {
+					field : 'fromuser',
+					title : '人id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'touser',
+					title : '人id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'nickName',
+					title : '下单人',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'nickName1',
+					title : '接单人',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'status',
+					title : '状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 5:
+							return "申请退款中";
+						case 7:
+							return "申请退款失败";
+						case 6:
+							return "申请退款成功";
+						}
+					}
+				},{
+					field : 'workDateTemp',
+					title : '预约开始日期',
+					align:'center',width:100
+				}, {
+					field : 'workEndTimeTemp',
+					title : '预约开始时间',
+					align:'center',width:100
+				}, {
+					field : 'workBeginTimeTemp',
+					title : '预约结束时间',
+					align:'center',width:100
+				},{
+					field : 'appointtime',
+					title : '预约小时',
+					align:'center',width:100
+				},{
+					field : 'addr',
+					title : '集合地点',
+					align:'center',width:100
+				},{
+					field : 'orderamt',
+					title : '订单金额',
+					align:'center',width:100
+				},{
+					field : 'beginTimeTemp',
+					title : '创建时间',
+					align:'center',width:100
+				},{
+					field : 'refundtime',
+					title : '申请退款时间',
+					align:'center',width:100
+				},{
+					field : 'cause',
+					title : '退款失败原因',
+					align:'center',width:100
+				}] ]
+			});
+			break;
+		}
+		$('#nowType').val(type);
+	},
+	clearForm:function(){
+		$('#refundManagerForm').form('clear');
+	},
+	cancel:function(){
+		$('#refundManagerWindow').window('close');
+	},
+	submit:function(){
+		$.messager.progress({title:'提示信息',msg:'请稍候...',interval:2000});
+		
+		$.post(refundManager.checkUrl,{id : $('#nowId').val(),status : 2,type : $('#nowType').val(),cause : $('#orderCause').val()})
+		.success(function(data){
+			$.messager.progress('close');
+			if(data.success){
+				eu.showMsg("成功！");
+				$('#refundManagerWindow').window('close');
+				$('#refundManagerGid').datagrid('load',{type:1,status:$('#searchValue1').combobox('getValue')});
+			}else{
+				eu.showMsg(data);
+			}
+		})
+		.error(function(data){
+			$.messager.progress('close');
+			eu.showMsg("系统错误！");
+		});
+	}
+};
+refundManager.init();

@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+.fontbold{
+	font-weight: bold;
+	 margin-right: 5px;
+}
+
+.curLoca{
+    background: rgba(0, 0, 0, 0) url("../images/layout_icon.png") no-repeat scroll 0 0;
+    background-position: 0 -150px;
+    display: inline;
+    float: left;
+    height: 20px;
+    margin-right: 3px;
+    width: 20px;
+}
+.cursetting{
+    background: rgba(0, 0, 0, 0) url("../images/layout_icon.png") no-repeat scroll 0 0;
+    background-position: -180px -30px;
+    display: inline;
+    float: left;
+    height: 20px;
+    margin-right: 3px;
+    width: 20px;
+    
+}
+
+.curmenu{
+    background: rgba(0, 0, 0, 0) url("../images/layout_icon.png") no-repeat scroll 0 0;
+    background-position: -61px -32px;
+    display: inline;
+    float: left;
+    height: 22px;
+    margin-right: 3px;
+    width: 22px;
+    
+}

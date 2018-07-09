@@ -1,0 +1,74 @@
+package com.htkj.cfdScenic.app.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.htkj.cfdScenic.app.model.ShopGoods;
+import com.htrj.common.base.BaseDao;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+
+@Repository
+public class ShopGoodsDao extends BaseDao<ShopGoods, Integer>{
+	
+	/**
+	 * 根据关键字模糊查询
+	 */
+	public List<Map<String,String>> linkSelect(String keyWord){
+		return getSqlSession().selectList(getStatementName("linkSelect"),keyWord);
+	}
+	/**
+	 * 查询 为你推荐 列表
+	 */
+	public List<Map<String,Object>> selectRecommend(){
+		return getSqlSession().selectList(getStatementName("selectRecommend"));
+	}
+	public Page selectShopGoodsByInformationId(PageRequest<Map<String, Object>> pageRequest) {
+		return pageQuery(getStatementName("selectShopGoodsByInformationId"),pageRequest);
+	}
+	/**
+	 * 新分页查询
+	 */
+	public List<Map<String,Object>> selectShopGoodsByInformationIdPage(Map parameter) {
+		return getSqlSession().selectList(getStatementName("selectShopGoodsByInformationIdPage"),parameter);
+	}
+	/**
+	 * 通过商品Id获取商品
+	 */
+	public Map findDetailByGoodsId(Long goodsId) {
+		return getSqlSession().selectOne(getStatementName("findDetailByGoodsId"),goodsId);
+	}
+	/**
+	 * 通过商品Id和用户获取商品及关注状态
+	 */
+	public Map findDetailByGoodsIdAndUid(Map map) {
+		return getSqlSession().selectOne(getStatementName("findDetailByGoodsIdAndUid"),map);
+	}
+	/**
+	 * 通过店铺Id获取商品
+	 */
+	public List findHotelGoodsById(Long id) {
+		return getSqlSession().selectList(getStatementName("selectShopGoodsByInformationId"),id);
+	}
+	public Map findHotelGoodsDetail(Long goodsId) {
+		return getSqlSession().selectOne(getStatementName("findHotelGoodsDetail"),goodsId);
+	}
+	public int getstockNumber(Long shopGoodsId) {
+		return getSqlSession().selectOne(getStatementName("getstockNumber"),shopGoodsId);
+	}
+	public List<Map<String, String>> selectMessage(String name) {
+		return getSqlSession().selectList(getStatementName("selectMessage"),name);
+	}
+	public List<Map<String, String>> recommendShop() {
+		return getSqlSession().selectList(getStatementName("recommendShop"));
+	}
+	/**
+	 * 获取热门商品
+	 */
+	public List<Map> getHotGoods() {
+		return getSqlSession().selectList(getStatementName("getHotGoods"));
+	}
+
+}

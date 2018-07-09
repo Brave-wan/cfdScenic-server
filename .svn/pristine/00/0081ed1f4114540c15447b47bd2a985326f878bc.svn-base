@@ -1,0 +1,62 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.ShopUserDao;
+import com.htkj.cfdScenic.app.model.ShopInformation;
+import com.htkj.cfdScenic.app.model.ShopUser;
+
+@Service
+@Transactional
+public class ShopUserService {
+	@Autowired
+	private ShopUserDao shopUserDao;
+
+	public Integer selectById(Long userId) {
+		return shopUserDao.selectById(userId);
+	}
+	
+	
+	public Long getShopUserIdByToken(String token)
+	{
+		return shopUserDao.getShopUserIdByToken(token);
+	}
+
+	public ShopUser selectByPhone(String telPhone) {
+		return shopUserDao.selectByPhone(telPhone);
+	}
+	
+	public ShopUser selectByUserId(Long id) {
+		return shopUserDao.selectByUserId(id);
+	}
+
+	public void updateUUID(ShopUser userMessage) {
+		shopUserDao.updateUUID(userMessage);
+	}
+
+	public void update(ShopUser userMessage) {
+		shopUserDao.updatePassWord(userMessage);
+	}
+	
+	public void updateInformationId(ShopUser userMessage) {
+		shopUserDao.updateInformationId(userMessage);
+	}
+
+	public void insertMessage(ShopUser user) {
+		shopUserDao.insertMessage(user);
+	}
+
+	public Map<String, Object> shopUserMessage(Long id) {
+		return shopUserDao.shopUserMessage(id);
+	}
+
+	public Map<String, Object> shopAutonymMessage(Long id) {
+		return shopUserDao.shopAutonymMessage(id);
+	}
+
+
+}

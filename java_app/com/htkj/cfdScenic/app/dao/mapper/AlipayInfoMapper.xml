@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.AlipayInfoDao">
+	<update id="updateAlipayInfo" parameterType="com.htkj.cfdScenic.app.model.AlipayInfo">
+		UPDATE alipay_info
+		<set>
+			<if test="partner != null">
+				partner = #{partner,jdbcType=VARCHAR},
+			</if>
+			<if test="seller != null">
+				seller = #{seller,jdbcType=VARCHAR},
+			</if>
+			<if test="privateKey != null">
+				private_key = #{privateKey,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<insert id="saveAlipayInfo" parameterType="com.htkj.cfdScenic.app.model.AlipayInfo">
+		insert into alipay_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="shopUserId != null">
+				shop_user_id,
+			</if>
+			<if test="partner != null">
+				partner,
+			</if>
+			<if test="seller != null">
+				seller,
+			</if>
+			<if test="privateKey != null">
+				private_key,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="shopUserId != null">
+				#{shopUserId},
+			</if>
+			<if test="partner != null">
+				#{partner},
+			</if>
+			<if test="seller != null">
+				#{seller},
+			</if>
+			<if test="privateKey != null">
+				#{privateKey},
+			</if>
+		</trim>
+	</insert>
+	<select id="getAlipayInfo" parameterType="long" resultType="com.htkj.cfdScenic.app.model.AlipayInfo">
+		select
+			id,
+			shop_user_id as shopUserId,
+			partner,
+			seller,
+			private_key as privateKey
+		from
+			alipay_info
+		where shop_user_id = #{id}
+	</select>
+	<select id="getAlipayInfoBySiId" parameterType="long" resultType="com.htkj.cfdScenic.app.model.AlipayInfo">
+		select
+			ai.id,
+			ai.shop_user_id as shopUserId,
+			ai.partner,
+			ai.seller,
+			ai.private_key as privateKey
+		from
+			shop_information si join shop_user su on si.shop_user_id = su.id join alipay_info ai on su.id = ai.shop_user_id
+		where si.id = #{siId}
+	</select>
+</mapper>

@@ -1,0 +1,187 @@
+<%@ page contentType="text/html; charset=UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="/WEB-INF/views-commons/header.jsp"%>
+<style type="text/css">
+	body{font-family: "微软雅黑";}
+	table{width:90%;margin:20px auto;}
+	table td{height:45px;text-align:left;}
+	table td:first-child{width:10%;}
+	table td:last-child{width:90%;}
+	table td input[type=text]{width:80%;height:30px;line-height: 30px;padding-left: 10px;}
+	table img{width:150px;height:100px;}
+	table td textarea{padding-left:10px;}
+	table td label{float: left;width:100px;text-align: left;}
+	.l-btn-text{line-height: 30px;}
+	.easyui-linkbutton{width:30%;height:30px;display: inline-block;}
+</style>
+<div style="width:98.5%;padding:10px;">
+		<div style="padding:8px 2px;border-bottom:1px solid #ccc">当前位置:景点管理-添加景点</div>
+			<form id="ff" action="./background/visitorsManage/addVisitors" method="post" enctype="multipart/form-data">
+				<table>
+					<tr>
+						<td>名称：</td>
+						<td><input type="text" name="name" /></td>
+					</tr>
+					<tr>
+						<td>简介：</td>
+						<td><input type="text" name="visitorsDescribe" /></td>
+					</tr>
+					<tr>
+						<td>原价：</td>
+						<td><input type="text" name="price" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" /></td>
+					</tr>
+					<tr>
+						<td>折后价：</td>
+						<td><input type="text" name="newPrice" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" /></td>
+					</tr>
+					<tr>
+						<td>地址：</td>
+						<td><input type="text" name="address" /></td>
+					</tr>
+					<tr>
+						<td>经度：</td>
+						<td><input type="text" name="longitude" /></td>
+					</tr>
+					<tr>
+						<td>纬度：</td>
+						<td><input type="text" name="latitude" /></td>
+					</tr>
+					<tr>
+						<td>详情：</td>
+						<td><input type="text" name="detailsId" /></td>
+					</tr>
+					<tr>
+						<td>须知：</td>
+						<td><input type="text" name="noticeId" /></td>
+					</tr>
+					<tr>
+						<td>是否推荐：</td>
+						<td>
+						<input type="radio" checked="checked" name="isRecommend" value="0">正常
+						<input type="radio" name="isRecommend" value="1">推荐
+						</td>
+					</tr>
+					<tr>
+						<td>状态：</td>
+						<td>
+						<input type="radio" checked="checked" name="state" value="0">正常
+						<input type="radio" name="state" value="1">删除
+						</td>
+					</tr>
+					<tr>
+						<td>备注：</td>
+						<td><input type="text" name="memo" /></td>
+					</tr>
+					<tr>
+						<td>有效期开始时间：</td>
+						<td><input type="text" name="startValid" class="easyui-datebox" style="width: 150px;" required="required" /></td>
+					</tr>
+					<tr>
+						<td>有效期结束时间：</td>
+						<td><input type="text" name="endValid" class="easyui-datebox" style="width: 150px;" required="required" /></td>
+					</tr>
+					<tr>
+						<td>积分：</td>
+						<td><input type="text" name="integral" /></td>
+					</tr>
+					<tr>
+						<td>配送费：</td>
+						<td><input type="text" name="deliverFee" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" /></td>
+					</tr>
+					<tr>
+						<td>人数：</td>
+						<td><input type="text" name="number" /></td>
+					</tr>
+					<tr>
+						<td>满意度：</td>
+						<td><input type="text" name="satisfaction" /></td>
+					</tr>
+					<tr>
+						<td>英语名称：</td>
+						<td><input type="text" name="nameEn" /></td>
+					</tr>
+					<tr>
+						<td>类型：</td>
+						<td>
+						<select name="type" disabled id="typeId">
+							<option value="1" <c:if test="${type==1}">selected</c:if> >景点</option>
+							<option value="2" <c:if test="${type==2}">selected</c:if> >基础活动</option>
+							<option value="3" <c:if test="${type==3}">selected</c:if> >结伴游活动</option>
+							<option value="4" <c:if test="${type==4}">selected</c:if> >积分商品</option>
+							<option value="5" <c:if test="${type==5}">selected</c:if> >积分门票</option>
+						</select>
+						</td>
+					</tr>
+					<%--<tr>
+						<td>规划：</td>
+						<td><input type="text" name="planningId" /></td>
+					</tr>
+					<tr>
+						<td>湿地简介：</td>
+						<td><input type="text" name="introduceId" /></td>
+					</tr>--%>
+					<tr>
+						<td>主图：</td>
+						<td>
+							<input type="file" name="imageFile" />
+						</td>
+					</tr>
+					<tr>
+						<td>景区详情：</td>
+						<td>
+							<script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+					 
+							
+							
+						</td>
+					</tr>
+				</table>
+				<div style="text-align:center;padding:5px">
+ 					<a id="showPageSaveBtn" href="javascript:void(0)" onclick="save()" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+					<%--<a id="showPageCancleBtn" href="javascript:void(0)" onclick="window.location.href ='./background/visitorsManage/toVisitorsManage'" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>--%>
+					<a id="showPageCancleBtn" href="javascript:void(0)" onclick="history.go(-1)" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+			    </div>
+			</form>
+</div>
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+
+	//获取整个html
+    function getAllHtml() {
+        alert(UE.getEditor('editor').getAllHtml())
+    }
+   
+	//获取纯文本内容
+    function getContentTxt() {
+        var arr = [];
+        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+        arr.push("编辑器的纯文本内容为：");
+        arr.push(UE.getEditor('editor').getContentTxt());
+        alert(arr.join("\n"));
+    }
+
+    function save() {
+    	$('#typeId').removeAttr("disabled");
+		$('#ff').submit();
+	}
+   
+</script>
+
+<!-- <div id="ImgWindow" class="easyui-window" title="图片查看" data-options="closed:true,inline:true"
+	style="width: 420px; height: 380px; padding: 5px;">
+	<div class="easyui-layout" data-options="fit:true">
+		<div data-options="region:'center'" style="padding: 10px;">
+				<p>
+					<img alt="图片暂时无法显示" style="width: 350px;height: auto" src="" id="showImg">
+				</p>
+		</div>
+		<div data-options="region:'south',border:false" style="text-align: right; padding: 5px 0 0;">
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="$('#ImgWindow').window('close');">关闭</a>
+		</div>
+	</div>
+</div> -->
+<%@ include file="/WEB-INF/views-commons/footer.jsp"%>

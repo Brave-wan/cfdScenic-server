@@ -1,0 +1,51 @@
+/**  
+* @Title: MonitorPointController.java
+* @Package com.htkj.cfdScenic.app.controller
+* @Description: TODO(用一句话描述该文件做什么)
+* @author 张伟烁 
+* @date 2016年10月31日 下午4:14:03
+*/ 
+package com.htkj.cfdScenic.app.controller;
+
+import java.util.HashMap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.htkj.cfdScenic.app.service.MonitorPointService;
+import com.htkj.cfdScenic.app.util.ResponseMsg;
+import com.htrj.common.base.BaseController;
+import com.htrj.common.page.PagerForm;
+
+/**
+* @ClassName: MonitorPointController
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @author 张伟烁
+* @date 2016年10月31日 下午4:14:03
+*
+*/
+@Controller
+@RequestMapping("/monitorPoint")
+public class MonitorPointController extends BaseController {
+	
+	@Autowired
+	private MonitorPointService monitorPointService;
+	
+	@RequestMapping(value="getAllMonitor",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String getAllMonitor(PagerForm pagerForm){
+		ResponseMsg responseMsg = new ResponseMsg();
+		try {
+			pagerForm.setRows(999);
+			responseMsg.setData(monitorPointService.getAllMonitor(pagerForm.getPageRequest(new HashMap<String,Object>())));
+			responseMsg.setHearder(0, "成功");
+		} catch (Exception e) {
+			responseMsg.setHearder(1, "error");
+		}
+		return JSONObject.toJSONString(responseMsg,SerializerFeature.WriteMapNullValue,SerializerFeature.WriteDateUseDateFormat);
+	}
+}

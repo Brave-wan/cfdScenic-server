@@ -1,0 +1,22 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.VisitorsProfilesDao;
+
+@Service
+@Transactional
+public class VisitorsProfilesService {
+	@Autowired
+	private VisitorsProfilesDao visitorsProfilesDao;
+
+	public Map<String, String> wetLandSynopsis(Integer type) {
+		return visitorsProfilesDao.wetLandSynopsis(type);
+	}
+	
+	
+}

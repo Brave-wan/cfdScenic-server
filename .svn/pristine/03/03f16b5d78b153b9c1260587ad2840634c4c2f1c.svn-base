@@ -1,0 +1,47 @@
+package com.htkj.cfdScenic.app.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.htkj.cfdScenic.app.service.VisitorsProfilesService;
+import com.htkj.cfdScenic.app.util.ResponseMsg;
+import com.htrj.common.base.BaseController;
+
+@Controller
+@RequestMapping("/visitorsProfiles")
+public class VisitorsProfilesController extends BaseController{
+	@Autowired
+	private VisitorsProfilesService visitorsProfilesService;
+	
+	/*
+	 * 湿地简介(规划)
+	 * GET
+	 * http://localhost:8080/cfdScenic/VisitorsProfiles/wetLandSynopsis
+	 * 根据类型type类型(0简介1规化)          把湿地简介的信息返回id(湿地简介id),name(名称),html_url(生成html的url),create_time(创建时间)
+	 * 调用表 visitors_profiles
+	 */
+	@RequestMapping(value="/wetLandSynopsis",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String wetLandSynopsis(Integer type){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		Map<String, String> content = new HashMap<String, String>();
+		try {
+			content = visitorsProfilesService.wetLandSynopsis(type);
+			msg.setHearder(0, "success");
+			msg.setData(content);
+		} catch (Exception e) {
+			msg.setHearder(1, "error");
+		}
+		json = JSONObject.toJSONString(msg,SerializerFeature.WriteMapNullValue);
+		System.out.println(json);
+		return json;
+	}
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.PictureLibraryDao">
+	<select id="getPicById" parameterType="long" resultType="string">
+		select
+			img_url
+		from
+			picture_library
+		where 
+			link_id = #{goodsId} 
+	</select>
+	<select id="findHotelPicBy" parameterType="long" resultType="string">
+		select
+			img_url
+		from
+			picture_library
+		where 
+			link_id = #{id} 
+	</select>
+	<insert id="saveCommentPic" parameterType="com.htkj.cfdScenic.app.model.PictureLibrary">
+		INSERT INTO picture_library(
+				id,
+				name,
+				pic_describe,
+				img_url,
+				link_id,
+				type,
+				create_time,
+				memo,
+				img_root_url
+		)VALUES(
+				#{id},
+				#{name},
+				#{picDescribe},
+				#{imgUrl},
+				#{linkId},
+				#{type},
+				#{createTime},
+				#{memo},
+				#{imgRootUrl}
+		)	
+	</insert>
+	<select id="findAtlasByVisitorsId" parameterType="long" resultType="string">
+		select
+			img_url
+		from 
+			picture_library
+		where 
+			link_id = #{visitorsId} and type = 1
+	</select>
+	
+</mapper>

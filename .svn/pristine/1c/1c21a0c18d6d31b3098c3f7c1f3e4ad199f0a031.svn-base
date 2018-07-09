@@ -1,0 +1,28 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.AdvertisementDao;
+
+@Service
+@Transactional
+public class AdvertisementService {
+	@Autowired
+	private AdvertisementDao advertisementDao;
+	//景区查首页轮播图
+	public List<Map<String, String>> selectImgUrl() {
+		return advertisementDao.selectImgUrl();
+	}
+	public List<Map<String, String>> selectPrimarySideImgUrl() {
+		return advertisementDao.selectPrimarySideImgUrl();
+	}
+	public List<Map<String, String>> adPositionId() {
+		return advertisementDao.adPositionId();
+	}
+
+}

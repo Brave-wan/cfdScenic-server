@@ -1,0 +1,64 @@
+package com.htkj.cfdScenic.app.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.htkj.cfdScenic.app.model.Visitors;
+import com.htrj.common.base.BaseDao;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+
+@Repository
+public class VisitorsDao  extends BaseDao<Visitors, Integer>{
+
+	public List<Map<String, String>> scenicSpotList() {
+		return getSqlSession().selectList(getStatementName("scenicSpotList"));
+	}
+
+	public Map<String, String> scenicSpotParticulars(Long id) {
+		return getSqlSession().selectOne(getStatementName("scenicSpotParticulars"),id);
+	}
+
+	public List<Map<String, String>> obscureSelect(String name) {
+		return getSqlSession().selectList(getStatementName("obscureSelect"),name);
+	}
+
+	public List<Map<String, String>> selectMessage(String name) {
+		return getSqlSession().selectList(getStatementName("selectMessage"),name);
+	}
+
+	public List<Map<String, String>> tagsVisitors() {
+		return getSqlSession().selectList(getStatementName("tagsVisitors"));
+	}
+
+	public List<Visitors> scenicSpotLimitPage(Map map) {
+		return getSqlSession().selectList(getStatementName("scenicSpotLimitPage"), map);
+	}
+
+	public List getIntegralGoods() {
+		return getSqlSession().selectList(getStatementName("getIntegralGoods"));
+	}
+
+	public Map getIntegralGoodsDetaili(Long id) {
+		return getSqlSession().selectOne(getStatementName("getIntegralGoodsDetaili"),id);
+	}
+
+	public Page shopListLimit(PageRequest<Map<String, Object>> pageRequest) {
+		return pageQuery(getStatementName("shopListLimit"), pageRequest);
+	}
+
+	public Map<String, String> oneShopMessage(Long id) {
+		return getSqlSession().selectOne(getStatementName("oneShopMessage"),id);
+	}
+
+	public Page getActivity(PageRequest<Map<String, Object>> pageRequest) {
+		return pageQuery(getStatementName("getActivity"), pageRequest);
+	}
+
+	public Map getActivityDetail(Long id) {
+		return getSqlSession().selectOne(getStatementName("getActivityDetail"),id);
+	}
+
+}

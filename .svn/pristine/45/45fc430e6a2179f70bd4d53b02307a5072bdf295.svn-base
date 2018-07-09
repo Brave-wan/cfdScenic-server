@@ -1,0 +1,34 @@
+package com.htkj.cfdScenic.app.dao;
+
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.htkj.cfdScenic.app.model.HtmlText;
+import com.htrj.common.base.BaseDao;
+
+@Repository
+public class HtmlTextDao extends BaseDao<HtmlText, Integer>{
+	/**
+	 * 根据商品ID获取详情html
+	 */
+	public String getContentUrlById(Long goodsId){
+		return getSqlSession().selectOne(getStatementName("getContentUrlById"),goodsId);
+	}
+
+	public Map<String, String> wetLandSynopsis(Integer type) {
+		return getSqlSession().selectOne(getStatementName("wetLandSynopsis"),type);
+	}
+
+	public String selectDetailHtmlById(Long noticeId) {
+		return getSqlSession().selectOne(getStatementName("selectDetailHtmlById"),noticeId);
+	}
+
+	public String getNoticeByNoticeId(Long notice_id) {
+		return getSqlSession().selectOne(getStatementName("getNoticeByNoticeId"),notice_id);
+	}
+
+	public String getPlanningOrIntroduce(Long id) {
+		return getSqlSession().selectOne(getStatementName("getPlanningOrIntroduce"),id);
+	}
+}

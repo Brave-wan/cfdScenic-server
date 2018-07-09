@@ -1,0 +1,4 @@
+2016-09-29 14:42:16,577 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:wx.properties
+2016-09-29 14:42:36,378 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:wx.properties
+2016-09-29 15:49:00,698 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:wx.properties
+2016-09-29 15:50:45,657 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:wx.properties

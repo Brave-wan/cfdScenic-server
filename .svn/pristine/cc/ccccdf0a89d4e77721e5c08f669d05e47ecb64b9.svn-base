@@ -1,0 +1,225 @@
+var frtcenCarouselImgManager = {
+	subUrl : "./background/frtcenCarouselImg/subImg",
+	subUrl1 : "./background/frtcenCarouselImg/subImg1",
+	setUseUrl : "./background/frtcenCarouselImg/setUseUrl",
+	delUrl : "./background/frtcenCarouselImg/delUrl",
+	init : function() {
+		$(window)
+				.load(
+						function() {
+							$('#frtcenCarouselImgGid')
+									.datagrid(
+											{
+												url : './background/frtcenCarouselImg/frtcenCarouselImgData.json',
+												border : false,
+												fit : true,
+												singleSelect : true,
+												idField : 'id',
+												pagination : true,
+												pageSize : 20,
+												striped : true,
+												fitColumns : true,
+												columns : [ [
+														{
+															field : 'id',
+															title : 'id',
+															align : 'center',
+															width : 100,
+															hidden : true
+
+														},
+														{
+															field : 'imgurl1',
+															title : '图片',
+															align : 'center',
+															width : 100,
+															formatter : function(
+																	v, r, i) {
+																var a = "";
+																a = r.imgurl1;
+																a = a.replace(
+																		"\\",
+																		"/");
+																return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "
+																		+ "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "
+																		+ "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'"
+																		+ 'onclick="frtcenCarouselImgManager.show('
+																		+ "'"
+																		+ r.id
+																		+ ","
+																		+ a
+																		+ ",1"
+																		+ "'"
+																		+ ');">查看</a>';
+															}
+														},
+														{
+															field : 'type',
+															title : '轮播图类型',
+															align : 'center',
+															width : 50,
+															formatter : function(
+																	v, r, i) {
+																switch (v) {
+																case 0:
+																	return '普通轮播图';
+																case 1:
+																	return '达人';
+																case 2:
+																	return '导游';
+																case 3:
+																	return '线路';
+																case 4:
+																	return '帖子';
+																}
+															}
+														},
+														{
+															field : 'url',
+															title : '跳转地址',
+															align : 'center',
+															width : 300
+														},
+														{
+															field : 'status',
+															title : '状态',
+															align : 'center',
+															width : 50,
+															formatter : function(
+																	v, r, i) {
+																switch (v) {
+																case 0:
+																	return '可用';
+																case 1:
+																	return '禁用';
+																}
+															}
+														} ] ]
+											});
+						});
+
+	},
+	show : function(url) {
+		var arr = new Array();
+		arr = url.split(",");
+		console.log(url);
+		$('#ImgWindow').window('open');
+		$('#imgId').val(arr[0]);
+		$('#selectType').val(arr[2]);
+		$('#showImg').attr('src', arr[1]);
+	},
+	submit : function() {
+		var a = frtcenCarouselImgManager.subUrl;
+		if($('#imgFile').val() == null || $('#imgFile').val() == ''){
+			a = frtcenCarouselImgManager.subUrl1;
+		}
+		var formElement = document.getElementById("uploadForm");
+		var oReq = new XMLHttpRequest();
+		$.messager.progress({
+			title : '提示信息',
+			msg : '请稍候...',
+			interval : 2000
+		});
+		oReq.open("POST", a, true);
+		oReq.send(new FormData(formElement));
+		oReq.onreadystatechange = function() {
+			if (oReq.readyState == 4) {
+				console.log(oReq.status);
+				if (oReq.status == 200) {
+					var b = oReq.responseText;
+					console.log(b);
+					if (b == "success") {
+						$.messager.progress('close');
+						$('#ImageSubWindow').window('close');
+						$('#frtcenCarouselImgGid').datagrid('reload');
+					} else {
+						$.messager.progress('close');
+						eu.showMsg("失败");
+					}
+				} else {
+					$.messager.progress('close');
+					eu.showMsg("失败");
+				}
+			}
+		}
+	},
+	serch : function() {
+		$('#frtcenCarouselImgGid').datagrid('load', {
+			status : $('#searchValue').combobox('getValue')
+		});
+	},
+	setUse : function(t) {
+		var row = $('#frtcenCarouselImgGid').datagrid('getSelected');
+		if (!row) {
+			eu.showMsg("请选择一行再进行设置");
+			return;
+		}
+		var m = "不可用";
+		if (t == 0) {
+			m = "可用";
+		}
+		$.messager.confirm("提示信息", "您确定要将该数据设置为" + m + "吗？", function(r) {
+			if (r) {
+				$.post(frtcenCarouselImgManager.setUseUrl, {
+					id : row.id,
+					status : t
+				}).success(function(data) {
+					if (data.success) {
+						eu.showMsg("操作成功！");
+						$("#frtcenCarouselImgGid").datagrid('reload');
+					} else {
+						eu.showMsg(data);
+					}
+				}).error(function(data) {
+					eu.showMsg("系统错误，请联系管理员！");
+				})
+			} else {
+				$('#frtcenCarouselImgGid').datagrid('clearSelections');
+			}
+		});
+	},
+	add : function() {
+		$('#ImageSubWindow').window('open');
+		$('#uploadForm').form('clear');
+	},
+	edit : function() {
+		var row = $('#frtcenCarouselImgGid').datagrid('getSelected');
+		if (!row) {
+			eu.showMsg("请选择一行再进行操作");
+			return;
+		}
+		console.log(row);
+		$('#ImageSubWindow').window('open');
+		$('#uploadForm').form('clear');
+		$('#ImgId').val(row.id);
+		$('#searchValue').combobox('setValue',row.status);
+		$('#urlId').val(row.url);
+		$('#imgSrcId').attr('src',row.imgurl1);
+	},
+	del : function() {
+		var row = $('#frtcenCarouselImgGid').datagrid('getSelected');
+		if (!row) {
+			eu.showMsg("请选择一行再进行操作");
+			return;
+		}
+		$.messager.confirm("提示信息", "您确定要将该数据删除吗？", function(r) {
+			if (r) {
+				$.post(frtcenCarouselImgManager.delUrl, {
+					id : row.id
+				}).success(function(data) {
+					if (data.success) {
+						eu.showMsg("操作成功！");
+						$("#frtcenCarouselImgGid").datagrid('reload');
+					} else {
+						eu.showMsg(data);
+					}
+				}).error(function(data) {
+					eu.showMsg("系统错误，请联系管理员！");
+				})
+			} else {
+				$('#frtcenCarouselImgGid').datagrid('clearSelections');
+			}
+		});
+	}
+};
+frtcenCarouselImgManager.init();

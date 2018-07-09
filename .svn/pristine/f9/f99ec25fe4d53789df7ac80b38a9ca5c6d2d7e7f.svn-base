@@ -1,0 +1,93 @@
+package com.htkj.cfdScenic.app.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.htkj.cfdScenic.app.service.NewsNoticeService;
+import com.htkj.cfdScenic.app.util.ResponseMsg;
+import com.htrj.common.base.BaseController;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.PagerForm;
+
+@Controller
+@RequestMapping("/newsNotice")
+public class NewsNoticeController extends BaseController{
+	@Autowired
+	private NewsNoticeService newsNoticeService;
+	
+	/*
+	 * 新闻须知列表
+	 * GET
+	 * http://localhost:8080/cfdScenic/NewsNotice/pressList
+	 * 把新闻须知的信息返回
+		id 				//新闻须知id
+		name			//名称
+		newsDescribe 	//描述
+		headerImg		//图片
+		content			//内容
+		creator			//创建人
+		createTime		//创建时间
+		creatorId 		//创建人id
+	 * 调用表 news_notice
+	 */
+	@RequestMapping(value="/pressList",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String pressList(PagerForm pagerForm){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		//List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		try {
+			//list = newsNoticeService.pressList();
+			Map map = new HashMap();
+			DataGrid data = newsNoticeService.pressList(pagerForm.getPageRequest(map));
+			msg.setHearder(0, "success");
+			msg.setData(data);
+		} catch (Exception e) {
+			msg.setHearder(1, "error");
+		}
+		json = JSONObject.toJSONString(msg,SerializerFeature.WriteMapNullValue);
+		System.out.println(json);
+		return json;
+	}
+	
+	
+	/*
+	 * 新闻须知详情
+	 * GET
+	 * http://localhost:8080/cfdScenic/NewsNotice/pressDetails
+	 * 根据新闻id把新闻须知的信息返回
+		id 				//新闻须知id
+		name			//名称
+		newsDescribe 	//描述
+		headerImg		//图片
+		content			//内容
+		creator			//创建人
+		createTime		//创建时间
+		creatorId 		//创建人id
+	 * 调用表 news_notice
+	 */
+	@RequestMapping(value="/pressDetails",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String pressDetails(Long id){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		Map<String, String> content = new HashMap<String, String>();
+		try {
+			content = newsNoticeService.pressDetails(id);
+			msg.setHearder(0, "success");
+			msg.setData(content);
+		} catch (Exception e) {
+			msg.setHearder(1, "error");
+		}
+		json = JSONObject.toJSONString(msg,SerializerFeature.WriteMapNullValue);
+		System.out.println(json);
+		return json;
+	}
+}

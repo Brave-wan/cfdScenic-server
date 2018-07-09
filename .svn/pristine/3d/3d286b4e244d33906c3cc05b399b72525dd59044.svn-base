@@ -1,0 +1,86 @@
+var frtcenVirtualCoinManager = {
+	delUrl : "./background/frtcenVirtualCoin/delFrtcenVirtualCoin",
+	subUrl : "./background/frtcenVirtualCoin/subFrtcenVirtualCoin",
+	init : function(){
+		$(window).load(function(){
+			
+		});
+	},	
+	del : function(){
+		var row=$('#frtcenVirtualCoinGid').datagrid('getSelected');
+		if(!row){
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$.messager.confirm("提示信息","您确定要删除所选数据吗？,删除后不可恢复!",function(r){
+			if(r){
+				$.post(frtcenVirtualCoinManager.delUrl,{id : row.id })
+				.success(function(data){
+								if(data.success){
+									eu.showMsg("删除成功！");
+									$("#frtcenVirtualCoinGid").datagrid('reload');
+								}else{
+									eu.showMsg(data);
+								}
+							}
+						).error(function(data){
+				        	eu.showMsg("系统错误，请联系管理员！");
+				        })
+			}else{
+				$('#frtcenVirtualCoinGid').datagrid('clearSelections');
+			}
+			});
+	},
+	serch : function () {
+ 		var type = $('#searchValue').combobox('getValue');
+ 		$('#frtcenVirtualCoinGid').datagrid('load',{sharetype: type});
+		$('#frtcenVirtualCoinGid').datagrid('clearSelections');
+		
+	},
+	add : function(){
+		$('#frtcenVirtualCoinWindow').window('open');
+	},
+	edit : function(){
+		var row=$('#frtcenVirtualCoinGid').datagrid('getSelected');
+		if(!row){
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$('#frtcenVirtualCoinWindow').window('open');
+		$('#frtcenVirtualCoinId').val(row.id);
+		$('#state').combobox('setValue',row.state);
+		$('#num').numberbox('setValue', row.num);
+		$('#nummoeny').val(row.nummoeny);
+		$('#moeny').val(row.moeny);
+	},
+	clearForm:function(){
+		$('#frtcenVirtualCoinForm').form('clear');
+	},
+	cancel:function(){
+		$('#frtcenVirtualCoinForm').form('clear');
+		$('#frtcenVirtualCoinWindow').window('close');
+	},
+	addSub : function() {
+		$.messager.progress({title:'提示信息',msg:'请稍候...',interval:2000});
+		$('#frtcenVirtualCoinForm').form('enableValidation');
+		var form = $('#frtcenVirtualCoinForm');
+		var isValid = form.form('validate');
+		if (!isValid)
+			return;
+		$.post(frtcenVirtualCoinManager.subUrl, form.serialize()).success(function(data) {
+			if (data.success) {
+				$.messager.progress('close');
+				eu.showMsg("保存成功！");
+				$('#frtcenVirtualCoinWindow').window('close');
+				$('#frtcenVirtualCoinGid').datagrid('reload');
+			} else {
+				eu.showMsg(data);
+				$.messager.progress('close');
+			}
+		}).error(function(ex){
+			$.messager.progress('close');
+			eu.showMsg("系统错误！");
+		})
+	}
+};
+frtcenVirtualCoinManager.init();

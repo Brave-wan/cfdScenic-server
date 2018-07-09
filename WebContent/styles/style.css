@@ -1,0 +1,75 @@
+/* body */
+body {
+    text-align: center;
+    font-family: "Î¢ÈíÑÅºÚ","Microsoft Yahei","ËÎÌå" !important;
+    font-size: 14px !important;
+    padding: 5px;
+}
+.left{float:left;}
+
+.clearfix{clear:both;}
+
+/* datagrid */
+ 
+/* .easyui-numberbox,.easyui-validatebox,.validatebox-text{height:18px;line-height:20px;} */
+/* .easyui-numberbox,.easyui-validatebox{ width:118px;} */
+/* #oaaiid{ width:118px;} */
+/* .combo{max-width:120px;width: 120px !important;} */
+/* .sleek{ */
+/* 	width:120px;height: 22px;-webkit-border-radius:2px; -moz-border-radius:2px; -khtml-border-radius:2px; border-radius:5px; */
+/* } */
+.to-do{ height:auto; list-style:none; padding:5px 15px; line-height:30px; color:#3e98c8;}
+.to-do li:hover{ color:#f00;}
+
+/* .datagrid-body{ overflow:hidden;width:100%;} */
+
+/* .blod { */
+/* 	display: block; */
+/* 	font-size:15px; */
+/* } */
+/* .easyui-layout form{ padding:5px;border:3px dotted #fff;} */
+/* .title_h6{width:98px; text-align:center; height:28px;line-height:28px;color:#fff;font-size:12px;margin-bottom:5px;margin-top:10px;} */
+/* .title_h6 span{width:98px;text-align:center;display:block;} */
+/* fieldset{ border:1px solid #b1c242; } */
+
+/* .input405{ width:355px;} */
+/* .input150{ width:120px;} */
+/* .inputbox233{width:203px;} */
+/* .inputcheckbox{margin:5px 0;padding: 0} */
+
+
+.tab_hr{background:linear-gradient(to bottom, #fff 0px, #eee 100%) repeat-x scroll 0 0 transparent;height:30px;}
+.datagrid-htable{
+	height: 40px!important;
+}
+.datagrid-row {
+    height: 40px;
+}
+.datagrid-header .datagrid-cell span {
+    font-size: 14px;
+}
+/* upload */
+.upload-fieldset{width:644px;margin-left:50px}
+.upload_data{clear:both;}
+.upload_data a{color:#360;}
+.upload_data b{ font-weight:normal;}
+.upload_data p{clear:both;}
+.upload_data span{ display:block; float:left;}
+.shanchu, .quxiao{border:none;width:50px;height:20px;}
+.quxiao{background:url(../images/quxiao.png) no-repeat;}
+.shanchu{background:url(../images/shanchu.png) no-repeat;}
+.del{text-decoration:line-through;}
+ 
+
+/*dorm*/
+.datemenu{line-height:28px;padding-left:20px;background:#fbfffb;}
+.datemenu b{font-size:14px;}
+.date-cell{line-height:22px;padding:2px 10px;text-align:left;}
+.date-cell input{border:1px solid #c9edcc;background:#f1fef6;height:20px;}
+
+
+.agree{ clear:both; border-bottom:1px dotted #c9edcc; width:700px;}
+.icon-cancel{border:none;}
+.yonghu{text-align:left; padding: 20px;float: left;margin-left: 60px;font-size:12px;color:#fff;}
+.yonghu span{float:left;}
+.yonghu img{float:left; padding-left:20px;margin-top:-5px;}

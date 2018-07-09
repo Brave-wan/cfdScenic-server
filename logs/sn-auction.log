@@ -1,0 +1,242 @@
+2016-10-24 09:43:30,819 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 09:43:31,718 [main] INFO  com.htrj.common.utils.JPushUtils - Got result - {"msg_id":1264571249,"sendno":1614992417}
+2016-10-24 09:44:22,600 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 09:44:23,183 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 763637788, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 09:44:23,184 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 09:44:23,190 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 763637788, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 09:48:02,484 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 09:48:02,964 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 2491501885, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 09:48:02,965 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 09:48:02,972 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 2491501885, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 09:49:34,184 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 09:49:34,691 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 763792410, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 09:49:34,694 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 09:49:34,713 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 763792410, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 09:50:22,905 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 09:50:23,427 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 763655387, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 09:50:23,429 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 09:50:23,459 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 763655387, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 09:50:59,273 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 09:50:59,790 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 312038274, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 09:50:59,791 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 09:50:59,803 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 312038274, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:04:38,023 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:04:38,524 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 1264944996, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:04:38,526 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:04:38,554 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 1264944996, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:11:13,671 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:11:14,175 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 764315470, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:11:14,177 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:11:14,206 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 764315470, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:11:32,858 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:11:33,386 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 3170613194, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:11:33,387 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:11:33,396 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 3170613194, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:12:56,538 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:12:57,113 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 1265066869, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:12:57,114 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:12:57,122 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 1265066869, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:13:05,767 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:13:06,246 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 4102446568, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:13:06,248 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:13:06,272 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 4102446568, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:13:58,536 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:13:59,010 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 2492048484, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:13:59,011 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:13:59,026 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 2492048484, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 10:14:52,636 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 10:14:53,125 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 4102384378, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 10:14:53,127 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 10:14:53,147 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 4102384378, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:58) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 11:42:45,759 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:42:46,295 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 4104832256, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 11:42:46,297 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 11:42:46,323 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 4104832256, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushMessage(JPushUtils.java:83) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:143) [classes/:na]
+2016-10-24 11:45:08,794 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:45:09,493 [main] INFO  com.htrj.common.utils.JPushUtils - Got result - {"msg_id":315829309,"sendno":775850096}
+2016-10-24 11:47:47,723 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:48:09,316 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:48:41,852 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:48:43,133 [main] INFO  com.htrj.common.utils.JPushUtils - Got result - {"msg_id":2123596045,"sendno":1196233420}
+2016-10-24 11:49:52,847 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:49:53,435 [main] INFO  com.htrj.common.utils.JPushUtils - Got result - {"msg_id":2123754882,"sendno":1933097344}
+2016-10-24 11:53:31,820 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:53:32,378 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 1266996517, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 11:53:32,380 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 11:53:32,403 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 1266996517, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotificationForUser(JPushUtils.java:84) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:175) [classes/:na]
+2016-10-24 11:57:54,685 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 11:57:55,224 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 3436048768, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 11:57:55,225 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 11:57:55,236 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 3436048768, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotificationForUser(JPushUtils.java:84) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:175) [classes/:na]
+2016-10-24 12:00:46,868 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 12:00:47,374 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 2124050395, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 12:00:47,375 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 12:00:47,386 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 2124050395, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotification(JPushUtils.java:60) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:173) [classes/:na]
+2016-10-24 12:00:55,970 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 12:00:56,512 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 316138624, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 12:00:56,513 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 12:00:56,524 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 316138624, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotificationForUser(JPushUtils.java:84) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:175) [classes/:na]
+2016-10-24 12:01:18,619 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 12:01:19,163 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 315960487, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 12:01:19,165 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 12:01:19,200 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 315960487, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotificationForUser(JPushUtils.java:84) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:175) [classes/:na]
+2016-10-24 12:02:15,984 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 12:02:16,529 [main] WARN  cn.jpush.api.common.connection.NativeHttpClient - Got error response - responseCode:400, responseContent:{"msg_id": 316290448, "error": {"message": "cannot find user by this audience", "code": 1011}}
+2016-10-24 12:02:16,531 [main] ERROR cn.jpush.api.common.connection.NativeHttpClient - Your request params is invalid. Please check them according to error message.
+2016-10-24 12:02:16,560 [main] ERROR com.htrj.common.utils.JPushUtils - Error response from JPush server. Should review and fix it.
+cn.jpush.api.common.resp.APIRequestException: {"msg_id": 316290448, "error": {"message": "cannot find user by this audience", "code": 1011}}
+	at cn.jpush.api.common.connection.NativeHttpClient._doRequest(NativeHttpClient.java:233) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.doRequest(NativeHttpClient.java:98) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.common.connection.NativeHttpClient.sendPost(NativeHttpClient.java:85) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.push.PushClient.sendPush(PushClient.java:156) ~[jpush-client-3.2.8.jar:na]
+	at cn.jpush.api.JPushClient.sendPush(JPushClient.java:178) ~[jpush-client-3.2.8.jar:na]
+	at com.htrj.common.utils.JPushUtils.sendPushNotificationForUser(JPushUtils.java:84) [classes/:na]
+	at com.htrj.common.utils.JPushUtils.main(JPushUtils.java:175) [classes/:na]
+2016-10-24 14:53:52,934 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 14:53:53,692 [main] INFO  com.htrj.common.utils.JPushUtils - Got result - {"msg_id":3440632236,"sendno":707513771}
+2016-10-24 15:28:59,374 [main] DEBUG com.htrj.common.utils.PropertiesLoader - Loading properties file from path:application.properties
+2016-10-24 15:28:59,923 [main] INFO  com.htrj.common.utils.JPushUtils - Got result - {"msg_id":321929169,"sendno":1370922388}

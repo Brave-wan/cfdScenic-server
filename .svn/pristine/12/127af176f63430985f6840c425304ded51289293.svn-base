@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.VisitorsDao">
+
+	<select id="scenicSpotList" resultType="map">
+		select id,head_img,name,price,new_price,details,name_en,open_date_id from visitors where is_integral = 1 and state =0
+	</select>
+	
+	<select id="scenicSpotParticulars" resultType="map" parameterType="long">
+		select id,head_img,name,price,new_price,details,name_en,open_date_id from visitors where id = #{id} and is_integral = 1 and state =0
+	</select>
+	
+	<select id="obscureSelect" resultType="map" parameterType="String">
+		select id,head_img,name,price,new_price,details,name_en,open_date_id from visitors where name like CONCAT('%',#{name},'%')  and is_integral = 1 and state =0
+	</select>
+	
+	<select id="selectMessage" resultType="map" parameterType="String">
+		select 
+			v.id,
+			v.name,
+			v.visitors_describe,
+			v.open_date_id,
+			v.price,
+			v.new_price,
+			v.head_img,
+			v.name_en,
+			DATE_FORMAT(v.create_time,'%Y-%c-%d %h:%i:%s') as create_time  
+		from
+			visitors v
+		where 
+			v.name LIKE CONCAT('%',#{name},'%' ) and v.is_integral=1 and state =0
+	</select>
+	
+	<select id="tagsVisitors" resultType="map">
+		select 
+			v.id,
+			v.name,
+			v.visitors_describe,
+			v.open_date_id,
+			v.price,
+			v.new_price,
+			v.head_img,
+			v.name_en,
+			DATE_FORMAT(v.create_time,'%Y-%c-%d %h:%i:%s') as create_time  
+		from
+			visitors v
+		where 
+			v.is_integral=1 and state =0
+	</select>
+	
+	<select id="scenicSpotLimit" resultType="map" parameterType="map">
+		select id,head_img,name,price,new_price,details,open_date_id,name_en from visitors where is_integral = 1 and state =0
+	</select>
+	
+	<select id="scenicSpotLimit_count" resultType="int" parameterType="map">
+		select count(1) from visitors where is_integral = 1 and state =0
+	</select>
+	<select id="getIntegralGoods" resultType="map">
+		select
+			id,
+			head_img,
+			name,
+			integral,
+			goods_type,
+			name_en,
+			deliver_fee
+		from 
+			visitors
+		where
+			is_integral = 1 and state =0
+	</select>
+	<select id="getIntegralGoodsDetaili" parameterType="long" resultType="map">
+		select
+			v.id,
+			v.head_img,
+			v.name,
+			v.integral,
+			v.name_en,
+			v.visitors_describe,
+			 as startValid,
+			 as endValid
+			DATE_FORMAT(odl.start_date,'%Y-%c-%d %h:%i:%s') as start_valid,  
+			DATE_FORMAT(odl.end_date,'%Y-%c-%d %h:%i:%s') as end_valid
+		from
+			visitors v left join open_date_list odl on v.open_date_id = odl.id
+		where
+			v.id = #{id} and v.state =0
+	</select>
+	<select id="shopListLimit" resultType="map" parameterType="map">
+		select id,head_img,name,integral,details,open_date_id,goods_type,name_en from visitors where is_integral = 0 and state =0
+	</select>
+	
+	<select id="shopListLimit_count" resultType="int" parameterType="map">
+		select count(1) from visitors where is_integral = 0 and state =0
+	</select>
+	
+	<select id="oneShopMessage" resultType="map" parameterType="long">
+		select 
+		id,
+		head_img,
+		name,
+		integral,
+		details,
+		details_url,
+		open_date_id,
+		goods_type,
+		deliver_fee,
+		name_en,
+		DATE_FORMAT(start_valid,'%Y-%c-%d %h:%i:%s') as start_valid,
+		DATE_FORMAT(end_valid,'%Y-%c-%d %h:%i:%s') as end_valid
+		from 
+		visitors 
+		where 
+		id = #{id} and is_integral = 0 and state =0
+	</select>
+	<select id="getActivity" parameterType="map" resultType="map">
+		select
+			id,
+			name,
+			visitors_describe,
+			address,
+			name_en,
+			DATE_FORMAT(start_valid,'%Y-%c-%d %h:%i:%s') as start_valid,  
+			DATE_FORMAT(end_valid,'%Y-%c-%d %h:%i:%s') as end_valid,  
+			head_img
+		from 
+			visitors
+		where
+			is_activity = 0 and is_team = #{isTeam}	and state = 0
+		order by create_time desc
+	</select>	
+	<select id="getActivity_count" parameterType="map" resultType="int">
+		select
+			count(1)
+		from 
+			visitors
+		where
+			is_activity = 0 and is_team = #{isTeam}	and state = 0
+		order by create_time desc
+	</select>	
+	<select id="getActivityDetail" parameterType="long" resultType="map">
+		select
+			v.id,
+			v.name,
+			v.visitors_describe,
+			v.address,
+			DATE_FORMAT(v.start_valid,'%Y-%c-%d %h:%i:%s') as start_valid,  
+			DATE_FORMAT(v.end_valid,'%Y-%c-%d %h:%i:%s') as end_valid,  
+			v.head_img,
+			v.price,
+			v.new_price,
+			v.number,
+			v.name_en,
+			v.details
+		from
+			visitors v 
+		where
+			v.id = #{id}
+	</select>
+</mapper>

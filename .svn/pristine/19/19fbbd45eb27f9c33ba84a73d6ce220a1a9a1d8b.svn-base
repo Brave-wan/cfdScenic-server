@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.htrj.base.dao.BaseMenuDao">
+	   <select id="findUserMenu" resultType="BaseMenu">
+	   	select 
+	   		m.bmid,
+	        m.bmparentid,
+	        m.state,
+	        m.bmlevel,
+	        m.bmname,
+	        m.bmurl,
+	        m.bmicon,
+	        m.bmremark,
+	      	m.sort 
+	     from 
+	     	basemenu m, 
+	     	baserolemenu rm 
+		where 
+			rm.bmid = m.bmid 
+		and rm.brid = #{brId} 
+		and m.isdisplay = 0
+		<if test="@Ognl@isNotBlank(bmParentId)">AND m.bmparentid=#{bmParentId,jdbcType=NUMERIC}</if>
+		<if test="@Ognl@isBlank(bmParentId)">AND m.bmlevel = 0</if>
+		order by m.sort
+	   </select>
+	   
+   </mapper>

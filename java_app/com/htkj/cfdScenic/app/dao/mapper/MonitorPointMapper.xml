@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.htkj.cfdScenic.app.dao.MonitorPointDao" >
+  <resultMap id="BaseResultMap" type="com.htkj.cfdScenic.app.model.MonitorPoint" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="x_point" property="xPoint" jdbcType="VARCHAR" />
+    <result column="y_point" property="yPoint" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="coentent" property="coentent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, x_point, y_point,code,coentent
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from monitor_point
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from monitor_point
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.htkj.cfdScenic.app.model.MonitorPoint" >
+    insert into monitor_point (id, name, x_point, 
+      y_point)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{xPoint,jdbcType=VARCHAR}, 
+      #{yPoint,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.cfdScenic.app.model.MonitorPoint" >
+    insert into monitor_point
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="xPoint != null" >
+        x_point,
+      </if>
+      <if test="yPoint != null" >
+        y_point,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="xPoint != null" >
+        #{xPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="yPoint != null" >
+        #{yPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code},
+      </if>
+      <if test="content != null" >
+        #{content},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htkj.cfdScenic.app.model.MonitorPoint" >
+    update monitor_point
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="xPoint != null" >
+        x_point = #{xPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="yPoint != null" >
+        y_point = #{yPoint,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htkj.cfdScenic.app.model.MonitorPoint" >
+    update monitor_point
+    set name = #{name,jdbcType=VARCHAR},
+      x_point = #{xPoint,jdbcType=VARCHAR},
+      y_point = #{yPoint,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getAllMointor" parameterType="map" resultType="map">
+  	select * from monitor_point order by creatime desc
+  </select>
+  <select id="getAllMointor_count" parameterType="map" resultType="int">
+  	select count(1) from monitor_point order by creatime desc
+  </select>
+  <select id="getMonitorList" parameterType="map" resultType="map">
+  	select id,name,content,DATE_FORMAT(creatime,"%Y-%c-%d %H:%m:%s") as creatime from monitor_point order by creatime desc
+  </select>
+  <select id="getMonitorList_count" parameterType="map" resultType="int">
+  	select count(1) from monitor_point order by creatime desc
+  </select>
+  <select id="getMonitorPointById" parameterType="long" resultMap="BaseResultMap">
+  	select * from monitor_point where id = #{id}
+  </select>
+  <update id="updateIP" parameterType="string">
+ 	update ip_info set ip = #{ip},user = #{user},password=#{password},port_number=#{port_number} where id = 1
+  </update>
+  <select id="getIp" resultType="map">
+  	select ip,user,password,port_number from ip_info where id = 1
+  </select>
+</mapper>

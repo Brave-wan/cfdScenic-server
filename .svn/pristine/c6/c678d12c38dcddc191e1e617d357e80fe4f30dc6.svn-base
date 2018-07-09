@@ -1,0 +1,225 @@
+var userInfoManager = {
+	delUrl : "./background/UserInfo/deleteUserByUserId", 
+	showUrl : "./background/UserInfo/showUserInfo", 
+	rzUrl : "./background/UserInfo/rz", 
+	init : function() {
+		$(window).load(function() {
+			$('#userInfo').datagrid({
+				url:'./background/UserInfo/getUserInfo.json',
+				border:false,
+				fit:true,
+				singleSelect:true,
+				idField:'id',
+				pagination:true,
+				pageSize:20,
+				striped:true,
+				fitColumns:true,
+				columns : [ [ {
+					field : 'id',
+					title : 'id',
+					align:'center',width:100,hidden:true
+
+				}, {
+					align:'center',width:100,field:'telphone',title : '手机号'
+				}, {
+					align:'center',width:100,field:'gender',title : '性别'
+				},{
+					align:'center',width:100,field:'birth',title : '生日'
+				},{
+					align:'center',width:100,field:'height',title : '身高'
+				},{
+					align:'center',width:100,field:'weight',title : '体重'
+				},{
+					align:'center',width:100,field:'zodiac',title : '星座'
+				},{
+					align:'center',width:100,field:'profession',title : '职业'
+				},{
+					align:'center',width:100,field:'residence',title : '居住地址'
+				},{
+					align:'center',width:100,field:'age',title : '年龄'
+				},{
+					align:'center',width:100,field:'masterauthentication',title : '达人认证',formatter:function(v,r,i){switch (v) {case 1:return '已认证';case 0:return '未认证';}}
+				},{
+					align:'center',width:100,field:'guidesauthentication',title : '导游认证',formatter:function(v,r,i){switch (v) {case 1:return '已认证';case 0:return '未认证';}}
+				},{
+					align:'center',width:100,field:'driversauthentication',title : '司机认证',formatter:function(v,r,i){switch (v) {case 1:return '已认证';case 0:return '未认证';}}
+				},{
+					align:'center',width:100,field:'masterRecommend',title : '达人推荐',formatter:function(v,r,i){switch (v) {case 1:return '未推荐';case 0:return '推荐';}}
+				},{
+					align:'center',width:100,field:'guidesRecommend',title : '导游推荐',formatter:function(v,r,i){switch (v) {case 1:return '未推荐';case 0:return '推荐';}}
+				},{
+					align:'center',width:100,field:'driversRecommend',title : '司机推荐',formatter:function(v,r,i){switch (v) {case 1:return '未推荐';case 0:return '推荐';}}
+				},{
+					align:'center',width:100,field:'masterFind',title : '达人发现',formatter:function(v,r,i){switch (v) {case 1:return '未发现';case 0:return '发现';}}
+				},{
+					align:'center',width:100,field:'guidesFind',title : '导游发现',formatter:function(v,r,i){switch (v) {case 1:return '未发现';case 0:return '发现';}}
+				},{
+					align:'center',width:100,field:'driversFind',title : '司机发现',formatter:function(v,r,i){switch (v) {case 1:return '未发现';case 0:return '发现';}}
+				},{
+					field : 'opt',
+					title : '操作',
+					align:'center',width:100,
+					formatter:function(v,r,i){
+						 return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "+   
+			               "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "+  
+			               "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'" +   
+			               'onclick="userInfoManager.showPage('+"'"+ r.id + "'"+');">查看详情</a>';
+					}
+				} ] ]
+			});
+		});
+	},
+	del : function() {
+		var row = $('#userInfo').datagrid('getSelected');
+		if (!row) {
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$.messager.confirm("提示信息", "您确定要删除所选数据吗？,删除后不可恢复!", function(r) {
+			if (r) {
+				$.post(userInfoManager.delUrl, {
+					userId : row.id
+				}).success(function(data) {
+					if (data.success) {
+						eu.showMsg("删除成功！");
+						$("#userInfo").datagrid('reload');
+					} else {
+						eu.showMsg(data);
+					}
+				}).error(function(data) {
+					eu.showMsg("系统错误，请联系管理员！");
+				})
+			} else {
+				$('#userInfo').datagrid('clearSelections');
+			}
+		});
+	},
+	search : function () {
+ 			$('#userInfo').datagrid('load',{
+ 				nickname: $('#nickname').val(),
+ 				gender:$("#gender").combobox('getValue'),
+ 				telphone : $('#telphone').val(),
+ 				height : $('#height').val(),
+ 				weight : $('#weight').val(),
+ 				zodiac : $('#zodiac').val(),
+ 				emotionstatus : $("#emotionStatus").val(),
+ 				profession : $("#profession").val(),
+ 				type : $("#searchValueAuthentication").combobox('getValue')
+ 			});
+ 			$('#userInfo').datagrid('clearSelections');
+	},
+	clearForm : function(){
+		$('#userInfoForm').form('clear');
+	},
+	set : function(){
+		var row = $('#userInfo').datagrid('getSelected');
+		if (!row) {
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$('#userInfoWindow').window('open');
+		if(row.masterauthentication == 1)
+			$('input[id=renzheng1]').attr("checked", true);
+		if(row.guidesauthentication == 1)
+			$('input[id=renzheng2]').attr("checked", true);
+		if(row.driversauthentication == 1)
+			$('input[id=renzheng3]').attr("checked", true);
+		
+		if(row.masterRecommend == 0)
+			$('input[id=tuijian1]').attr("checked", true);
+		if(row.guidesRecommend == 0)
+			$('input[id=tuijian2]').attr("checked", true);
+		if(row.driversRecommend == 0)
+			$('input[id=tuijian3]').attr("checked", true);
+		
+		if(row.masterFind == 0)
+			$('input[id=faxian1]').attr("checked", true);
+		if(row.guidesFind == 0)
+			$('input[id=faxian2]').attr("checked", true);
+		if(row.driversFind == 0)
+			$('input[id=faxian3]').attr("checked", true);
+		
+		
+		$('#nowUserId').val(row.id);
+	},
+	submit : function(){
+		var chk_value =[];
+		$('input[name="renzheng"]:checked').each(function(){
+			chk_value.push($(this).val());
+		});
+		var a = 0;
+		var b = 0;
+		var c = 0;
+		for(var i in chk_value){
+			if(chk_value[i] == 1){
+				c = 1;
+			}else if(chk_value[i] == 2){
+				b = 1;
+			}else if(chk_value[i] == 3){
+				a = 1;
+			}
+		}
+		
+		var chk_value1 =[];
+		$('input[name="tuijian"]:checked').each(function(){
+			chk_value1.push($(this).val());
+		});
+		var a1 = 1;
+		var b1 = 1;
+		var c1 = 1;
+		for(var i in chk_value1){
+			if(chk_value1[i] == 1){
+				c1 = 0;
+			}else if(chk_value1[i] == 2){
+				b1 = 0;
+			}else if(chk_value1[i] == 3){
+				a1 = 0;
+			}
+		}
+		
+		var chk_value2 =[];
+		$('input[name="faxian"]:checked').each(function(){
+			chk_value2.push($(this).val());
+		});
+		var a2 = 1;
+		var b2 = 1;
+		var c2 = 1;
+		for(var i in chk_value2){
+			if(chk_value2[i] == 1){
+				c2 = 0;
+			}else if(chk_value2[i] == 2){
+				b2 = 0;
+			}else if(chk_value2[i] == 3){
+				a2 = 0;
+			}
+		}
+		
+		
+		$.post(userInfoManager.rzUrl, {
+			id : $('#nowUserId').val(),
+			driversauthentication : a,
+			guidesauthentication : b,
+			masterauthentication : c,
+			masterRecommend : c1,
+			guidesRecommend : b1,
+			driversRecommend : a1,
+			masterFind : c2,
+			guidesFind : b2,
+			driversFind : a2
+		}).success(function(data) {
+			if (data.success) {
+				eu.showMsg("成功！");
+				$('#userInfoWindow').window('close');
+				$("#userInfo").datagrid('reload');
+			} else {
+				eu.showMsg(data);
+			}
+		}).error(function(data) {
+			eu.showMsg("系统错误，请联系管理员！");
+		});
+	},
+	showPage : function(i){
+		window.location.href = userInfoManager.showUrl+"?id="+i;
+	}
+};
+userInfoManager.init();

@@ -1,0 +1,72 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.client.fluent.Request;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.PushMessageDao;
+import com.htkj.cfdScenic.app.model.PushMessage;
+import com.htkj.cfdScenic.app.model.Visitors;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+import com.htrj.common.utils.GenerateSequenceUtil;
+import com.htrj.common.utils.JPushUtils;
+
+@Service
+@Transactional
+public class PuchMessageService {
+	@Autowired
+	private PushMessageDao puchMessageDao;
+	
+	public DataGrid pressPCList(PageRequest<Map<String, Object>> pageRequest) {
+		Page returnPage = puchMessageDao.pressPCList(pageRequest);
+		return DataGrid.pageToDataGrid(returnPage);
+	}
+	
+	public DataGrid getPushMessageList(PageRequest<Map<String, Object>> pageRequest) {
+		Page returnPage = puchMessageDao.getPushMessageList(pageRequest);
+		return DataGrid.pageToDataGrid(returnPage);
+	}
+	
+	public void insert(PushMessage pm,String ids) {
+		
+		String[] strArray = ids.split(",");   
+		List<String> pushIds = new ArrayList<String>();
+		List<PushMessage> pms = new ArrayList<PushMessage>();
+		//组装对象
+		for(int i = 0;i<strArray.length;i++){
+			PushMessage pushMessage = new PushMessage(); 
+			pushIds.add(strArray[i]);
+			pushMessage.setId(GenerateSequenceUtil.getUniqueId());
+			pushMessage.setUserId(Long.parseLong(strArray[i]));
+			pushMessage.setDetailId(pm.getDetailId());
+			pushMessage.setImage(pm.getImage());
+			pushMessage.setOrderCode("0");
+			pushMessage.setType(0);
+			pushMessage.setCreateDate(pm.getCreateDate());
+			pushMessage.setTitle(pm.getTitle());
+			pms.add(pushMessage);
+		}
+		
+		//批量插入
+		Map<String, Object> map = new HashMap<String, Object>();  
+	    map.put("pushMessageList", pms);  
+		puchMessageDao.insert(map);
+		
+		//推送消息
+		Map<String, String> extras = new HashMap<String, String>();
+		extras.put("content",pm.getTitle());
+		extras.put("type","1");
+		JPushUtils.sendPushMessage(pushIds,extras);
+	}
+	
+	
+	
+}

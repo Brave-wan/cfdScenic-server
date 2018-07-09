@@ -1,0 +1,21 @@
+package com.htkj.cfdScenic.app.dao;
+
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.htkj.cfdScenic.app.model.GoodsOrder;
+import com.htkj.cfdScenic.app.model.RefundCause;
+import com.htrj.common.base.BaseDao;
+
+@Repository
+public class RefundCauseDao extends BaseDao{
+
+	public void saveRefundCause(RefundCause refundCause) {
+		getSqlSession().insert(getStatementName("saveRefundCause"),refundCause);
+	}
+
+	public RefundCause getRefundCause(Map para) {
+		return getSqlSession().selectOne(getStatementName("getRefundCause"),para);
+	}
+}

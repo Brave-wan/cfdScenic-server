@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+
+
+.auctionset p{
+	margin-bottom:2px;width:380px;float:left; padding-left: 10px;
+	}
+.auctionset p label{
+	display:block; float:left; color:#000; text-indent:10px;font-size:16px !important;
+	width:160px; height:30px; line-height:30px;text-align:right; 
+	}
+.auctionset input{
+	float:left;font-size:16px !important;
+	font-family:"微软雅黑" !important; 
+	color:#666;border:1px solid #ccc; 
+	width:140px; height:30px !important; 
+	text-indent:10px;padding: 0px!important;
+	}
+.auctionset .easyui-numberbox,.auctionset .easyui-validatebox,.auctionset .validatebox-text{height:30px;line-height:30px;}
+.auctionset .easyui-numberbox,.auctionset .easyui-validatebox,.auctionset .easyui-combobox{ width:140px;height: 30px}
+.auctionset .combo,.auctionset .numberbox { max-width:140px;width:140px!important;height: 30px!important;}
+ 
+ .auctionshow p{
+	margin-bottom:2px;width:500px; padding-left: 150px;
+	}
+.auctionshow p label{
+	float:left;display:block; color:#000; text-indent:10px;font-size:16px !important;
+	width:500px; height:30px; line-height:30px;text-align:left; 
+	}
+	
+
+	
+.auctionshow2 p{
+	margin-bottom:2px;width:340px;float:left;; padding-left: 10px;
+	}
+.auctionshow2 p label{
+	display:block; float:left; color:#000; text-indent:10px;
+	width:120px; height:30px; line-height:30px;text-align:right; 
+	}
+.auctionshow2 input{
+	float:left;font-size:16px !important;
+	font-family:"微软雅黑" !important; 
+	color:#666;border:1px solid #ccc; 
+	width:180px; height:30px !important; 
+	text-indent:10px;padding: 0px!important;
+	}
+/* .querydiv a{ margin-left:120px;} */
+
+.auctionshow2 .easyui-numberbox,.auctionshow2 .easyui-validatebox,.auctionshow2 .validatebox-text{height:25px;line-height:25px;}
+.auctionshow2 .easyui-numberbox,.auctionshow2 .easyui-validatebox,.auctionshow2 .easyui-combobox{ width:180px;height: 25px}
+.auctionshow2 .combo,.auctionshow2 .numberbox { max-width:180px;width:180px!important;height: 25px!important;}
+
+.text-danwei {
+height:29px; 
+line-height:36px;  
+font-family:"微软雅黑"; 
+font-size:13px; color:#008080; }
+ 

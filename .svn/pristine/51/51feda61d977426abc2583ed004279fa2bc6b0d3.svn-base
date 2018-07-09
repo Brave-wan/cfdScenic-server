@@ -1,0 +1,684 @@
+var recommendCheckManager = {
+	checkUrl : "./background/recommendCheck/setCheck",
+	recommendUrl : "./background/recommendCheck/setRecommend",
+	showPageUrl : "./background/recommendCheck/showPage",
+	init : function(){
+		$(window).load(function(){
+	 		var type = $('#nowType').val();
+			switch (type) {
+			case '0':
+				$('#recommendChecGid').datagrid({
+					url:'./background/recommendCheck/recommendCheckTieZiData.json',
+					border:false,
+					fit:true,
+					singleSelect:true,
+					idField:'id',
+					pagination:true,
+					pageSize:20,
+					striped:true,
+					fitColumns:true,
+					queryParams : {
+						type1 : type
+					},
+					columns : [ [ {
+						field : 'id',
+						title : 'id',
+						align:'center',width:100,hidden:true
+
+					}, {
+						field : 'userid',
+						title : '申请认证人id',
+						align:'center',width:100,hidden:true
+					},{
+						field : 'nickname',
+						title : '申请认证人',
+						align:'center',width:100
+					}, {
+						field : 'position',
+						title : '位置',
+						align:'center',width:100
+					}, {
+						field : 'type',
+						title : '帖子类型',
+						align:'center',width:100,
+						formatter : function(v, r, i) {
+							switch (v) {
+							case 1:
+								return "视频";
+							case 2:
+								return "图片";
+							case 3:
+								return "文字";
+							}
+						}
+					}, {
+						field : 'profiles',
+						title : '描述',
+						align:'center',width:100
+					}, {
+						field : 'text',
+						title : '文字内容',
+						align:'center',width:100
+					},{
+						field : 'upcount',
+						title : '顶数',
+						align:'center',width:100
+					},{
+						field : 'setpcount',
+						title : '踩数',
+						align:'center',width:100
+					},{
+						field : 'collectioncount',
+						title : '收藏数',
+						align:'center',width:100
+					},{
+						field : 'replaycount',
+						title : '回复数',
+						align:'center',width:100
+					},{
+						field : 'browsecount',
+						title : '浏览次数',
+						align:'center',width:100
+					},{
+						field : 'ischeck',
+						title : '认证状态',
+						align:'center',width:100,
+						formatter : function(v, r, i) {
+							switch (v) {
+							case 0:
+								return "审核中";
+							case 1:
+								return "审核通过";
+							case 2:
+								return "审核失败";
+							}
+						}
+					}, {
+						field : 'cause',
+						title : '审核失败原因',
+						align:'center',width:100
+					},{
+						field : 'isrecommend',
+						title : '推荐状态',
+						align:'center',width:100,
+						formatter : function(v, r, i) {
+							switch (v) {
+							case 0:
+								return "未推荐";
+							case 1:
+								return "已推荐";
+							}
+						}
+					},{
+						field : 'isfind',
+						title : '发现状态',
+						align:'center',width:100,
+						formatter : function(v, r, i) {
+							switch (v) {
+							case 0:
+								return "未发现";
+							case 1:
+								return "发现";
+							}
+						}
+					},{
+						field : 'createtime',
+						title : '发布时间',
+						align:'center',width:100
+					}, {
+						field : 'opt',
+						title : '操作',
+						align:'center',width:100,
+						formatter:function(v,r,i){
+							 return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "+   
+				               "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "+  
+				               "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'" +   
+				               'onclick="recommendCheckManager.showPage('+"'"+ r.id + "'"+');">查看详情</a>';
+						}
+					} ] ]
+				});
+				break;
+			case '1':
+				$('#recommendChecGid').datagrid({
+					url:'./background/recommendCheck/recommendCheckXianLuData.json',
+					border:false,
+					fit:true,
+					singleSelect:true,
+					idField:'id',
+					pagination:true,
+					pageSize:20,
+					striped:true,
+					fitColumns:true,
+					queryParams : {
+						type : type
+					},
+					columns : [ [ {
+						field : 'id',
+						title : 'id',
+						align:'center',width:100,hidden:true
+
+					}, {
+						field : 'user',
+						title : '申请认证人id',
+						align:'center',width:100,hidden:true
+					},{
+						field : 'nickname',
+						title : '申请认证人',
+						align:'center',width:100
+					}, {
+						field : 'title',
+						title : '标题',
+						align:'center',width:100
+					},  {
+						field : 'begintime',
+						title : '起始日期',
+						align:'center',width:100
+					}, {
+						field : 'endtime',
+						title : '终止日期',
+						align:'center',width:100
+					}, {
+						field : 'days',
+						title : '行程天数',
+						align:'center',width:100
+					}, {
+						field : 'price',
+						title : '价格',
+						align:'center',width:100
+					}, {
+						field : 'destination',
+						title : '目的地',
+						align:'center',width:100
+					},{
+						field : 'linesinfo',
+						title : '线路信息',
+						align:'center',width:100
+					},{
+						field : 'recommendreason',
+						title : '推荐理由',
+						align:'center',width:100
+					},{
+						field : 'linestype',
+						title : '线路类型',
+						align:'center',width:100
+					},{
+						field : 'costincludes',
+						title : '费用包含',
+						align:'center',width:100
+					},{
+						field : 'costnotincludes',
+						title : '费用不含',
+						align:'center',width:100
+					},{
+						field : 'attention',
+						title : '注意事项',
+						align:'center',width:100
+					},{
+						field : 'equiprecommend',
+						title : '装备推荐',
+						align:'center',width:100
+					},{
+						field : 'carinfo',
+						title : '车辆信息',
+						align:'center',width:100
+					},{
+						field : 'collectioncount',
+						title : '收藏数',
+						align:'center',width:100
+					},{
+						field : 'upcount',
+						title : '顶数',
+						align:'center',width:100
+					},{
+						field : 'scheduling',
+						title : '行程安排',
+						align:'center',width:100
+					},{
+						field : 'status',
+						title : '认证状态',
+						align:'center',width:100,
+						formatter : function(v, r, i) {
+							switch (v) {
+							case 0:
+								return "审核中";
+							case 2:
+								return "审核通过";
+							case 1:
+								return "审核失败";
+							}
+						}
+					}, {
+						field : 'cause',
+						title : '审核失败原因',
+						align:'center',width:100
+					},{
+						field : 'isrecommend',
+						title : '推荐状态',
+						align:'center',width:100,
+						formatter : function(v, r, i) {
+							switch (v) {
+							case 0:
+								return "未推荐";
+							case 1:
+								return "已推荐";
+							}
+						}
+					}, {
+						field : 'opt',
+						title : '操作',
+						align:'center',width:100,
+						formatter:function(v,r,i){
+							 return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "+   
+				               "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "+  
+				               "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'" +   
+				               'onclick="recommendCheckManager.showPage('+"'"+ r.id + "'"+');">查看详情</a>';
+						}
+					} ] ]
+				});
+				break;
+			}
+		
+			
+			
+			
+		});
+	},
+	showPage :function (id) {
+		window.location.href = recommendCheckManager.showPageUrl+"?id="+id+"&t="+$('#nowType').val();
+	},
+	toCheck : function(t){
+		var row=$('#recommendChecGid').datagrid('getSelected');
+		if(!row){
+			eu.showMsg("请选择一行再进行审核");
+			return;
+		}
+		var m = "审核失败";
+		if(t == 1){
+			$.messager.confirm("提示信息","您确定要审核通过所选数据吗？",function(r){
+				if(r){
+					$.post(recommendCheckManager.checkUrl,{id : row.id , ischeck:1 , type : $('#nowType').val(),cause : ''})
+					.success(function(data){
+						if(data.success){
+							eu.showMsg("操作成功！");
+							$("#recommendChecGid").datagrid('reload');
+						}else{
+							eu.showMsg(data);
+						}
+					}
+					).error(function(data){
+						eu.showMsg("系统错误，请联系管理员！");
+					})
+				}else{
+					$('#recommendChecGid').datagrid('clearSelections');
+				}
+			});
+		}else{
+			$('#nowId').val(row.id);
+			$('#recommendCheckWindow').window('open');
+			$('#cause').val(row.cause);
+		}
+	},
+	toRecommend : function(t){
+		var row=$('#recommendChecGid').datagrid('getSelected');
+		if(!row){
+			eu.showMsg("请选择一行再进行推荐");
+			return;
+		}
+		var temp = $('#nowType').val();
+		switch (temp) {
+		case '0':
+			if(row.ischeck != 1){
+				eu.showMsg("请先审核通过再进行推荐设置。");
+				return;
+			}
+			break;
+		case '1':
+			if(row.status != 2){
+				eu.showMsg("请先审核通过再进行推荐设置。");
+				return;
+			}
+			break;
+		default:
+			eu.showMsg("请选择正确的查询类别。");
+			return 
+			break;
+		}
+		var m = "取消推荐";
+		if(t == 1)
+			m = "推荐";
+		$.messager.confirm("提示信息","您确定要"+m+"所选数据吗？",function(r){
+			if(r){
+				$.post(recommendCheckManager.recommendUrl,{id : row.id , type : $('#nowType').val(),status : t})
+				.success(function(data){
+					if(data.success){
+						eu.showMsg("操作成功！");
+						$("#recommendChecGid").datagrid('reload');
+					}else{
+						eu.showMsg(data);
+					}
+				}
+				).error(function(data){
+					eu.showMsg("系统错误，请联系管理员！");
+				})
+			}else{
+				$('#recommendChecGid').datagrid('clearSelections');
+			}
+		});
+	},
+	serch : function () {
+ 		var type = $('#nowType').val();
+		switch (type) {
+		case '0':
+			$('#recommendChecGid').datagrid({
+				url:'./background/recommendCheck/recommendCheckTieZiData.json',
+				border:false,
+				fit:true,
+				singleSelect:true,
+				idField:'id',
+				pagination:true,
+				pageSize:20,
+				striped:true,
+				fitColumns:true,
+				queryParams : {
+					type1 : type,
+					nickname :  $('#searchValue2').val(),
+					text :  $('#searchValue3').val(),
+					upcount :  $('#searchValue4').val(),
+					setpcount :  $('#searchValue5').val(),
+					collectioncount :  $('#searchValue6').val(),
+					replaycount :  $('#searchValue7').val(),
+					type :  $('#searchValue8').combobox('getValue'),
+					ischeck : $('#searchValue1').combobox('getValue')
+				},
+				columns : [ [ {
+					field : 'id',
+					title : 'id',
+					align:'center',width:100,hidden:true
+
+				}, {
+					field : 'userid',
+					title : '申请认证人id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'nickname',
+					title : '申请认证人',
+					align:'center',width:100
+				}, {
+					field : 'position',
+					title : '位置',
+					align:'center',width:100
+				}, {
+					field : 'type',
+					title : '帖子类型',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 1:
+							return "视频";
+						case 2:
+							return "图片";
+						case 3:
+							return "文字";
+						}
+					}
+				}, {
+					field : 'profiles',
+					title : '描述',
+					align:'center',width:100
+				}, {
+					field : 'text',
+					title : '文字内容',
+					align:'center',width:100
+				},{
+					field : 'upcount',
+					title : '顶数',
+					align:'center',width:100
+				},{
+					field : 'setpcount',
+					title : '踩数',
+					align:'center',width:100
+				},{
+					field : 'collectioncount',
+					title : '收藏数',
+					align:'center',width:100
+				},{
+					field : 'replaycount',
+					title : '回复数',
+					align:'center',width:100
+				},{
+					field : 'browsecount',
+					title : '浏览次数',
+					align:'center',width:100
+				},{
+					field : 'ischeck',
+					title : '认证状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 0:
+							return "审核中";
+						case 1:
+							return "审核通过";
+						case 2:
+							return "审核失败";
+						}
+					}
+				}, {
+					field : 'cause',
+					title : '审核失败原因',
+					align:'center',width:100
+				},{
+					field : 'isrecommend',
+					title : '推荐状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 0:
+							return "未推荐";
+						case 1:
+							return "已推荐";
+						}
+					}
+				},{
+					field : 'createtime',
+					title : '发布时间',
+					align:'center',width:100
+				}, {
+					field : 'opt',
+					title : '操作',
+					align:'center',width:100,
+					formatter:function(v,r,i){
+						 return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "+   
+			               "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "+  
+			               "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'" +   
+			               'onclick="recommendCheckManager.showPage('+"'"+ r.id + "'"+');">查看详情</a>';
+					}
+				} ] ]
+			});
+			break;
+		case '1':
+			$('#recommendChecGid').datagrid({
+				url:'./background/recommendCheck/recommendCheckXianLuData.json',
+				border:false,
+				fit:true,
+				singleSelect:true,
+				idField:'id',
+				pagination:true,
+				pageSize:20,
+				striped:true,
+				fitColumns:true,
+				queryParams : {
+					type : type,
+					status : $('#searchValue1').combobox('getValue'),
+					title :  $('#searchValue2').val(),
+					days :  $('#searchValue3').val(),
+					price :  $('#searchValue4').val(),
+					destination :  $('#searchValue6').val(),
+					linestype :  $('#searchValue7').combobox('getValue')
+				},
+				columns : [ [ {
+					field : 'id',
+					title : 'id',
+					align:'center',width:100,hidden:true
+
+				}, {
+					field : 'user',
+					title : '申请认证人id',
+					align:'center',width:100,hidden:true
+				},{
+					field : 'nickname',
+					title : '申请认证人',
+					align:'center',width:100
+				},{
+					field : 'imageurl',
+					title : '封面图片',
+					align:'center',width:100,
+					formatter:function(v,r,i){
+						 return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "+   
+			               "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "+  
+			               "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'" +   
+			               'onclick="recommendCheckManager.show('+"'"+ v + "'"+');">查看</a>';
+					}
+				}, {
+					field : 'title',
+					title : '标题',
+					align:'center',width:100
+				},  {
+					field : 'begintime',
+					title : '起始日期',
+					align:'center',width:100
+				}, {
+					field : 'endtime',
+					title : '终止日期',
+					align:'center',width:100
+				}, {
+					field : 'days',
+					title : '行程天数',
+					align:'center',width:100
+				}, {
+					field : 'price',
+					title : '价格',
+					align:'center',width:100
+				}, {
+					field : 'destination',
+					title : '目的地',
+					align:'center',width:100
+				},{
+					field : 'linesinfo',
+					title : '线路信息',
+					align:'center',width:100
+				},{
+					field : 'recommendreason',
+					title : '推荐理由',
+					align:'center',width:100
+				},{
+					field : 'linestype',
+					title : '线路类型',
+					align:'center',width:100
+				},{
+					field : 'costincludes',
+					title : '费用包含',
+					align:'center',width:100
+				},{
+					field : 'costnotincludes',
+					title : '费用不含',
+					align:'center',width:100
+				},{
+					field : 'attention',
+					title : '注意事项',
+					align:'center',width:100
+				},{
+					field : 'equiprecommend',
+					title : '装备推荐',
+					align:'center',width:100
+				},{
+					field : 'carinfo',
+					title : '车辆信息',
+					align:'center',width:100
+				},{
+					field : 'collectioncount',
+					title : '收藏数',
+					align:'center',width:100
+				},{
+					field : 'upcount',
+					title : '顶数',
+					align:'center',width:100
+				},{
+					field : 'scheduling',
+					title : '行程安排',
+					align:'center',width:100
+				},{
+					field : 'status',
+					title : '认证状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 0:
+							return "审核中";
+						case 2:
+							return "审核通过";
+						case 1:
+							return "审核失败";
+						}
+					}
+				}, {
+					field : 'cause',
+					title : '审核失败原因',
+					align:'center',width:100
+				},{
+					field : 'isrecommend',
+					title : '推荐状态',
+					align:'center',width:100,
+					formatter : function(v, r, i) {
+						switch (v) {
+						case 0:
+							return "未推荐";
+						case 1:
+							return "已推荐";
+						}
+					}
+				}, {
+					field : 'opt',
+					title : '操作',
+					align:'center',width:100,
+					formatter:function(v,r,i){
+						 return "<a style='background-color: #2daebf;color: #fff;cursor: pointer;display: "+   
+			               "inline-block;font-size: 9pt;font-weight: bold;margin-right: 10px;padding: "+  
+			               "3px 8px;text-decoration: none;text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);' href='javascript:void(0)'" +   
+			               'onclick="recommendCheckManager.showPage('+"'"+ r.id + "'"+');">查看详情</a>';
+					}
+				} ] ]
+			});
+			break;
+		}
+	},
+	clearForm:function(){
+		$('#recommendCheckForm').form('clear');
+	},
+	cancel:function(){
+		$('#recommendCheckWindow').window('close');
+	},
+	submit:function(){
+		$.messager.progress({title:'提示信息',msg:'请稍候...',interval:2000});
+		$.post(recommendCheckManager.checkUrl,{id : $('#nowId').val() , ischeck:2 , type : $('#nowType').val(),cause : $('#cause').val()})
+		.success(function(data){
+			$.messager.progress('close');
+			if(data.success){
+				eu.showMsg("审核成功！");
+				$('#recommendCheckWindow').window('close');
+				$('#recommendChecGid').datagrid('reload');
+			}else{
+				eu.showMsg(data);
+			}
+		})
+		.error(function(data){
+			$.messager.progress('close');
+			eu.showMsg("系统错误！");
+		});
+	},
+	show : function(url){
+		$('#ImgWindow').window('open');
+		$('#showImg').attr('src',url);
+	}
+};
+recommendCheckManager.init();

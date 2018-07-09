@@ -1,0 +1,23 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.HtmlTextDao;
+import com.htrj.common.base.BaseService;
+
+@Service
+@Transactional
+public class HtmlTextService extends BaseService{
+	@Autowired
+	private HtmlTextDao htmlTextDao;
+
+	public Map<String, String> wetLandSynopsis(Integer type) {
+		return htmlTextDao.wetLandSynopsis(type);
+	}
+	
+	
+}

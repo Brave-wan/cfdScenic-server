@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.htkj.cfdScenic.app.dao.RecommendWayDao" >
+  <resultMap id="BaseResultMap" type="com.htkj.cfdScenic.app.model.RecommendWay" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="group_id" property="groupId" jdbcType="BIGINT" />
+    <result column="soft" property="soft" jdbcType="INTEGER" />
+    <result column="x_point" property="xPoint" jdbcType="VARCHAR" />
+    <result column="y_point" property="yPoint" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, group_id, soft, x_point, y_point, name, info, type, creatime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from recommend_way
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from recommend_way
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.htkj.cfdScenic.app.model.RecommendWay" >
+    insert into recommend_way (id, group_id, soft, 
+      x_point, y_point, name, 
+      info, type, creatime
+      )
+    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{soft,jdbcType=INTEGER}, 
+      #{xPoint,jdbcType=VARCHAR}, #{yPoint,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{info,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{creatime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.cfdScenic.app.model.RecommendWay" >
+    insert into recommend_way
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="soft != null" >
+        soft,
+      </if>
+      <if test="xPoint != null" >
+        x_point,
+      </if>
+      <if test="yPoint != null" >
+        y_point,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="info != null" >
+        info,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="creatime != null" >
+        creatime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="soft != null" >
+        #{soft,jdbcType=INTEGER},
+      </if>
+      <if test="xPoint != null" >
+        #{xPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="yPoint != null" >
+        #{yPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        #{creatime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htkj.cfdScenic.app.model.RecommendWay" >
+    update recommend_way
+    <set >
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="soft != null" >
+        soft = #{soft,jdbcType=INTEGER},
+      </if>
+      <if test="xPoint != null" >
+        x_point = #{xPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="yPoint != null" >
+        y_point = #{yPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        creatime = #{creatime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htkj.cfdScenic.app.model.RecommendWay" >
+    update recommend_way
+    set group_id = #{groupId,jdbcType=BIGINT},
+      soft = #{soft,jdbcType=INTEGER},
+      x_point = #{xPoint,jdbcType=VARCHAR},
+      y_point = #{yPoint,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      info = #{info,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      creatime = #{creatime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="findGroupWay" resultType="map" parameterType="map">
+  	SELECT group_id,group_name FROM `recommend_way` GROUP BY group_id
+  </select>
+  <select id="findGroupWay_count" resultType="int" parameterType="map">
+  select count(1) from (
+  	SELECT group_id,group_name FROM `recommend_way` GROUP BY group_id
+  ) as a
+  </select>
+  <select id="findWayByGroupId" resultType="map" parameterType="long">
+  	SELECT  creatime,
+          id,
+          info,
+          name,
+          soft,
+          type,
+          x_point,
+          y_point FROM `recommend_way` where group_id = #{id} order by soft 
+  </select>
+</mapper>

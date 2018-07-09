@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.OpenDateListDao">
+
+	<select id="selectOpenDateListByVisitorsId" parameterType="long" resultType="map">
+		SELECT
+			id,
+			name,
+			DATE_FORMAT(start_date,'%Y-%m-%d') as start_date,
+			DATE_FORMAT(start_time,'%H:%i:%s') as start_time,
+			DATE_FORMAT(end_time,'%H:%i:%s') as end_time,
+			DATE_FORMAT(end_date,'%Y-%m-%d') as end_date,
+			start_week,
+			end_week
+		FROM 
+			open_date_list
+		WHERE
+			visitors_id = #{visitorsId} AND state = 1
+	</select>
+</mapper>

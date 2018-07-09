@@ -1,0 +1,94 @@
+var shareRuleManager = {
+	delUrl : "./background/shareRule/delShareRule",
+	subUrl : "./background/shareRule/subShareRule",
+	init : function(){
+		$(window).load(function(){
+			
+		});
+	},	
+	del : function(){
+		var row=$('#shareRuleGid').datagrid('getSelected');
+		if(!row){
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$.messager.confirm("提示信息","您确定要删除所选数据吗？,删除后不可恢复!",function(r){
+			if(r){
+				$.post(shareRuleManager.delUrl,{id : row.id })
+				.success(function(data){
+								if(data.success){
+									eu.showMsg("删除成功！");
+									$("#shareRuleGid").datagrid('reload');
+								}else{
+									eu.showMsg(data);
+								}
+							}
+						).error(function(data){
+				        	eu.showMsg("系统错误，请联系管理员！");
+				        })
+			}else{
+				$('#shareRuleGid').datagrid('clearSelections');
+			}
+			});
+	},
+	serch : function () {
+ 		var type = $('#searchValue').combobox('getValue');
+ 		$('#shareRuleGid').datagrid('load',{sharetype: type});
+		$('#shareRuleGid').datagrid('clearSelections');
+		
+	},
+	add : function(){
+		$('#shareRuleWindow').window('open');
+		$('#sharetype').combobox('setValue',0);
+		$('#sharesumnum').numberbox('setValue', 0);
+		$('#sharesumnum').numberbox('disable');
+	},
+	edit : function(){
+		var row=$('#shareRuleGid').datagrid('getSelected');
+		if(!row){
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$('#shareRuleWindow').window('open');
+		$('#shareId').val(row.id);
+		console.log(row);
+		var type = row.sharetype;
+		if(type == 0){
+			$('#sharetype').combobox('setValue',0);
+			$('#sharesumnum').numberbox('disable');
+			$('#sharesumnum').numberbox('setValue', 0);
+		}else{
+			$('#sharetype').combobox('setValue',1);
+			$('#sharesumnum').numberbox('setValue', row.sharesumnum);
+		}
+		$('#coinnum').val(row.coinnum);
+	},
+	clearForm:function(){
+		$('#shareRuleForm').form('clear');
+	},
+	cancel:function(){
+		$('#shareRuleForm').window('close');
+	},
+	addSub : function() {
+		$.messager.progress({title:'提示信息',msg:'请稍候...',interval:2000});
+		$('#shareRuleForm').form('enableValidation');
+		var form = $('#shareRuleForm');
+		var isValid = form.form('validate');
+		if (!isValid)
+			return;
+		$.post(shareRuleManager.subUrl, form.serialize()).success(function(data) {
+			if (data.success) {
+				$.messager.progress('close');
+				eu.showMsg("保存成功！");
+				$('#shareRuleWindow').window('close');
+				$('#shareRuleGid').datagrid('reload');
+			} else {
+				eu.showMsg(data);
+			}
+		}).error(function(ex){
+			$.messager.progress('close');
+			eu.showMsg("系统错误！");
+		})
+	}
+};
+shareRuleManager.init();

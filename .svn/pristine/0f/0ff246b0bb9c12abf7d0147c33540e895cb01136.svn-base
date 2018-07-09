@@ -1,0 +1,16 @@
+package com.htkj.cfdScenic.app.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.htrj.common.base.BaseController;
+
+@RequestMapping("/background/shopType")
+@Controller
+public class ShopTypeController extends BaseController{
+	
+	@RequestMapping("/toShopType")
+	public String toShopType(){
+		return "/background/shopType/Manager";
+	}
+}

@@ -1,0 +1,241 @@
+package com.htkj.cfdScenic.app.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONObject;
+import com.htkj.cfdScenic.app.service.MyTicketsService;
+import com.htkj.cfdScenic.app.service.ShopInformationService;
+import com.htkj.cfdScenic.app.util.ResponseMsg;
+import com.htrj.common.base.BaseController;
+
+@Controller
+@RequestMapping("/interFace/myTickets")
+public class MyTicketsController extends BaseController{
+	
+	@Autowired
+	private MyTicketsService myTicketsService;
+	@Autowired
+	private ShopInformationService consumerUserService;
+	
+	/**
+	 * Title:我的所有门票（未付款，未使用，已使用，已过期）
+	 * http://localhost/cfdScenic/interFace/MyPurse/getMyTickets
+	 * @author:lishilong
+	 * @date:2016年9月9日
+	 */
+	@RequestMapping(value="getMyTickets",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String getMyTickets(){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		try {
+			//获取token
+			String token = webContext.getRequest().getHeader("Authorization");
+			if (token != null) {
+				//获取userId
+				Long userId = consumerUserService.getUserIdByToken(token);
+				if (userId != null) {
+					// 获取我的门票列表
+					List<Map<String, Object>> list = myTicketsService.getMyTickets(userId);
+					// 门票列表不为空的话就返回list，否则返回date为空list，防止报错
+					if (list.size() > 0 && list.get(0) != null) {
+						msg.setData(list);
+					}else{
+						msg.setData(new ArrayList());
+					}
+					// 设置msg状态值
+					msg.setHearder(0, "ok");
+				} else {
+					msg.setHearder(3, "认证信息错误，请重新登录！");
+				}
+			} else {
+				msg.setHearder(2, "token is null");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.setHearder(1,"error");
+		}
+		json = JSONObject.toJSONString(msg);
+		System.out.println(json);
+		return json;
+	}
+	
+	/**
+	 * Title:删除我的门票
+	 * http://localhost/cfdScenic/interFace/MyPurse/deleteMyTickets?id=&orderState=1
+	 * 未使用的删除，已使用的更改状态值
+	 * @author:lishilong
+	 * @date:2016年9月9日
+	 */
+	@RequestMapping(value="deleteMyTickets",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String deleteMyTickets(Long id,Integer orderState){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		try {
+			//获取token
+			String token = webContext.getRequest().getHeader("Authorization");
+			if (token != null) {
+				//获取userId
+				Long userId = consumerUserService.getUserIdByToken(token);
+				if (userId != null) {
+					//未使用的门票是删除，已使用的门票是修改状态值
+					// type值
+					// 1直接删除，其他的修改状态值
+					if(orderState == 1){
+						myTicketsService.deleteMyTickets(id);
+					}else{
+						myTicketsService.updateMyTickets(id);
+					}
+					msg.setHearder(0, "ok");
+				} else {
+					msg.setHearder(3, "认证信息错误，请重新登录！");
+				}
+			} else {
+				msg.setHearder(2, "token is null");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.setHearder(1,"error");
+		}
+		json = JSONObject.toJSONString(msg);
+		System.out.println(json);
+		return json;
+	}
+	/**
+	 * Title:支付门票
+	 * http://localhost/cfdScenic/interFace/MyPurse/payTicketsById?id=
+	 * @author:lishilong
+	 * @date:2016年9月9日
+	 */
+	@RequestMapping(value="payTicketsById",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String payTicketsById(Long id,Double balance,Integer type){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		try {
+			//获取token
+			String token = webContext.getRequest().getHeader("Authorization");
+			if (token != null) {
+				//获取userId
+				Long userId = consumerUserService.getUserIdByToken(token);
+				if (userId != null) {
+					if(id != null && type != null){
+						//判断是什么方式支付的 1余额 2微信 3支付宝
+						//余额支付，减少这个userId的钱，增加对应积分，增加余额交易记录
+						if(type == 1){
+							
+							
+						}else if(type == 2){
+							
+						}else if(type == 3){
+							
+						}
+						msg.setHearder(0, "ok");
+					}
+				} else {
+					msg.setHearder(3, "认证信息错误，请重新登录！");
+				}
+			} else {
+				msg.setHearder(2, "token is null");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.setHearder(1,"error");
+		}
+		json = JSONObject.toJSONString(msg);
+		System.out.println(json);
+		return json;
+	}
+	/**
+	 * Title:申请退款
+	 * @author:lishilong
+	 * @date:2016年9月10日
+	 */
+	@RequestMapping(value="refund",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String refund(Long id,String endValid){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			//获取token
+			String token = webContext.getRequest().getHeader("Authorization");
+			if (token != null) {
+				//获取userId
+				Long userId = consumerUserService.getUserIdByToken(token);
+				if (userId != null) {
+					//判断是否在退款时间中，修改订单状态
+					Long nowDate = sdf.parse(sdf.format(new Date())).getTime();
+					Long endDate = sdf.parse(endValid).getTime();
+					if(nowDate > endDate){
+						msg.setHearder(4,"dont refund");
+					}else{
+						myTicketsService.updateOrderState(id);
+						msg.setHearder(0, "ok");
+					}
+				} else {
+					msg.setHearder(3, "认证信息错误，请重新登录！");
+				}
+			} else {
+				msg.setHearder(2, "token is null");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.setHearder(1,"error");
+		}
+		json = JSONObject.toJSONString(msg);
+		System.out.println(json);
+		return json;
+	}
+	
+	/**
+	 * Title:订单详情
+	 * @author:lishilong
+	 * @date:2016年9月10日
+	 */
+	@RequestMapping(value="orderDetail",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String orderDetail(Long orderCode){
+		ResponseMsg msg = new ResponseMsg();
+		String json = new String();
+		try {
+			//获取token
+			String token = webContext.getRequest().getHeader("Authorization");
+			if (token != null) {
+				//获取userId
+				Long userId = consumerUserService.getUserIdByToken(token);
+				if (userId != null) {
+					//查询订单详情
+					List<Map<String,Object>> list = myTicketsService.getOrderDetail(orderCode);
+					if(list.size() >0 && list.get(0) != null){
+						msg.setData(list);
+					}else{
+						msg.setData(new ArrayList());
+					}
+					msg.setHearder(0,"ok");
+				} else {
+					msg.setHearder(3, "认证信息错误，请重新登录！");
+				}
+			} else {
+				msg.setHearder(2, "token is null");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.setHearder(1,"error");
+		}
+		json = JSONObject.toJSONString(msg);
+		System.out.println(json);
+		return json;
+	}
+}

@@ -1,0 +1,273 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+a{text-decoration: none;color: #666;}
+body{
+	background-color: #2a2f45;
+}
+.box{
+	font-family: "微软雅黑";
+	background: url(../../../images/index-bg.jpg) no-repeat top center;
+	width: 100%;
+	height:640px;
+	padding-top: 300px;
+}
+.login{
+	width: 500px;
+	height: 330px;
+	margin: 0 auto;
+	background-color: #fff;
+	font-family: "微软雅黑";
+}
+.login h3{
+	font-weight: 100;
+	text-align: center;color: #3598db;
+	padding-top: 20px;
+}
+.login p{
+	font-family: "微软雅黑";
+	width: 250px;
+	border: 1px solid #dbdbdb;
+	text-align: center;
+	margin: 20px auto 10px;
+}
+.yhm-txt{
+	font-size:16px;
+	color: #999;
+	border: 0;
+	padding-left: 10px;
+	line-height: 2;
+}
+.login p i{
+	display: inline-block;
+	background: url(../../../images/yhm-ico.png) no-repeat top center;
+	width: 16px;
+	height: 20px;
+	vertical-align: top;
+	margin-top: 5px;
+	margin-left: 2px;
+}
+
+.login p .mm-ico{
+	display: inline-block;
+	background: url(../../../images/mm-ico.png) no-repeat top center;
+	width: 16px;
+	height: 20px;
+	vertical-align: top;
+	margin-top: 5px;
+	margin-left: 2px;
+}
+.ljzc{
+	float: left;
+	font-size: 14px;
+}
+.wjmm{
+	font-size: 14px;
+	float: right;
+}
+.dl-btn{
+	margin:30px auto 10px;
+	display: inline-block;
+	width: 255px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background-color: #3598db;
+}
+/*忘记密码*/
+.forget{
+	width: 880px;
+	height: 413px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.forget p{
+	width: 100%;
+	position: relative;
+	margin-top: 15px;
+	text-align: center;
+	font-family: "微软雅黑";
+}
+.forget h3{
+	font-weight: 100;
+	color: #3598DB;
+	text-align: center;
+}
+.forget p label{
+	position: absolute;
+	background: url(../../../images/tubiao.png) no-repeat;
+	width: 21px;
+	height: 20px;
+	left: 250px;
+	top: 10px;
+}
+.forget p label.reg1{
+	background-position: -4px -4px;
+}
+.forget p label.reg2{
+	background-position: -4px -62px;
+}
+.forget p label.reg3{
+	background-position: -4px -124px;
+}
+.forget p label.reg4{
+	background-position: -4px -184px;
+}
+.forget p input{
+	border: 1px solid #dbdbdb;
+	width: 40%;height: 40px;
+	padding-left: 40px;
+	margin-left: 0px;
+	font-family: "微软雅黑";ready-yy
+}
+.huoqu{
+	width: 125px;
+	font-size: 16px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #3598DB;
+	background-color: #3598DB;
+	color: #fff;
+	display: inline-block;
+}
+.tishi{
+	font-size: 12px;
+	color: #f75b5c;
+	margin-right: 5px;
+}
+.ddforg{
+	margin-left: 250px;
+}
+.ready-yy{
+	text-align: left;
+	width: 1390px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	color: #fff;
+	text-align: right;
+}
+/*实名认证*/
+.regist{
+	width: 150px;
+	margin-left: 30px;
+}
+.regis-rz{
+	width: 880px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.regis-rz input{
+	width: 200px;
+	height: 30px;
+	border: 1px solid #d4d4d4;
+	padding-left: 10px;
+	font-family: "微软雅黑";
+	margin-top: 10px;
+}
+.regis-rz select{border: 1px solid #dbdbdb;height: 30px;}
+.regis-rz h3{
+	font-weight: 100;
+	color: #3598DB;
+	text-align: center;
+}
+.buss-dz{
+	float: left;
+	margin-top: 10px;
+}
+.buss-dz p{
+	font-size: 16px;
+	margin-left: 30px;
+	color: #333;
+	font-family: "微软雅黑";
+}
+.upload-photos{
+	width: 900px;
+	margin-top: 20px;
+	margin-left: 30px;
+	float: left;
+	font-size: 14px;
+}
+.scwj{
+	
+	 filter:alpha(opacity=0);
+	 opacity:0
+}
+.uplo{
+		background: url(../../../images/shangchuan.jpg) no-repeat;
+	width: 120px;
+	height: 120px;
+	float: left;
+	margin:10px;
+}
+.uplo p{
+	margin-top: 15px;
+	text-align: center;
+}
+.add-infor{
+	font-size: 14px;
+	
+	margin-left: 30px;
+	margin-top: 20px;
+	float: left;
+	width: 600px;
+}
+.add-infor p{
+	margin-bottom: 10px;
+}
+.actu-lx{
+	float: left;
+	margin: 0 10px;
+}
+.tips{
+	color: #333;
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 110%;
+	background: rgba(0,0,0,0.6);
+}
+.tishia{
+	font-family: "微软雅黑";
+	line-height: 24px;
+	width: 350px;
+	height: 150px;
+	background-color: #fff;
+	border-radius:5px;
+	text-align: center;
+	position: absolute;
+	top: 35%;
+	left: 40%;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.file {
+	width: 90px;
+	height: 26px;
+    position: relative;
+    display: inline-block;
+    background: #3598db;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 26px;
+}
+.file:hover{
+	color: #fff;
+	text-decoration: none;
+}
+.file input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}

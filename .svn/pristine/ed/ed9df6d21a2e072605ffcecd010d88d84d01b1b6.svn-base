@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.ConsumerUserDao">
+
+<!-- 	根据token查询id -->
+	<select id="getUserIdByToken" resultType="java.lang.Long" parameterType="String">
+		select
+			id
+		from
+			consumer_user u
+		where
+			u.token = #{token}
+	</select>
+	
+	
+		<select id="selectById" resultType="INTEGER" parameterType="java.lang.Long" >
+		select count(1) from consumer_user u where u.id = #{userId}
+	</select>
+	
+	  <update id="editDatum" parameterType="com.htkj.cfdScenic.app.model.ConsumerUser">	
+  		UPDATE consumer_user set nick_name = #{nickName},gender=#{gender},head_img=#{headImg},mobile_no=#{mobileNo} where id=#{id}
+  </update>
+  
+  
+	  	<select id="findUserMessage" resultType="map" parameterType="String" >
+		select cu.id,cu.nick_name,cu.head_img,ua.id as balanceId,ua.balance from consumer_user cu LEFT JOIN user_account ua on cu.id=ua.user_id where mobile_no = #{telphone}
+		</select>  
+  
+  	<select id="selectByPhone" resultType="com.htkj.cfdScenic.app.model.ConsumerUser" parameterType="String" >
+		select 
+			id,
+			true_name as trueName,
+			user_name as userName,
+			nick_name as nickName,
+			gender,
+			head_img as headImg,
+			mobile_no as mobileNo,
+			password,
+			salt,
+			is_virtual as isVirtual,
+			state,
+			create_time as createTime,
+			creator,
+			open_id as openId,
+			source,
+			user_type as userType,
+			token,
+			address,
+			latitude,
+			longitude,
+			cash_password as cashPassword,
+			id_card as idCard
+		from consumer_user where mobile_no = #{mobileNo}
+	</select>
+    <select id="selectByUserId" resultType="com.htkj.cfdScenic.app.model.ConsumerUser" parameterType="Integer" >
+		select 
+			id as userId,
+			ifnull(true_name,"") as trueName,
+			ifnull(head_img,"") as headImg,
+			ifnull(nick_name,"")as nickName,
+			ifnull(gender,0) as gender,
+			ifnull(mobile_No,"")as mobileNo,
+			ifnull(id_card,"")as idCard,
+			ifnull(password,"") as password 
+			from consumer_user where id = #{id}
+	</select>
+  <select id="selectByUserIdTwo" resultType="com.htkj.cfdScenic.app.model.ConsumerUser" parameterType="Integer" >
+		select 
+			id as userId,
+			ifnull(true_name,"") as trueName,
+			ifnull(head_img,"") as headImg,
+			ifnull(nick_name,"")as nickName,
+			ifnull(gender,0) as gender,
+			ifnull(mobile_No,"")as mobileNo,
+			ifnull(id_card,"")as idCard,
+			ifnull(password,"") as password,
+			ifnull(open_id,"") as openId
+			from consumer_user where id = #{id}
+	</select>
+  
+	<update id="updateUUID" parameterType="com.htkj.cfdScenic.app.model.ConsumerUser">	
+  		UPDATE consumer_user set token = #{token} where id=#{id}
+	</update>
+  
+  
+  	<insert id="insertMessage" parameterType="com.htkj.cfdScenic.app.model.ConsumerUser">
+		insert into consumer_user 
+		(id,
+		true_name,
+		user_name,
+		nick_name,
+		gender,
+		head_img,
+		mobile_no,
+		password,
+		salt,
+		is_virtual,
+		state,
+		create_time,
+		creator,
+		open_id,
+		source,
+		user_type,
+		token,
+		address,
+		latitude,
+		longitude,
+		cash_password) 
+		values 
+		(#{id,jdbcType=BIGINT},
+		#{trueName,jdbcType=VARCHAR},
+		#{userName,jdbcType=VARCHAR},
+		#{nickName,jdbcType=VARCHAR},
+		#{gender,jdbcType=INTEGER},
+		#{headImg,jdbcType=VARCHAR},
+		#{mobileNo,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{salt,jdbcType=VARCHAR},
+		#{isVirtual,jdbcType=INTEGER},
+		#{state,jdbcType=INTEGER},
+		now(),
+		#{creator,jdbcType=VARCHAR},
+		#{openId,jdbcType=VARCHAR},
+		#{source,jdbcType=INTEGER},
+		#{userType,jdbcType=INTEGER},
+		#{token,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{latitude,jdbcType=VARCHAR},
+		#{longitude,jdbcType=VARCHAR},
+		#{cashPassword,jdbcType=VARCHAR})
+	</insert>
+  
+  
+	<select id="findUserByOpenId" resultType="com.htkj.cfdScenic.app.model.ConsumerUser" parameterType="String" >
+		select * from consumer_user where open_id = #{openId}
+	</select>
+  
+  
+  	<update id="updateMessage" parameterType="com.htkj.cfdScenic.app.model.ConsumerUser">	
+  		UPDATE consumer_user set open_id = #{openId},token = #{token} where id=#{id}
+	</update>
+  	<select id="getPayPassWord" parameterType="long" resultType="string">
+  		select cash_password from consumer_user where id = #{userId,jdbcType=NUMERIC}
+  	</select>
+	<update id="updatePayPassWord" parameterType="map">
+		update consumer_user set cash_password = #{passWord}
+		<if test="realName!=null">
+		,true_name=#{realName}
+		</if>
+		<if test="idCard!=null">
+		,id_card=#{idCard}
+		</if>
+		where id = #{id}
+	</update>
+	
+	<update id="updateMessages" parameterType="com.htkj.cfdScenic.app.model.ConsumerUser">	
+  		UPDATE consumer_user set password = #{password} where mobile_no=#{mobileNo}
+	</update>
+  	<select id="getUserPassWordByUserId" parameterType="long" resultType="string">
+  		select cash_password  from consumer_user where id = #{userId}
+  	</select>
+
+    <update id="updateState" parameterType="com.htkj.cfdScenic.app.model.ConsumerUser">
+        UPDATE consumer_user SET state = #{state} WHERE id = #{id}
+    </update>
+
+    <select id="getConsumerUserList" parameterType="map" resultType="map">
+        SELECT
+          cu.id,
+          cu.true_name AS trueName,
+          cu.user_name AS userName,
+          cu.nick_name AS nickName,
+          cu.gender,
+          cu.mobile_no AS mobileNo,
+          cu.is_virtual AS isVirtual,
+          cu.state,
+          cu.create_time AS createTime,
+          cu.source,
+          cu.address,
+          cu.id_card AS idCard
+        FROM
+          consumer_user cu
+        <where>
+            <if test="@Ognl@isNotBlank(nickName)">
+               AND cu.nick_name LIKE CONCAT('%',#{nickName},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(mobileNo)">
+               AND cu.mobile_no LIKE CONCAT('%',#{mobileNo},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(state)">
+               AND cu.state LIKE CONCAT('%',#{state},'%')
+            </if>
+        </where>
+        ORDER BY cu.create_time DESC
+    </select>
+    <select id="getConsumerUserList_count" parameterType="map" resultType="int">
+        SELECT
+          COUNT(1)
+        FROM
+          consumer_user cu
+        <where>
+            <if test="@Ognl@isNotBlank(nickName)">
+                AND cu.nick_name LIKE CONCAT('%',#{nickName},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(mobileNo)">
+                AND cu.mobile_no LIKE CONCAT('%',#{mobileNo},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(state)">
+                AND cu.state LIKE CONCAT('%',#{state},'%')
+            </if>
+        </where>
+        ORDER BY cu.create_time DESC
+    </select>
+</mapper>

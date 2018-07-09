@@ -1,0 +1,43 @@
+var userBankManager = {
+	delUrl : "./background/UserInfo/deleteUserBankByUserBankId", 
+	init : function() {
+		$(window).load(function() {
+
+		});
+	},
+	del : function() {
+		var row = $('#userBank').datagrid('getSelected');
+		if (!row) {
+			eu.showMsg("请选择一行信息");
+			return;
+		}
+		$.messager.confirm("提示信息", "您确定要删除所选数据吗？,删除后不可恢复!", function(r) {
+			if (r) {
+				$.post(userBankManager.delUrl, {
+					userBankId : row.userBankId
+				}).success(function(data) {
+					if (data.success) {
+						eu.showMsg("删除成功！");
+						$("#userBank").datagrid('reload');
+					} else {
+						eu.showMsg(data);
+					}
+				}).error(function(data) {
+					eu.showMsg("系统错误，请联系管理员！");
+				})
+			} else {
+				$('#userBank').datagrid('clearSelections');
+			}
+		});
+	},
+	serch : function () {
+ 			var nickName = $('#searchValueName').val();
+ 			var BANKCARD = $('#searchValueBank').val();
+ 			
+ 			$('#userBank').datagrid('load',{nickName: nickName,BANKCARD:BANKCARD});
+ 			$('#userBank').datagrid('clearSelections');
+ 			$('#searchValueName').val("");  
+ 			$('#searchValueBank').val("");  
+	}
+};
+userBankManager.init();

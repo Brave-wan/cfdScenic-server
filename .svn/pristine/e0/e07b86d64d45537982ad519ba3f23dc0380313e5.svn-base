@@ -1,0 +1,65 @@
+package com.htrj.base.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htrj.base.dao.BaseMenuDao;
+import com.htrj.base.model.BaseMenu;
+import com.htrj.base.model.SysUser;
+import com.htrj.common.page.DataTree;
+
+@Service
+@Transactional
+public class BaseMenuService {
+	
+	@Autowired(required=false)
+	private BaseMenuDao baseMenuDao;
+	
+	/**
+	 * 
+	 * @Title: finUserMenu 
+	 * @Description: TODO(根据参数查询菜单信息，用于登录后进入主页面左侧的列表显示。) 
+	 * @param: @param baseMenu 封装的参数信息
+	 * @param: @return 
+	 * @return: List<BaseMenu> 查询到的菜单列表   
+	 * @throws
+	 */
+	public List<BaseMenu> findUserMenu(BaseMenu BaseMenu){
+		return baseMenuDao.findUserMenu(BaseMenu);
+	}
+	
+	/**
+	 * 
+	 * @Title: getMenuTree 
+	 * @Description: TODO(将从数据库中取出的BaseMenu列表转化成DataTree列表) 
+	 * @param: @param baseMenuParam
+	 * @param: @return    
+	 * @return: List<DataTree>    
+	 * @throws
+	 */
+	public List<DataTree> getMenuTree(BaseMenu baseMenuParam){
+		List<BaseMenu> baseMenuList = findUserMenu(baseMenuParam);
+		List<DataTree> dataTreeList = new ArrayList<DataTree>();
+		for(BaseMenu baseMenu : baseMenuList){
+			DataTree dt = new DataTree();
+			Map<String, Object> map = new HashMap<String, Object>();
+			dt.setId(baseMenu.getBmId());
+			dt.setPid(baseMenu.getBmParentId());
+			dt.setIconCls(baseMenu.getBmIcon());
+			dt.setText(baseMenu.getBmName());
+			dt.setState(baseMenu.getState()==0? DataTree.STATE_OPEN:DataTree.STATE_CLOASED);
+			map.put("url", baseMenu.getBmUrl());
+			map.put("menudes", baseMenu.getBmRemark());
+			dt.setAttributes(map);
+			dt.setChildren(new ArrayList());
+			dataTreeList.add(dt);
+		}
+		return dataTreeList;
+	}
+}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.PushMessageDao">
+<resultMap type="com.htkj.cfdScenic.app.model.PushMessage" id="PushMessage">
+<id property="id" column="id"/>
+<result property="shopInformationId" column="shop_information_id"/>
+<result property="orderCode" column="order_code"/>
+<result property="type" column="type"/>
+<result property="title" column="title"/>
+<result property="detailId" column="detail_id"/>
+<result property="image" column="image"/>
+<result property="createDate" column="create_date"/>
+</resultMap>
+<select id="getMyMessage" parameterType="map" resultMap="PushMessage">
+	select
+		*
+	from
+		push_message
+	where
+		user_id = ${userId}
+	order by create_date desc
+</select>
+<select id="getMyMessage_count" parameterType="map" resultType="int">
+	select
+		count(1)
+	from
+		push_message
+	where
+		user_id = ${userId}
+</select>
+
+		<select id="pressPCList" parameterType="map" resultType="map">
+		select 
+		*
+		from push_message where 1=1
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="userId != null">
+			 and user_id = #{userId}
+			</if>
+	</select>
+	<select id="pressPCList_count" resultType="int" parameterType="map">
+	select 
+		count(1)  
+		from push_message where 1=1
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="userId != null">
+			 and user_id = #{userId}
+			</if>
+	</select>
+	
+	<select id="getPushMessageList" parameterType="map" resultType="map">
+        SELECT
+          p.id,
+          p.title,
+          p.user_id,
+          p.detail_id,
+          p.image,
+          DATE_FORMAT(p.create_date,'%Y-%m-%d %H:%i:%s') as createTime,
+          ht.content_text AS content
+        FROM
+          push_message p LEFT JOIN html_text ht ON p.detail_id = ht.id
+        WHERE 1 = 1
+          <if test="@Ognl@isNotBlank(createTime)">
+            AND p.create_date LIKE CONCAT('%',#{createTime},'%')
+          </if>
+          ORDER BY  p.create_date DESC
+    </select>
+	
+    <select id="getPushMessageList_count" parameterType="map" resultType="int">
+        SELECT
+          COUNT(1)
+        FROM
+          push_message p LEFT JOIN html_text ht ON p.detail_id = ht.id
+        WHERE 1=1
+        <if test="@Ognl@isNotBlank(createTime)">
+            AND p.create_date LIKE CONCAT('%',#{createTime},'%')
+          </if>
+          ORDER BY  p.create_date DESC
+    </select>
+	
+	<insert id="insertPushMessageBatch" parameterType="map" >
+		insert into push_message
+		values
+		<foreach collection="pushMessageList" item="item" index="index" separator="," >  
+			(#{item.id},#{item.userId},#{item.detailId},#{item.orderCode},#{item.type},#{item.title},#{item.image},#{item.createDate})
+		</foreach>
+	</insert>
+	
+	
+	
+	
+	
+	<insert id="insertPushMessage" parameterType="com.htkj.cfdScenic.app.model.PushMessage">
+		INSERT INTO push_message
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+				id,
+				</if>
+				<if test="userId != null">
+				user_id,
+				</if>
+				<if test="detailId != null">
+				detail_id,
+				</if>
+				<if test="image != null">
+				image,
+				</if>
+				<if test="orderCode != null">
+				order_code,
+				</if>
+				<if test="type != null">
+				type,
+				</if>
+				<if test="title != null">
+				title,
+				</if>
+				<if test="createDate != null">
+				create_date,
+				</if>
+				
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+				#{id},
+				</if>
+				<if test="userId != null">
+				#{userId},
+				</if>
+				<if test="detailId != null">
+				#{detailId},
+				</if>
+				<if test="image != null">
+				#{image},
+				</if>
+				<if test="orderCode != null">
+				#{orderCode},
+				</if>
+				<if test="type != null">
+				#{type},
+				</if>
+				<if test="title != null">
+				#{title},
+				</if>
+				<if test="createDate != null">
+				#{createDate},
+				</if>
+			</trim>
+	</insert>
+
+
+</mapper>

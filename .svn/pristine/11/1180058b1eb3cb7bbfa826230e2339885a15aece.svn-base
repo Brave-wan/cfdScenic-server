@@ -1,0 +1,71 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.OpenDateListDao;
+import com.htkj.cfdScenic.app.dao.VisitorsDao;
+import com.htkj.cfdScenic.app.dao.HtmlTextDao;
+import com.htkj.cfdScenic.app.model.OpenDateList;
+import com.htkj.cfdScenic.app.model.Visitors;
+import com.htrj.common.base.BaseService;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+
+@Service
+@Transactional
+public class VisitorsService extends BaseService{
+	@Autowired
+	private VisitorsDao visitorsDao;
+	@Autowired
+	private OpenDateListDao openDateListDao;
+	@Autowired
+	private HtmlTextDao visitorsProfilesDao;
+	
+	public List<Map<String, String>> scenicSpotList() {
+		return visitorsDao.scenicSpotList();
+	}
+
+	public Map<String, Object> scenicSpotParticulars(Long id) {
+		return visitorsDao.scenicSpotParticulars(id);
+	}
+
+	public List<Map<String, String>> obscureSelect(String name) {
+		return visitorsDao.obscureSelect(name);
+	}
+
+	public List<Map<String, String>> selectMessage(String name) {
+		return visitorsDao.selectMessage(name);
+	}
+
+	public List<Map<String, String>> tagsVisitors() {
+		return visitorsDao.tagsVisitors();
+	}
+
+	public List<Map<String,Object>> scenicSpotLimitPage(Map map) {
+		return visitorsDao.scenicSpotLimitPage(map);
+	}
+
+	public DataGrid shopListLimit(PageRequest<Map<String, Object>> pageRequest) {
+		Page returnPage = visitorsDao.shopListLimit(pageRequest);
+		return DataGrid.pageToDataGrid(returnPage);
+	}
+
+	public Map<String, String> oneShopMessage(Long id) {
+		return visitorsDao.oneShopMessage(id);
+	}
+
+	public List<Map<String, Object>> selectOpenDateListByVisitorsId(Long visitorsId) {
+		return openDateListDao.selectOpenDateListByVisitorsId(visitorsId);
+	}
+
+	public String selectDetailHtmlById(Long noticeId) {
+		return visitorsProfilesDao.selectDetailHtmlById(noticeId);
+	}
+
+}

@@ -1,0 +1,33 @@
+var clearingManager = {
+	clearingUrl : "./background/Order/clearingOrder",
+	init : function(){
+		$(window).load(function(){
+			
+		});
+	},	
+	clearing : function(){
+		$.messager.confirm("提示信息","您确定对"+$('#bTime').val()+"-"+$('#eTime').val()+"时间段进行结算吗？",function(r){
+			if(r){
+				$.post(clearingManager.clearingUrl)
+				.success(function(data){
+								if(data.success){
+									eu.showMsg("结算成功！");
+									$("#shareRuleGid").datagrid('reload');
+								}else{
+									eu.showMsg(data);
+								}
+							}
+						).error(function(data){
+				        	eu.showMsg("系统错误，请联系管理员！");
+				        })
+			}else{
+				$('#shareRuleGid').datagrid('clearSelections');
+			}
+			});
+	},
+	search : function () {
+ 		$('#shareRuleGid').datagrid('load',{type: $('#searchValue1').combobox('getValue'),oType: $('#searchValue2').combobox('getValue'),nick: $('#searchValue3').val(),orderId: $('#searchValue4').val()});
+		$('#shareRuleGid').datagrid('clearSelections');
+	}
+};
+clearingManager.init();

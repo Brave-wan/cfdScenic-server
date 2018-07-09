@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.RestaurantPackageDao">
+<resultMap type="com.htkj.cfdScenic.app.model.RestaurantPackage" id="RestaurantPackage">
+<id property="id" column="id"/>
+<result property="shopInformationId" column="shop_information_id"/>
+<result property="goodsIds" column="goods_ids"/>
+<result property="name" column="name"/>
+<result property="createDate" column="create_date"/>
+<result property="isRecomment" column="is_recomment"/>
+<result property="price" column="price"/>
+<result property="newPrice" column="new_price"/>
+<result property="state" column="state"/>
+<result property="headImg" column="head_img"/>
+<result property="stock" column="stock"/>
+<result property="isRecomment" column="is_recomment"/>
+<result property="isHot" column="is_hot"/>
+<result property="noticeId" column="notice_id"/>
+</resultMap>
+
+	<select id="findPackageGoodsById" parameterType="long" resultType="map">
+		select 
+			rp.id,rp.name,rp.price,rp.new_price,rp.head_img
+		from
+			restaurant_package rp 
+		where 
+			rp.shop_information_id = #{id}
+	</select>
+	<select id="findPackageByPackageId" parameterType="long" resultType="map">
+		select
+			rp.id as packageId,
+			rp.name,
+			si.address,
+			rp.goods_ids,
+			ht.html_url,
+			si.phone
+		from
+			restaurant_package rp left join shop_information si on rp.shop_information_id = si.id left join html_text ht on ht.id = rp.notice_id 
+		where
+			rp.id = #{id}
+	</select>
+	<select id="selectRestaurantOrderByOrderCode" parameterType="string" resultType="map">
+		select 
+			ro.id,
+			ro.goods_type,
+			si.name,
+			ro.name as orderName
+			DATE_FORMAT(ro.eat_date,'%Y-%m-%d %h:%i:%s') AS eat_date,
+			DATE_FORMAT(ro.create_time,'%Y-%m-%d %h:%i:%s') AS create_time,
+			sum(ro.quantity) as quantity,
+			sum(ro.real_price) as real_price,
+			ro.price,
+			ro.order_code,
+			ua.balance
+		from
+			restaurant_order ro join shop_information si on ro.shop_information_id = si.id left join user_account ua on ro.user_id = ua.user_id
+		where
+			ro.order_code = #{order_code,jdbcType=VARCHAR}	
+	</select>
+	<insert id="insertByPrimaryKey" parameterType="com.htkj.cfdScenic.app.model.RestaurantPackage" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO restaurant_package
+		 <trim prefix="(" suffix=")" suffixOverrides=",">
+               <if test="id != null">
+               id,
+               </if>
+                <if test="shopInformationId != null">
+               shop_information_id,
+               </if>
+                <if test="goodsIds != null">
+               goods_ids,
+               </if>
+                <if test="name != null">
+               name,
+               </if>
+                <if test="createDate != null">
+               create_date,
+               </if>
+                <if test="price != null">
+               price,
+               </if>
+                <if test="newPrice != null">
+               new_price,
+               </if>
+                <if test="state != null">
+               state,
+               </if>
+                <if test="headImg != null">
+               head_img,
+               </if>
+                <if test="stock != null">
+               stock,
+               </if>
+                <if test="isRecomment != null">
+               is_recomment,
+               </if>
+                <if test="isHot != null">
+               is_hot,
+               </if>
+                 <if test="noticeId != null">
+               notice_id,
+               </if>
+        </trim>
+          <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+               #{id},
+               </if>
+                <if test="shopInformationId != null">
+               #{shopInformationId},
+               </if>
+                <if test="goodsIds != null">
+               #{goodsIds},
+               </if>
+                <if test="name != null">
+               #{name},
+               </if>
+                <if test="createDate != null">
+               #{createDate},
+               </if>
+                <if test="price != null">
+               #{price},
+               </if>
+                <if test="newPrice != null">
+               #{newPrice},
+               </if>
+                <if test="state != null">
+               #{state},
+               </if>
+                <if test="headImg != null">
+               #{headImg},
+               </if>
+                <if test="stock != null">
+               #{stock},
+               </if>
+                <if test="isRecomment != null">
+               #{isRecomment},
+               </if>
+                <if test="isHot != null">
+               #{isHot},
+               </if>
+                 <if test="noticeId != null">
+               #{noticeId},
+               </if>
+          </trim>
+	</insert>
+	 <update id="updateByPrimaryKeySelective" parameterType="com.htkj.cfdScenic.app.model.RestaurantPackage">
+        UPDATE restaurant_package
+          <set>
+                <if test="shopInformationId != null">
+               shop_information_id = #{shopInformationId},
+               </if>
+                <if test="goodsIds != null">
+               goods_ids = #{goodsIds},
+               </if>
+                <if test="name != null">
+               name = #{name},
+               </if>
+                <if test="createDate != null">
+               create_date = #{createDate},
+               </if>
+                <if test="price != null">
+               price = #{price},
+               </if>
+                <if test="newPrice != null">
+               new_price = #{newPrice},
+               </if>
+                <if test="state != null">
+               state = #{state},
+               </if>
+                <if test="headImg != null">
+               head_img = #{headImg},
+               </if>
+                <if test="stock != null">
+               stock = #{stock},
+               </if>
+                <if test="isRecomment != null">
+               is_recomment = #{isRecomment},
+               </if>
+                <if test="isHot != null">
+               is_hot = #{isHot},
+               </if>
+                 <if test="noticeId != null">
+               notice_id = #{noticeId},
+               </if>
+          </set>
+        WHERE
+          id = #{id}
+    </update>
+      <delete id="deleteSelective" parameterType="Long">
+        DELETE FROM restaurant_package
+         WHERE id = #{id}
+    </delete>
+     <select id="getList" parameterType="map" resultType="map">
+     select id,name as goodsName,price,new_price as newPrice,is_recomment as isRecomment,head_img as describeImg,stock from restaurant_package where shop_information_id = #{shopInformationId}
+     </select>
+     <select id="getList_count" parameterType="map" resultType="int">
+     	select count(1) from restaurant_package where shop_information_id = #{shopInformationId}
+     </select>
+     <select id="getshopInformationList"  parameterType="map" resultType="map">
+     	select * from restaurant_package where id = #{id}
+     </select>
+</mapper>

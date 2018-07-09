@@ -1,0 +1,147 @@
+package com.htkj.cfdScenic.app.service;
+
+import com.htkj.cfdScenic.app.dao.ConsumerUserDao;
+import com.htkj.cfdScenic.app.dao.ShopInformationDao;
+import com.htkj.cfdScenic.app.dao.ShopsGroupDao;
+import com.htkj.cfdScenic.app.model.ConsumerUser;
+import com.htkj.cfdScenic.app.model.ShopInformation;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+@Transactional
+public class ShopInformationService {
+	
+	@Autowired
+	private ConsumerUserDao consumerUserDao;
+	@Autowired
+	private ShopInformationDao shopInformationDao;
+    @Autowired
+    private ShopsGroupDao shopsGroupDao;
+
+	
+	/**
+	 * @Title: getUserIdByToken
+	 * @Description: TODO(跟据token查询用户ID)
+	 * @param token
+	 * @return
+	 */
+	public Long getUserIdByToken(String token){
+		return consumerUserDao.getUserIdByToken(token);
+	}
+	
+	public void insertShopInformation(ShopInformation shopInformation)
+	{
+		shopInformationDao.insertShopInformation(shopInformation);
+	}
+
+
+	public void editDatum(ConsumerUser consumerUser) {
+		consumerUserDao.editDatum(consumerUser);
+	}
+
+
+	public Integer selectById(Long userId) {
+		return consumerUserDao.selectById(userId);
+	}
+	
+	public ShopInformation getInforMationByid(Long id)
+	{
+		return shopInformationDao.findDetailInformationByID(id);
+	}
+
+	public ConsumerUser selectByPhone(String mobileNo) {
+		return consumerUserDao.selectByPhone(mobileNo);
+	}
+
+	public ConsumerUser selectByUserId(Long id) {
+		return consumerUserDao.selectByUserId(id);
+	}
+
+	public Integer updateUUID(ConsumerUser userMessage) {
+		return consumerUserDao.updateUUID(userMessage);
+	}
+
+	public void updateInformation(ShopInformation shopInformation) {
+	       shopInformationDao.updateInformation(shopInformation);
+	}
+
+
+	public Integer insertMessage(ConsumerUser user) {
+		return consumerUserDao.insertMessage(user);
+	}
+
+
+	public ConsumerUser findUserByOpenId(String openId) {
+		return consumerUserDao.findUserByOpenId(openId);
+	}
+
+
+	public void updateMessage(ConsumerUser user) {
+		consumerUserDao.updateMessage(user);
+	}
+
+
+	public Integer update(ConsumerUser consumerUser) {
+		return consumerUserDao.updateMessages(consumerUser);
+	}
+
+
+	public Map<String, Object> storeMessage(Map<String, Object> map) {
+		return shopInformationDao.storeMessage(map);
+	}
+	
+	public Map<String, Object> findUserMessage(String telphone) {
+		return consumerUserDao.findUserMessage(telphone);
+	}
+
+	public String getUserPassWordByUserId(Long userId) {
+		return consumerUserDao.getUserPassWordByUserId(userId);
+	}
+
+    public ShopInformation selectAllShopInformation(Long id){
+        return shopInformationDao.selectAllShopInformation(id);
+    }
+
+    public DataGrid getShopInformationList(PageRequest<Map<String, Object>> pageRequest) {
+        DataGrid data = new DataGrid();
+        try {
+            Page page = shopInformationDao.getShopInformationList(pageRequest);
+            data = DataGrid.pageToDataGrid(page);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        return data;
+    }
+
+    public List<Map<String, Object>> getType() {
+        return shopsGroupDao.getType();
+    }
+
+    public int insert(ShopInformation shopInformation) {
+        return shopInformationDao.insert(shopInformation);
+    }
+
+    public int updateByPrimaryKeySelective(ShopInformation shopInformation) {
+        return shopInformationDao.updateByPrimaryKeySelective(shopInformation);
+    }
+
+    public Map<String, Object> selectByPrimaryKey(Long id) {
+        return shopInformationDao.selectByPrimaryKey(id);
+    }
+
+    public int deleteByPrimaryKey(Long id) {
+        return shopInformationDao.deleteByPrimaryKey(id);
+    }
+
+    public void audit(ShopInformation shopInformation) {
+        shopInformationDao.audit(shopInformation);
+    }
+}

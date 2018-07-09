@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.HtmlTextDao">
+
+	<select id="scenicSpotParticulars" resultType="map">
+		select 
+		id,
+		name,
+		html_url,
+		DATE_FORMAT(create_time,'%Y-%c-%d %h:%i:%s') as create_time 
+		from 
+		html_text 
+		where 
+		type=1 and state=0 limit 1
+	</select>
+	<select id="getContentUrlById" parameterType="long" resultType="string">
+		select
+			html_url
+		from 
+			profiles
+		where
+			id = #{goodsId}
+	</select>
+	<select id="wetLandSynopsis" resultType="map" parameterType="Integer">
+		select 
+		id,
+		name,
+		html_url,
+		DATE_FORMAT(create_time,'%Y-%c-%d %h:%i:%s') as create_time 
+		from 
+		html_text 
+		where 
+		type=#{type} and state=0 limit 1
+	</select>
+	<select id="selectDetailHtmlById" parameterType="long" resultType="map">
+		select
+			html_url,
+			content_text
+		from 
+			html_text
+		where
+			id = #{noticeId} and type = 4 and state = 0
+	</select>
+	<select id="getNoticeByNoticeId" parameterType="long" resultType="string">
+		select
+			html_url
+		from
+			html_text
+		where
+			id = #{notice_id} and type = 3 and state = 0
+	</select>
+	<select id="getPlanningOrIntroduce" parameterType="long" resultType="string">
+		select
+			html_url
+		from
+			html_text
+		where
+			1 = 1
+			<if test="_parameter == 1">
+				and type = 0
+			</if>
+			<if test="_parameter == 2">
+				and type = 1
+			</if>
+		limit 1
+	</select>
+</mapper>

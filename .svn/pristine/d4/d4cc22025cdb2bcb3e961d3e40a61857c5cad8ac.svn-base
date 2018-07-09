@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.ShopCartDao">
+	<select id="getShopCartByUserId" parameterType="long" resultType="map">
+		SELECT 
+			sc.id as shopCartId,
+			sg.id as shopGoodsId,
+			su.id as shopInformationId,			
+			sc.user_id,
+			sc.number,
+			sg.goods_name,
+			sg.goods_describe,
+			sg.price,
+			sg.new_price,
+			sg.stock,
+			su.name
+		FROM 
+			shop_cart sc LEFT JOIN shop_goods sg ON sc.shop_id = sg.id LEFT JOIN shop_information su ON sg.shop_information_id = su.id	
+		WHERE
+			sc.user_id = #{userId} AND sc.state = 0 AND sg.state = 0 
+	</select>
+	<delete id="deleteShopCartById" parameterType="string">
+		delete from shop_cart where id in (#{ids})
+	</delete>
+	<insert id="saveShopCart" parameterType="com.htkj.cfdScenic.app.model.ShopCart">
+		insert into shop_cart(
+				id,
+				user_id,
+				shop_information_id,
+				number,
+				state,
+				createtime
+		)values(
+				#{id,jdbcType=NUMERIC},
+				#{userId,jdbcType=NUMERIC},
+				#{shopInformationId,jdbcType=NUMERIC},
+				#{number},
+				#{state},
+				NOW()
+		)
+	</insert>
+	<update id="updateShopCart" parameterType="map">
+		update shop_cart set number = #{number} where id = #{id}
+	</update>
+</mapper>

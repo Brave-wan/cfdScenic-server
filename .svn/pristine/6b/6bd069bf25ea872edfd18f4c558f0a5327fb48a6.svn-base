@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.InvoiceDao">
+
+<resultMap type="com.htkj.cfdScenic.app.model.Invoice" id="Invoice">
+<id property="id" column="id"/>
+<result property="payUnitName" column="pay_unit_name"/>
+<result property="einNumber" column="ein_number"/>
+<result property="invoiceNumber" column="invoice_number"/>
+<result property="invoiceMoney" column="invoice_money"/>
+<result property="invoiceTime" column="invoice_time"/>
+<result property="invoiceState" column="invoice_state"/>
+<result property="orderCode" column="order_code"/>
+<result property="linkId" column="link_id"/>
+<result property="createTime" column="create_time"/>
+<result property="type" column="type"/>
+</resultMap>
+	<select id="SelectById" resultMap="Invoice" parameterType="Long">
+		select * from invoice where id = #{id}
+	</select>
+	<update id="updateById" parameterType="com.htkj.cfdScenic.app.model.Invoice">
+	UPDATE invoice
+	<set>
+		<if test="payUnitName != null">
+			pay_unit_name = #{payUnitName},
+		</if>
+		<if test="einNumber != null">
+			ein_number = #{einNumber},
+		</if>
+		<if test="invoiceNumber != null">
+			invoice_number = #{invoiceNumber},
+		</if>
+		<if test="invoiceMoney != null">
+			invoice_money = #{invoiceMoney},
+		</if>
+		<if test="invoiceTime != null">
+			invoice_time = #{invoiceTime},
+		</if>
+		<if test="invoiceState != null">
+			invoice_state = #{invoiceState},
+		</if>
+		<if test="orderCode != null">
+			order_code = #{orderCode},
+		</if>
+		<if test="linkId != null">
+			link_id = #{linkId},
+		</if>
+		<if test="createTime != null">
+			create_time = #{createTime},
+		</if>
+		<if test="type != null">
+			type = #{type},
+		</if>
+	</set>
+	WHERE id = #{id}
+</update>
+	<insert id="saveInvoice" parameterType="com.htkj.cfdScenic.app.model.Invoice">
+	insert into invoice
+	<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="payUnitName != null">
+				pay_unit_name,
+			</if>
+			<if test="einNumber != null">
+				ein_number,
+			</if>
+			<if test="invoiceNumber != null">
+				invoice_number,
+			</if>
+			<if test="invoiceMoney != null">
+				invoice_money,
+			</if>
+			<if test="invoiceTime != null">
+				invoice_time,
+			</if>
+			<if test="invoiceState != null">
+				invoice_state,
+			</if>
+			<if test="orderCode != null">
+				order_code,
+			</if>
+			<if test="linkId != null">
+				link_id,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="payUnitName != null">
+				#{payUnitName},
+			</if>
+			<if test="einNumber != null">
+				#{einNumber},
+			</if>
+			<if test="invoiceNumber != null">
+				#{invoiceNumber},
+			</if>
+			<if test="invoiceMoney != null">
+				#{invoiceMoney},
+			</if>
+			<if test="invoiceTime != null">
+				#{invoiceTime},
+			</if>
+			<if test="invoiceState != null">
+				#{invoiceState},
+			</if>
+			<if test="orderCode != null">
+				#{orderCode},
+			</if>
+			<if test="linkId != null">
+				#{linkId},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="type != null">
+				#{type},
+			</if>
+		</trim>
+	</insert>
+	<select id="SelectByLinkId" parameterType="long" resultType="map">
+		select
+			*
+		from
+			invoice
+		where
+			link_id = #{linkId}
+			order by create_time
+	</select>
+	<select id="SelectAll" parameterType="map" resultType="map">
+		select
+			*
+		from
+			invoice
+		<where>
+			<if test="@Ognl@isNotBlank(invoiceNumber)">
+				invoice_number = #{invoiceNumber}
+			</if>
+			<if test="@Ognl@isNotBlank(invoiceState)">
+				and invoice_state = #{invoiceState}
+			</if>
+			<if test="@Ognl@isNotBlank(orderCode)">
+				and order_code = #{orderCode}
+			</if>
+			<if test="@Ognl@isNotBlank(einNumber)">
+				and ein_number = #{einNumber}
+			</if>
+			<if test="@Ognl@isNotBlank(linkId)">
+				and link_id = #{linkId}
+			</if>
+			<if test="@Ognl@isNotBlank(type)">
+				and type = #{type}
+			</if>
+		</where>
+		order by create_time desc
+	</select>
+	<select id="SelectAll_count" parameterType="map" resultType="int">
+		select
+			count(1)
+		from
+			invoice
+		<where>
+			<if test="@Ognl@isNotBlank(invoiceNumber)">
+				invoice_number = #{invoiceNumber}
+			</if>
+			<if test="@Ognl@isNotBlank(invoiceState)">
+				and invoice_state = #{invoiceState}
+			</if>
+			<if test="@Ognl@isNotBlank(orderCode)">
+				and order_code = #{orderCode}
+			</if>
+			<if test="@Ognl@isNotBlank(einNumber)">
+				and ein_number = #{einNumber}
+			</if>
+		</where>
+	</select>
+	<delete id="deleteInvoice" parameterType="long">
+		delete from invoice where id = #{id}
+	</delete>
+    <insert id="insertSelective" parameterType="com.htkj.cfdScenic.app.model.Invoice">
+        INSERT INTO invoice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="payUnitName != null" >
+                pay_unit_name,
+            </if>
+            <if test="einNumber != null" >
+                ein_number,
+            </if>
+            <if test="invoiceNumber != null" >
+                invoice_number,
+            </if>
+            <if test="invoiceMoney != null" >
+                invoice_money,
+            </if>
+            <if test="invoiceTime != null" >
+                invoice_time,
+            </if>
+            <if test="invoiceState != null" >
+                invoice_state,
+            </if>
+            <if test="orderCode != null" >
+                order_code,
+            </if>
+            <if test="linkId != null" >
+                link_id,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="type != null" >
+                type,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null" >
+                #{id},
+            </if>
+            <if test="payUnitName != null" >
+                #{payUnitName},
+            </if>
+            <if test="einNumber != null" >
+                #{einNumber},
+            </if>
+            <if test="invoiceNumber != null" >
+                #{invoiceNumber},
+            </if>
+            <if test="invoiceMoney != null" >
+                #{invoiceMoney},
+            </if>
+            <if test="invoiceTime != null" >
+                #{invoiceTime},
+            </if>
+            <if test="invoiceState != null" >
+                #{invoiceState},
+            </if>
+            <if test="orderCode != null" >
+                #{orderCode},
+            </if>
+            <if test="linkId != null" >
+                #{linkId},
+            </if>
+            <if test="createTime != null" >
+                #{createTime},
+            </if>
+            <if test="type != null" >
+                #{type},
+            </if>
+        </trim>
+    </insert>
+</mapper>

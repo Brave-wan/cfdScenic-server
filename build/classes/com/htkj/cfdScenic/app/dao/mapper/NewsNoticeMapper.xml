@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.NewsNoticeDao">
+
+	<select id="pressList" resultType="map">
+		select 
+		id, 
+		name, 
+		news_describe, 
+		header_img, 
+		content, 
+		creator, 
+		DATE_FORMAT(create_time,'%Y-%c-%d %h:%i:%s') as create_time,
+		creator_id  
+		from news_notice where type = 1
+	</select>
+	
+	<select id="pressList_count" resultType="INTEGER">
+		select 
+		count(1)  
+		from news_notice where type = 1
+	</select>
+	
+	<select id="pressDetails" resultType="map" parameterType="long">
+		select 
+		id, 
+		name, 
+		news_describe, 
+		header_img, 
+		content, 
+		creator, 
+		content_url,
+		DATE_FORMAT(create_time,'%Y-%c-%d %h:%i:%s') as create_time, 
+		creator_id  
+		from news_notice where id=#{id} and type = 1 
+	</select>
+	  <insert id="insertSelective" parameterType="com.htkj.cfdScenic.app.model.NewsNotice">
+        INSERT INTO news_notice
+          <trim prefix="(" suffix=")" suffixOverrides=",">
+              <if test="id != null">
+                  id,
+              </if>
+              <if test="name != null">
+                  name,
+              </if>
+              <if test="newsDescribe != null">
+                  news_describe,
+              </if>
+              <if test="headerImg != null">
+                  header_img,
+              </if>
+              <if test="content != null">
+                  content,
+              </if>
+              <if test="creator != null">
+                  creator,
+              </if>
+              <if test="createTime != null">
+                  create_time,
+              </if>
+              <if test="creatorId != null">
+                  creator_id,
+              </if>
+              <if test="type != null">
+                  type,
+              </if>
+              <if test="contentUrl != null">
+                  content_url,
+              </if>
+          </trim>
+          <trim prefix="values (" suffix=")" suffixOverrides=",">
+              <if test="id != null">
+                  #{id},
+              </if>
+              <if test="name != null">
+                  #{name},
+              </if>
+              <if test="newsDescribe != null">
+                #{newsDescribe},
+              </if>
+              <if test="headerImg != null">
+                 #{headerImg},
+              </if>
+              <if test="content != null">
+                  #{content},
+              </if>
+              <if test="creator != null">
+                  #{creator},
+              </if>
+              <if test="createTime != null">
+                  #{createTime},
+              </if>
+              <if test="creatorId != null">
+                 #{creatorId},
+              </if>
+              <if test="type != null">
+                  #{type},
+              </if>
+              <if test="contentUrl != null">
+                 #{contentUrl},
+              </if>
+          </trim>
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.htkj.cfdScenic.app.model.NewsNotice" >
+        UPDATE news_notice
+          <set>
+              <if test="name != null">
+                  name = #{name},
+              </if>
+              <if test="newsDescribe != null">
+                  news_describe = #{newsDescribe},
+              </if>
+              <if test="headerImg != null">
+                  header_img = #{headerImg},
+              </if>
+              <if test="content != null">
+                  content = #{content},
+              </if>
+              <if test="creator != null">
+                  creator = #{creator},
+              </if>
+              <if test="createTime != null">
+                  create_time = #{createTime},
+              </if>
+              <if test="creatorId != null">
+                  creator_id = #{creatorId},
+              </if>
+              <if test="type != null">
+                  type = #{type},
+              </if>
+              <if test="contentUrl != null">
+                  content_url = #{contentUrl},
+              </if>
+          </set>
+        WHERE id = #{id}
+    </update>
+     <delete id="delete" parameterType="Long">
+        DELETE FROM news_notice
+         WHERE id = #{id}
+    </delete>
+</mapper>

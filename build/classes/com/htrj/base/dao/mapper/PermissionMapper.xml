@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htrj.base.dao.PermissionDao">
+	<resultMap type="com.htrj.base.model.Permission" id="BaseResultMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+	</resultMap>
+	<select id="pageGetpermissionList" parameterType="map" resultType="map">
+		SELECT * FROM per_role where id!=1
+	</select>
+	<select id="pageGetpermissionList_count" resultType="int" parameterType="map">
+		SELECT COUNT(1) FROM per_role where id!=1
+	</select>
+	<select id="selectmenu" resultType="map">
+		select * from basemenu
+	</select>
+	<select id="selectxzmenu" resultType="map" parameterType="map">
+		select * from baserolemenu where brid = #{brid}
+	</select>
+</mapper>

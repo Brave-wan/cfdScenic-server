@@ -1,0 +1,24 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.PushMessageDao;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+
+@Service
+@Transactional
+public class PuchMessageService {
+	@Autowired
+	private PushMessageDao puchMessageDao;
+	
+	public DataGrid pressPCList(PageRequest<Map<String, Object>> pageRequest) {
+		Page returnPage = puchMessageDao.pressPCList(pageRequest);
+		return DataGrid.pageToDataGrid(returnPage);
+	}
+}

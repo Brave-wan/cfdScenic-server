@@ -1,0 +1,15 @@
+package com.htkj.cfdScenic.app.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.htkj.cfdScenic.app.model.GoodsOrder;
+import com.htkj.cfdScenic.app.model.RefundCause;
+import com.htrj.common.base.BaseDao;
+
+@Repository
+public class RefundCauseDao extends BaseDao{
+
+	public void saveRefundCause(RefundCause refundCause) {
+		getSqlSession().insert(getStatementName("saveRefundCause"),refundCause);
+	}
+}

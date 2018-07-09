@@ -1,0 +1,152 @@
+package com.htkj.cfdScenic.app.model;
+
+import com.htrj.common.base.BaseEntity;
+
+/**
+ * 店铺信息
+ * @author:lishilong
+ * @date:2016年7月27日
+ */
+public class ShopInformation extends BaseEntity{
+	/**
+	 * Title:
+	 * HttpUrl:
+	 * @author:Administrator
+	 * @date:2016年7月27日
+	 */
+	private static final long serialVersionUID = -2095628394969483884L;
+	private Long id;//主键
+	private String name;//店铺名称
+	private String headImg;//头像
+	private String address;//地址
+	private String latitude;//经度
+	private String longitude;//纬度
+	private String phone;//电话
+	private Integer isWifi;//是否有无线
+	private Integer isYushi;//是否有浴室
+	private Integer isBlss;//是否有便利设施
+	private Integer isMedia;//是否有媒体或科技
+	private Integer isFood;//是否有食品或者饮品
+	private String content;//内容介绍
+	private String backgroudImg;//背景图
+	private String startDate;//就餐开始时间
+	private String endDate;//毕餐时间
+	private Long shopId;//店铺分类Id
+	private Long shopUserId;//商户Id
+	private String payNotes;//购买须知
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getHeadImg() {
+		return headImg;
+	}
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public Integer getIsWifi() {
+		return isWifi;
+	}
+	public void setIsWifi(Integer isWifi) {
+		this.isWifi = isWifi;
+	}
+	public Integer getIsYushi() {
+		return isYushi;
+	}
+	public void setIsYushi(Integer isYushi) {
+		this.isYushi = isYushi;
+	}
+	public Integer getIsBlss() {
+		return isBlss;
+	}
+	public void setIsBlss(Integer isBlss) {
+		this.isBlss = isBlss;
+	}
+	public Integer getIsMedia() {
+		return isMedia;
+	}
+	public void setIsMedia(Integer isMedia) {
+		this.isMedia = isMedia;
+	}
+	public Integer getIsFood() {
+		return isFood;
+	}
+	public void setIsFood(Integer isFood) {
+		this.isFood = isFood;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getBackgroudImg() {
+		return backgroudImg;
+	}
+	public void setBackgroudImg(String backgroudImg) {
+		this.backgroudImg = backgroudImg;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	public String getPayNotes() {
+		return payNotes;
+	}
+	public void setPayNotes(String payNotes) {
+		this.payNotes = payNotes;
+	}
+	public Long getShopId() {
+		return shopId;
+	}
+	public void setShopId(Long shopId) {
+		this.shopId = shopId;
+	}
+	public Long getShopUserId() {
+		return shopUserId;
+	}
+	public void setShopUserId(Long shopUserId) {
+		this.shopUserId = shopUserId;
+	}
+	
+}

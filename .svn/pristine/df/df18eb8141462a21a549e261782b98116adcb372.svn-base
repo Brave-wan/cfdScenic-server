@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.ShopUserDao">
+
+
+
+<!-- 	根据token查询id -->
+	<select id="getShopUserIdByToken" resultType="java.lang.Long" parameterType="String">
+		select
+			id
+		from
+			shop_user 
+		where
+			shop_token = #{token}
+	</select>
+
+	<select id="selectById" parameterType="long" resultType="INTEGER">
+		select count(1) from shop_user where id = #{userId}
+	</select>
+
+	<select id="selectByPhone" parameterType="String" resultType="com.htkj.cfdScenic.app.model.ShopUser">
+		select * from shop_user where telphone = #{telPhone}
+	</select>
+	
+	<select id="selectByUserId" parameterType="Long" resultType="com.htkj.cfdScenic.app.model.ShopUser">
+		select id,
+	name,
+	telphone,
+	nickname,
+	password,
+	sex,
+	age,
+	realname,
+	shop_Information_Id as shopInformationId,
+	createtime,
+	shop_token,
+	idcard,
+	state from shop_user where id = #{userId}
+	</select>
+	
+	<update id="updateUUID" parameterType="com.htkj.cfdScenic.app.model.ShopUser">
+		update shop_user set shop_token = #{shopToken} where id = #{id}
+	</update>
+	
+	<update id="updatePassWord" parameterType="com.htkj.cfdScenic.app.model.ShopUser">
+		update shop_user set password = #{passWord} where telphone = #{telPhone}
+	</update>
+	
+	
+	<insert id="insertMessage" parameterType="com.htkj.cfdScenic.app.model.ShopUser">
+	insert into 
+	shop_user 
+	(id,
+	name,
+	telphone,
+	nickname,
+	password,
+	sex,
+	age,
+	realname,
+	shop_Information_Id,
+	createtime,
+	shop_token,
+	idcard,
+	state
+	) values (
+	#{id},
+	#{name},
+	#{telPhone},
+	#{nickName},
+	#{passWord},
+	#{sex},
+	#{age},
+	#{realName},
+	#{shopInformationId},
+	now(),
+	#{shopToken},
+	#{idCard},
+	#{state}
+	)
+	</insert>
+	
+	
+	<select id="shopUserMessage" parameterType="Long" resultType="map">
+		select 
+		si.name,
+		si.shop_id,
+		si.business_scope,
+		si.account_type,
+		si.account_name,
+		si.bank_card,
+		si.account_bank,
+		si.is_license,
+		si.license_img,
+		si.other_img1,
+		si.other_img2 
+		from  shop_information si LEFT JOIN shop_user su on si.id=su.shop_information_id where su.id = #{id}
+	</select>
+	
+	
+	<select id="shopAutonymMessage" parameterType="Long" resultType="map">
+		select 
+		si.realname,
+		si.sex,
+		si.idcard,
+		si.hold_card_img,
+		si.face_card_img,
+		si.back_card_img 
+		from shop_information si LEFT JOIN shop_user su on si.id=su.shop_information_id where su.id =  #{id}
+	</select>
+	
+</mapper>

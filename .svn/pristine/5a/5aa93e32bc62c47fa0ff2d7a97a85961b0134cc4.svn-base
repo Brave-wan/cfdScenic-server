@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.AdvertisingPageDao">
+	<select id="getAdvertisingPage" parameterType="map" resultType="map">
+		SELECT
+			id,
+			type,
+			html_id,
+			name
+		FROM
+			advertising_page
+		WHERE
+			1 = 1
+			<if test="type != '' and type != null">
+				AND type = ${type}
+			</if>
+			<if test="name != '' and name != null">
+				AND name = #{name}
+			</if>
+	</select>
+	<select id="getAdvertisingPage_count" parameterType="map" resultType="int">
+		SELECT
+			count(1)
+		FROM
+			advertising_page
+		WHERE
+			1 = 1
+			<if test="type != '' and type != null">
+				AND type = ${type}
+			</if>
+			<if test="name != '' and name != null">
+				AND name = #{name}
+			</if>
+	</select>
+	<select id="getAdvertisingPageDetail" parameterType="map" resultType="map">
+		SELECT
+			ap.id,
+			ap.type,
+			ap.html_id as htmlId,
+			ap.name,
+			ht.content_html as contentHtml
+		FROM
+			advertising_page ap LEFT JOIN html_text ht ON ap.html_id = ht.id
+		WHERE
+			ap.id = #{id}
+	</select>
+	<insert id="saveAdvertisingPage" parameterType="com.htkj.cfdScenic.app.model.AdvertisingPage">
+		INSERT INTO advertising_page
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="name != null">
+					name,
+				</if>
+				<if test="htmlId != null">
+					html_id,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="name != null">
+					#{name},
+				</if>
+				<if test="htmlId != null">
+					#{htmlId},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+			</trim>
+	</insert>
+	<update id="updateAdvertisingPage" parameterType="com.htkj.cfdScenic.app.model.AdvertisingPage">
+		UPDATE advertising_page
+		<set>
+             <if test="name != null">
+                 name = #{name},
+             </if>
+             <if test="htmlId != null">
+                 html_id = #{htmlId},
+             </if>
+             <if test="type != null">
+                 type = #{type},
+             </if>
+         </set>
+       WHERE id = #{id}
+	</update>
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM advertising_page WHERE id = #{id}
+	</delete>
+</mapper>

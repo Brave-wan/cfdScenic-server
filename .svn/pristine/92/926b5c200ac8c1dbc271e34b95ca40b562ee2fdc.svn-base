@@ -1,0 +1,161 @@
+<%@ page contentType="text/html; charset=UTF-8"
+	trimDirectiveWhitespaces="true"%>
+<%@ include file="/WEB-INF/views-commons/header.jsp"%>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" style="height: 220px;">
+		<div class="panel_title">
+			<div style="float: left; padding: 10px">
+				<i class="curLoca"></i><font class="fontbold">当前位置:</font>系统管理-申请与推荐
+			</div>
+		</div>
+		<div class="titlediv">
+			<div class="titleTxt">
+				<h2>查询条件</h2>
+				<em></em>
+			</div>
+		</div>
+		<div class="querydiv">
+			<c:if test="${t == 0}">
+				<p>
+					<label for="searchValue">审核状态：</label> <select id="searchValue1"
+						class="easyui-combobox"
+						data-options="panelHeight: 'auto',editable:false">
+						<option checked value="">请选择审核状态</option>
+						<option value="0">审核中</option>
+						<option value="1">审核通过</option>
+						<option value="2">审核失败</option>
+					</select>
+				</p>
+				<p>
+					<label for="searchValue">昵称：</label><input id="searchValue2"  class="easyui-validatebox inputquery" placeholder="请输入昵称" /> 
+				</p>
+				<p>
+					<label for="searchValue">内容：</label> <input id="searchValue3" class="easyui-validatebox inputquery" placeholder="请输入内容" />
+				</p>
+				<p>
+					<label for="searchValue">赞数：</label> <input id="searchValue4" class="easyui-validatebox inputquery" placeholder="请输入赞数" />
+				</p>
+				<p>
+					<label for="searchValue">踩数：</label> <input id="searchValue5" class="easyui-validatebox inputquery" placeholder="请输入踩数" />
+				</p>
+				<p>
+					<label for="searchValue">收藏数：</label> <input id="searchValue6" class="easyui-validatebox inputquery" placeholder="请输入收藏数" />
+				</p>
+				<p>
+					<label for="searchValue">评论数：</label> <input id="searchValue7" class="easyui-validatebox inputquery" placeholder="请输入评论数" />
+				</p>
+				<p>
+					<label for="searchValue">帖子类型：</label> <select id="searchValue8"
+						class="easyui-combobox"
+						data-options="panelHeight: 'auto',editable:false">
+						<option value="" checked>请选择类型</option>
+						<option value="1" >视频</option>
+						<option value="2">图片</option>
+						<option value="3">文字</option>
+					</select>
+				</p>
+			</c:if>
+			<c:if test="${t == 1}">
+				<p>
+					<label for="searchValue">审核状态：</label> <select id="searchValue1"
+						class="easyui-combobox"
+						data-options="panelHeight: 'auto',editable:false">
+						<option checked value="">请选择审核状态</option>
+						<option value="0">审核中</option>
+						<option value="2">审核通过</option>
+						<option value="1">审核失败</option>
+					</select>
+				</p>
+				<p>
+					<label for="searchValue">标题：</label><input id="searchValue2"  class="easyui-validatebox inputquery" placeholder="请输入标题" /> 
+				</p>
+				<p>
+					<label for="searchValue">行程天数：</label> <input id="searchValue3" class="easyui-validatebox inputquery" placeholder="请输入行程天数" />
+				</p>
+				<p>
+					<label for="searchValue">路线费用：</label> <input id="searchValue4" class="easyui-validatebox inputquery" placeholder="请输入路线费用" />
+				</p>
+				<p>
+					<label for="searchValue">目的地：</label> <input id="searchValue6" class="easyui-validatebox inputquery" placeholder="请输入目的地" />
+				</p>
+				<p>
+					<label for="searchValue">线路类型：</label> <select id="searchValue7"
+						class="easyui-combobox"
+						data-options="panelHeight: 'auto',editable:false">
+						<option checked value="">请选择线路类型</option>
+						<option value="2">专属</option>
+						<option value="1">经典败</option>
+					</select>
+				</p>
+			</c:if>
+			<p>
+				<a href="javascript:void(0)" class="easyui-linkbutton"
+					iconCls="icon-search" onclick="recommendCheckManager.serch()">查询</a>
+			</p>
+		</div>
+		<div class="titlediv">
+			<div class="titleTxt">
+				<h2>申请与推荐</h2>
+				<em></em>
+			</div>
+		</div>
+		<div class="menubtndiv">
+			<a id="recommendCheckCYBtn" href="javascript:void(0)"
+				onclick="recommendCheckManager.toCheck(1)" class="easyui-linkbutton"
+				iconCls="icon-redo">审核通过</a> <a id="recommendCheckCNBtn"
+				href="javascript:void(0)" onclick="recommendCheckManager.toCheck(2)"
+				class="easyui-linkbutton" iconCls="icon-redo">审核失败</a><a
+				id="recommendCheckRYBtn" href="javascript:void(0)"
+				onclick="recommendCheckManager.toRecommend(1)" class="easyui-linkbutton"
+				iconCls="icon-add">推荐</a><a
+				id="recommendCheckRNBtn" href="javascript:void(0)"
+				onclick="recommendCheckManager.toRecommend(0)" class="easyui-linkbutton"
+				iconCls="icon-add">取消推荐</a>
+		</div>
+
+	</div>
+	<div data-options="region:'center',border:true">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'">
+				<table id="recommendChecGid">
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<input type="hidden" id="nowType" value="${t}" />
+
+<div id="recommendCheckWindow" class="easyui-window" title="审核失败原因" data-options="closed:true,inline:true,onOpen:recommendCheckManager.clearForm"
+	style="width: 420px; height: 380px; padding: 5px;">
+	<div class="easyui-layout" data-options="fit:true">
+		<div data-options="region:'center'" style="padding: 10px;">
+			<form id="recommendCheckForm">
+				<p>
+					<label class="blob">审核意见</label>
+					<textarea class="easyui-validatebox text660" id="cause" name="cause" maxlength="150"></textarea>
+				</p>
+			</form>
+		</div>
+		<div data-options="region:'south',border:false" style="text-align: right; padding: 5px 0 0;">
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="recommendCheckManager.submit()">确定</a>
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="recommendCheckManager.cancel()">取消</a>
+		</div>
+	</div>
+	<input type="hidden" id="nowId" value="-1" />
+</div>
+<div id="ImgWindow" class="easyui-window" title="图片查看" data-options="closed:true,inline:true"
+	style="width: 420px; height: 380px; padding: 5px;">
+	<div class="easyui-layout" data-options="fit:true">
+		<div data-options="region:'center'" style="padding: 10px;">
+				<p>
+					<img alt="图片暂时无法显示" style="width: 350px;height: auto" src="" id="showImg">
+				</p>
+		</div>
+		<div data-options="region:'south',border:false" style="text-align: right; padding: 5px 0 0;">
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="$('#ImgWindow').window('close');">关闭</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript"
+	src="scripts/opensource/background/recommendCheck/Manager.js"></script>
+<%@ include file="/WEB-INF/views-commons/footer.jsp"%>

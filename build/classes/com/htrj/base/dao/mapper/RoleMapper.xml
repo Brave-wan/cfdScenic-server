@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.htrj.base.dao.RoleDao">
+	   <select id="findAll" resultType="role" parameterType="java.lang.Integer">
+	   	SELECT  * FROM role WHERE 1=1 <if test="@Ognl@isNotBlank(brid)">and brid = #{brid}</if>
+	   </select>
+	   <insert id="insert" parameterType="Role" useGeneratedKeys="true" keyProperty="id">
+	   		insert into role
+	   		<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+					brid,
+					menuid,
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+					#{brid},
+					#{menuid},
+			</trim>
+	   </insert>
+	   <update id="update" parameterType="java.lang.Long">
+	   	update 
+	   		role b 
+	   	<set>
+	   		b.brid = #{brid},
+	   		b.menuid = #{menuid},
+	   	</set>
+	   	where 
+	   		b.id =#{id}
+	   </update>
+   </mapper>

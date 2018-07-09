@@ -1,0 +1,26 @@
+package com.htkj.cfdScenic.app.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.htrj.common.base.BaseController;
+
+/**
+ * Title:pc端景区管理controller
+ * @author:lishilong
+ * @date:2016年9月2日
+ */
+@Controller
+@RequestMapping("/background/visitorsManage")
+public class VisitorsManageController extends BaseController{
+	
+	/**
+	 * Title:景点管理主页面
+	 * @author:lishilong
+	 * @date:2016年9月2日
+	 */
+	@RequestMapping("/toVisitorsManage")
+	public String toVisitorsManage(){
+		return "/background/visitors/Manager";
+	}
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.htrj.base.dao.PerRoleDao">
+	   <select id="findAll" resultType="PerRole" parameterType="map">
+	   	SELECT  * FROM per_role 
+	   	<where>
+	   		<if test="type!=null">
+	   			type = #{type}
+	   		</if>
+	   	</where>
+	   </select>
+	    <select id="findAll_count" resultType="java.lang.Integer" parameterType="map" >
+	   	select 
+	   		count(1)
+  		from 
+  			per_role	
+  		<where>
+	   		<if test="type!=null">
+	   			type = #{type}
+	   		</if>
+	   	</where>
+	   </select>
+	   <insert id="insert" parameterType="PerRole" useGeneratedKeys="true" keyProperty="id">
+	   		insert into per_role
+	   		<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="name != null">
+					name,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="name != null">
+					#{name},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+			</trim>
+	   </insert>
+	   <update id="update" parameterType="java.lang.Long">
+	   	update 
+	   		per_role 
+	   	<set>
+		   		name=#{name},
+		   		type=#{type}
+	   	</set>
+	   	where 
+	   		id =#{id}
+	   </update>
+	   <delete id="del" parameterType="java.lang.Long">
+	   	delete from
+	   		per_role
+	   	where
+	   		id = #{id}
+	   </delete>
+   </mapper>

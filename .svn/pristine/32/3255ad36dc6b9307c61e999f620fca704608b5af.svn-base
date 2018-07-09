@@ -1,0 +1,56 @@
+package com.htkj.cfdScenic.app.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.htkj.cfdScenic.app.model.GoodsOrder;
+import com.htrj.common.base.BaseDao;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+
+@Repository
+public class GoodsOrderDao extends BaseDao<GoodsOrder,Integer>{
+	
+	/**
+	 * 保存购物车订单
+	 */
+	public void saveGoodsOrder(GoodsOrder goodsOrder){
+		getSqlSession().insert(getStatementName("saveGoodsOrder"),goodsOrder);
+	}
+
+	public List findGoodsOrderById(Map map) {
+		return getSqlSession().selectList(getStatementName("findGoodsOrderById"),map);
+	}
+
+	public void updateGoodsOrder(Map map) {
+		getSqlSession().update(getStatementName("updateGoodsOrder"),map);
+	}
+
+	public void updateUndoGoodsOrder(Long id) {
+		getSqlSession().update(getStatementName("updateUndoGoodsOrder"),id);
+	}
+	
+	public void shopOrderChange(Map map) {
+		getSqlSession().update(getStatementName("shopOrderChange"),map);
+	}
+	
+	//获取特产订单
+	public List<Map<String,Object>> findGoodsOrder(Map map) {
+		return getSqlSession().selectList(getStatementName("findGoodsOrder"),map);
+	}
+	
+	//获取特产订单
+	public List<Map<String,Object>> findShopGoodsOrder(Map map) {
+		return getSqlSession().selectList(getStatementName("findShopGoodsOrder"),map);
+	}
+
+	public Map<String, Object> findGoodsOrderDetail(Long orderId) {
+		return getSqlSession().selectOne(getStatementName("findGoodsOrderDetail"),orderId);
+	}
+
+	public void goodsBackMoney(Map map) {
+		getSqlSession().update(getStatementName("goodsBackMoney"),map);
+	}
+}

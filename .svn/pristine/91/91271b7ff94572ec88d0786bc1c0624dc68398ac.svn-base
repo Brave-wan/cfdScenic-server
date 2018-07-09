@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.GoodsOrderDao">
+<resultMap type="com.htkj.cfdScenic.app.model.GoodsOrder" id="GoodsOrder">
+<id property="id" column="id"/>
+<result property="name" column="name"/>
+<result property="orderDescribe" column="order_describe"/>
+<result property="price" column="price"/>
+<result property="deliverDate" column="deliver_date"/>
+<result property="quantity" column="quantity"/>
+<result property="payWay" column="pay_way"/>
+<result property="payState" column="payState"/>
+<result property="orderState" column="order_state"/>
+<result property="createTime" column="create_time"/>
+<result property="payTime" column="pay_time"/>
+<result property="refundTime" column="refund_time"/>
+<result property="userId" column="user_id"/>
+<result property="realPrice" column="real_price"/>
+<result property="orderCode" column="order_code"/>
+<result property="isComment" column="is_comment"/>
+<result property="goodsId" column="goods_id"/>
+<result property="shopInformationId" column="shop_information_id"/>
+<result property="addressId" column="address_id"/>
+<result property="deliverFee" column="deliver_fee"/>
+<result property="isPickup" column="is_pickup"/>
+<result property="isUpdatePrice" column="is_update_price"/>
+<result property="isDeliverFee" column="is_deliver_fee"/>
+<result property="isDelete" column="is_delete"/>
+</resultMap>
+	<insert id="saveGoodsOrder" parameterType="com.htkj.cfdScenic.app.model.GoodsOrder">
+	insert into goods_order
+	<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="orderDescribe != null">
+				order_describe,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="deliverDate != null">
+				deliver_date,
+			</if>
+			<if test="quantity != null">
+				quantity,
+			</if>
+			<if test="payWay != null">
+				pay_way,
+			</if>
+			<if test="payState != null">
+				pay_state,
+			</if>
+			<if test="orderState != null">
+				order_state,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="payTime != null">
+				pay_time,
+			</if>
+			<if test="refundTime != null">
+				refund_time,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="realPrice != null">
+				real_price,
+			</if>
+			<if test="orderCode != null">
+				order_code,
+			</if>
+			<if test="isComment != null">
+				is_comment,
+			</if>
+			<if test="goodsId != null">
+				goods_id,
+			</if>
+			<if test="shopInformationId != null">
+				shop_information_id,
+			</if>
+			<if test="addressId != null">
+				address_id,
+			</if>
+			<if test="deliverFee != null">
+				deliver_fee,
+			</if>
+			<if test="isPickup != null">
+				is_pickup,
+			</if>
+			<if test="isUpdatePrice != null">
+				is_update_price,
+			</if>
+			<if test="isDeliverFee != null">
+				is_deliver_fee,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="orderDescribe != null">
+				#{orderDescribe},
+			</if>
+			<if test="price != null">
+				#{price},
+			</if>
+			<if test="deliverDate != null">
+				#{deliverDate},
+			</if>
+			<if test="quantity != null">
+				#{quantity},
+			</if>
+			<if test="payWay != null">
+				#{payWay},
+			</if>
+			<if test="payState != null">
+				#{payState},
+			</if>
+			<if test="orderState != null">
+				#{orderState},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="payTime != null">
+				#{payTime},
+			</if>
+			<if test="refundTime != null">
+				#{refundTime},
+			</if>
+			<if test="userId != null">
+				#{userId},
+			</if>
+			<if test="realPrice != null">
+				#{realPrice},
+			</if>
+			<if test="orderCode != null">
+				#{orderCode},
+			</if>
+			<if test="isComment != null">
+				#{isComment},
+			</if>
+			<if test="goodsId != null">
+				#{goodsId},
+			</if>
+			<if test="shopInformationId != null">
+				#{shopInformationId},
+			</if>
+			<if test="addressId != null">
+				#{addressId},
+			</if>
+			<if test="deliverFee != null">
+				#{deliverFee},
+			</if>
+			<if test="isPickup != null">
+				#{isPickup},
+			</if>
+			<if test="isUpdatePrice != null">
+				#{isUpdatePrice},
+			</if>
+			<if test="isDeliverFee != null">
+				#{isDeliverFee},
+			</if>
+		</trim>
+	</insert>
+	<select id="getShopInformation" parameterType="long" resultType="long">
+		select
+			shop_information_id
+		from
+			goods_order
+		where
+			order_code = #{orderCode} limit 1
+	</select>
+	<select id="findGoodsOrderById" parameterType="map" resultType="map">
+		select
+			go.id, 
+			go.name,
+			go.price,
+			go.quantity,
+			go.real_price,
+			go.order_code,
+			ua.balance,
+			go.is_update_price,
+			go.is_deliver_fee
+		from 
+			goods_order go left join user_account ua on go.user_id = ua.user_id
+		where order_code in (${orderCode})
+	</select>
+	<update id="updateGoodsOrder" parameterType="map">
+		update goods_order set order_state = 3 AND pay_way = #{payWay} AND pay_time = #{payTime} AND pay_state = 1 where order_code = #{orderCode} 
+	</update>	
+		<update id="shopOrderChange" parameterType="map">
+		update goods_order set order_state = #{status}  where order_code = #{orderCode} 
+	</update>
+	
+	<update id="updateUndoGoodsOrder" parameterType="long">
+		update goods_order set order_state = 2 where id = #{id} 
+	</update>	
+	<select id="findGoodsOrder" parameterType="map" resultType="map">
+		SELECT
+			si.name as shopName,
+			si.head_img,
+			go.id,
+			go.name,
+			sg.goods_name as goodsName,
+			go.order_describe,
+			go.price,
+			go.quantity,
+			go.order_state,
+			go.pay_state,
+			go.order_code,
+			sg.describe_img,
+			go.is_update_price,
+			go.is_deliver_fee,
+			sg.price,
+			sg.new_price,
+			go.deliver_fee,
+			go.is_update_price,
+			go.is_deliver_fee,
+			go.real_price
+		FROM
+			goods_order go JOIN shop_information si on si.id = go.shop_information_id JOIN shop_goods sg ON go.goods_id = sg.id
+		WHERE
+			go.user_id = #{userId,jdbcType=NUMERIC} AND go.is_delete = 0 AND go.pay_state in (${payState}) AND go.order_state in (${orderState}) and go.is_deliver_fee = 0 order by go.create_time desc
+	</select>
+	<select id="findGoodsOrder_count" parameterType="map" resultType="int">
+		SELECT
+			count(1)
+		FROM
+			goods_order go JOIN shop_information si on si.id = go.shop_information_id JOIN shop_goods sg ON go.goods_id = sg.id
+		WHERE
+			go.user_id = #{userId,jdbcType=NUMERIC} AND go.is_delete = 0 AND go.pay_state in (${payState}) AND go.order_state in (${orderState}) order by go.create_time desc
+	</select>
+	<select id="findGoodsOrderCount" parameterType="map" resultType="int">
+		SELECT
+			count(1)
+		FROM
+			goods_order go JOIN shop_information si on si.id = go.shop_information_id JOIN shop_goods sg ON go.goods_id = sg.id
+		WHERE
+			go.user_id = #{userId,jdbcType=NUMERIC} AND go.is_delete = 0 AND go.pay_state in (${payState}) AND go.order_state in (${orderState}) and go.is_deliver_fee = 0
+	</select>
+	
+		<select id="findShopGoodsOrder" parameterType="map" resultType="map">
+		SELECT
+			go.id,
+			go.name,
+			go.order_describe,
+			go.price,
+			go.real_price,
+			sg.price as goods_price,
+			sg.new_price as goods_real_price,
+			go.quantity,
+			go.order_state,
+			go.pay_state,
+			go.deliver_fee,
+			go.order_code,
+			sg.describe_img,
+			u.nick_name,u.head_img,go.is_pickup,
+			sg.goods_name
+		FROM
+			goods_order go JOIN shop_goods sg ON go.goods_id = sg.id join consumer_user u on go.user_id = u.id 
+		WHERE
+			go.shop_information_id = #{sfId} AND order_state in (${status}) and is_deliver_fee = 0
+	</select>
+		<select id="findShopGoodsOrder_count" parameterType="map" resultType="int">
+		SELECT
+			count(1)
+		FROM
+			goods_order go JOIN shop_goods sg ON go.goods_id = sg.id join consumer_user u on go.user_id = u.id
+		WHERE
+			go.shop_information_id = #{sfId} AND order_state in (${status}) and is_deliver_fee = 0
+	</select>
+	
+	
+	<select id="findGoodsOrderDetail" parameterType="long" resultType="map">
+		SELECT
+			si.id as informationId,
+			si.name as informationName,
+			go.id as goodsId,
+			go.order_describe,
+			go.price,
+			go.quantity,
+			go.pay_way,
+			go.pay_state,
+			go.order_state,
+			DATE_FORMAT(go.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(go.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			DATE_FORMAT(go.refund_time,'%Y-%m-%d %H:%i:%s') AS refund_time,
+			go.user_id,
+			go.real_price,
+			go.order_code,
+			go.is_comment,
+			go.address_id,
+			go.deliver_fee,
+			go.is_pickup,
+			ua.user_name,
+			ua.telphone,
+			ua.place_address,
+			ua.detail_address,
+			u.nick_name,u.head_img,
+			go.is_update_price,
+			go.is_deliver_fee,
+			sg.describe_img,
+			sg.new_price
+		FROM
+			goods_order go JOIN shop_information si ON go.shop_information_id = si.id JOIN user_address ua ON go.address_id = ua.id  join consumer_user u on go.user_id = u.id left join shop_goods sg on go.goods_id = sg.id 
+		WHERE
+			go.order_code=#{orderId}
+	</select>
+	<update id="goodsBackMoney" parameterType="map">
+		UPDATE goods_order SET order_state = #{orderState} WHERE order_code = #{orderCode}
+		<if test="siId != null and siId != ''">
+		and shop_information_id = ${siId}
+		</if>	
+	</update>
+	<select id="getGoodsOrderByOrderId" parameterType="long" resultMap="GoodsOrder">
+		select * from goods_order where id = #{id}
+	</select>
+	<select id="updateGoodsOrderState" parameterType="long">
+		update goods_order set
+			pay_way = ${payWay},
+			pay_state = 1,
+			order_state = 2,
+			pay_time = now()
+		where order_code = ${id}		
+	</select>
+	<select id="getPayOrderFinshByOrderCode" parameterType="long" resultType="map">
+		select
+			go.id,
+			go.name,	
+			go.order_code,
+			DATE_FORMAT(go.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(go.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			IFNULL(ua.user_name,"") as user_name,
+			IFNULL(ua.telphone,"") as telphone,
+			IFNULL(ua.place_address,"") as place_address,
+			IFNULL(ua.detail_address,"") as detail_address,
+			go.is_deliver_fee
+		from
+			goods_order go left join user_address ua on go.address_id = ua.id
+		where
+			go.order_code = #{orderCode}
+	</select>
+	<delete id="deleteGoodsOrder" parameterType="long">
+		delete from goods_order where order_code = #{orderCode}
+	</delete>
+	<update id="updateGoodsOrderByOrderCode" parameterType="long">
+		update goods_order set is_delete = 1 where order_code = #{orderCode}
+	</update>
+	<select id="informationGoodsOrderDetail" parameterType="map" resultType="map">
+		SELECT
+			si.id as informationId,
+			si.name as informationName,
+			go.id as goodsId,
+			go.order_describe,
+			go.price,
+			go.quantity,
+			go.pay_way,
+			go.pay_state,
+			go.order_state,
+			DATE_FORMAT(go.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(go.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			DATE_FORMAT(go.refund_time,'%Y-%m-%d %H:%i:%s') AS refund_time,
+			go.user_id,
+			go.real_price,
+			go.order_code,
+			go.is_comment,
+			go.address_id,
+			go.deliver_fee,
+			go.is_pickup,
+			ua.user_name,
+			ua.telphone,
+			ua.place_address,
+			ua.detail_address,
+			u.nick_name,u.head_img,
+			go.is_update_price,
+			go.is_deliver_fee,
+			sg.describe_img,
+			sg.price as oldPrice,
+			sg.new_price as newPrice
+		FROM
+			goods_order go LEFT JOIN shop_information si ON go.shop_information_id = si.id LEFT JOIN user_address ua ON go.address_id = ua.id LEFT join consumer_user u on go.user_id = u.id left join shop_goods sg on go.goods_id = sg.id
+		WHERE
+			go.order_code = ${orderCode} and go.shop_information_id = ${informationId}
+	</select>
+	<update id="updateGoodsOrderByorderCodeAll" parameterType="com.htkj.cfdScenic.app.model.GoodsOrder">
+    update goods_order
+    <set >
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="orderDescribe != null" >
+        order_describe = #{orderDescribe},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+      <if test="deliverDate != null" >
+        deliver_date = #{deliverDate},
+      </if>
+      <if test="quantity != null" >
+        quantity = #{quantity},
+      </if>
+      <if test="payWay != null" >
+        pay_way = #{payWay},
+      </if>
+      <if test="payState != null" >
+        pay_state = #{payState},
+      </if>
+      <if test="orderState != null" >
+        order_state = #{orderState},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime},
+      </if>
+      <if test="refundTime != null" >
+        refund_time = #{refundTime},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId},
+      </if>
+      <if test="realPrice != null" >
+        real_price = #{realPrice},
+      </if>
+      <if test="isComment != null" >
+        is_comment = #{isComment},
+      </if>
+      <if test="deliverFee != null" >
+        deliver_fee = #{deliverFee},
+      </if>
+      <if test="isUpdatePrice != null" >
+        is_update_price = #{isUpdatePrice},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete},
+      </if>
+    </set>
+    where order_code = #{orderCode} AND shop_information_id = #{shopInformationId} 
+	</update>
+	<select id="shopFindGoodsOrder" parameterType="map" resultType="map">
+		select
+			go.id,
+			go.name,
+			go.order_describe,
+			go.price,
+			go.real_price,
+			sg.price as goods_price,
+			sg.new_price as goods_real_price,
+			go.quantity,
+			go.order_state,
+			go.pay_state,
+			go.deliver_fee,
+			go.order_code,
+			sg.describe_img,
+			u.nick_name,u.head_img,go.is_pickup,go.is_deliver_fee,
+			sg.new_price,
+			sg.goods_name
+		FROM
+			goods_order go JOIN shop_goods sg ON go.goods_id = sg.id join consumer_user u on go.user_id = u.id
+		where 
+			go.shop_information_id = #{siId} and go.order_state in (${orderState}) and is_deliver_fee = 0
+	</select>
+	<select id="shopFindGoodsOrderDetail" parameterType="map" resultType="map">
+		SELECT
+			si.id as informationId,
+			si.name as informationName,
+			go.id as goodsId,
+			go.order_describe,
+			go.price,
+			go.quantity,
+			go.pay_way,
+			go.pay_state,
+			go.order_state,
+			DATE_FORMAT(go.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(go.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			DATE_FORMAT(go.refund_time,'%Y-%m-%d %H:%i:%s') AS refund_time,
+			go.user_id,
+			go.real_price,
+			go.order_code,
+			go.is_comment,
+			go.address_id,
+			go.deliver_fee,
+			go.is_pickup,
+			ua.user_name,
+			ua.telphone,
+			ua.place_address,
+			ua.detail_address,
+			u.nick_name,u.head_img,
+			go.is_update_price,
+			go.is_deliver_fee,
+			sg.describe_img,
+			sg.price as oldPrice,
+			sg.new_price as newPrice
+		FROM
+			goods_order go LEFT JOIN shop_information si ON go.shop_information_id = si.id LEFT JOIN user_address ua ON go.address_id = ua.id LEFT join consumer_user u on go.user_id = u.id left join shop_goods sg on go.goods_id = sg.id
+		WHERE
+			go.order_code = ${orderCode} and go.shop_information_id = ${siId}
+	</select>
+	<select id="getTodayMoney" parameterType="map" resultType="map">
+		select
+			IFNULL(sum(real_price),0) as realPrice,
+			count(1) as count
+		from 
+			goods_order
+		where
+			shop_information_id = ${siId} and order_state not in (9) and pay_state = 1 and is_delete =0
+		<if test="createTime != '' and createTime != null">
+			and DATE_FORMAT(create_time,'%Y-%m-%d') = #{createTime}
+		</if>
+	</select>
+	<select id="findShopGoodsOrderNotIn" parameterType="map" resultType="map">
+		SELECT
+			go.id,
+			go.name,
+			go.order_describe,
+			go.price,
+			go.real_price,
+			sg.price as goods_price,
+			sg.new_price as goods_real_price,
+			go.quantity,
+			go.order_state,
+			go.pay_state,
+			go.deliver_fee,
+			go.order_code,
+			sg.describe_img,
+			u.nick_name,u.head_img,go.is_pickup,
+			u.id as userId,
+			sg.goods_name,
+			go.is_deliver_fee
+		FROM
+			goods_order go JOIN shop_goods sg ON go.goods_id = sg.id join consumer_user u on go.user_id = u.id 
+		WHERE
+			go.shop_information_id = ${siId} and go.order_state not in (9) and go.pay_state = 1 and go.is_delete = 0
+			<if test="createTime != '' and createTime != null">
+				and DATE_FORMAT(go.create_time,'%Y-%m-%d') = #{createTime}
+			</if> 
+	</select>
+	<select id="selectGoodsOrder" parameterType="map" resultType="map">
+		SELECT
+			go.id,
+			go.name,
+			go.order_describe,
+			go.price,
+			go.real_price,
+			sg.price as goods_price,
+			sg.new_price as goods_real_price,
+			go.quantity,
+			go.order_state,
+			go.pay_state,
+			go.deliver_fee,
+			go.order_code,
+			sg.describe_img,
+			u.nick_name,u.head_img,go.is_pickup,u.id as user_id,
+			sg.goods_name,
+			go.is_deliver_fee
+		FROM
+			goods_order go JOIN shop_goods sg ON go.goods_id = sg.id join consumer_user u on go.user_id = u.id
+		WHERE
+			go.shop_information_id = ${siId} and is_delete =0
+		<if test="orderCode != null">
+		and go.order_code like "%${orderCode}%"
+		</if>
+		<if test="name != null">
+		and u.nick_name like "%${name}%"
+		</if>	</select>
+
+	<select id="pageGetOrderList" parameterType="map" resultType="map">
+		SELECT sum(go.quantity) as quantity,sum(go.real_price) as realPrice,sum(go.price)as price,
+		sg.goods_name as sggoodsname,sum(go.deliver_fee) as deliver_fee,
+			shop.name shopname FROM
+			goods_order go JOIN shop_goods sg ON go.goods_id = sg.id
+			join shop_information shop on
+			shop.id =  go.shop_information_id
+		where 1=1
+		<if test="shopInformationId != null">
+			and go.shop_information_id = #{shopInformationId}
+		</if>
+		<if test="orderState != null">
+			and go.order_state = #{orderState}
+		</if>
+		<if test="createTime != null">
+			and go.create_time like '%${createTime}%'
+		</if>
+		<if test="payTime != null">
+			and go.pay_time like '%${payTime}%'
+		</if>
+		group by go.goods_id
+	</select>
+	<select id="pageGetOrderList_count" resultType="int" parameterType="map">
+		select count(*) from (SELECT COUNT(1) FROM
+		goods_order go JOIN shop_goods sg ON go.goods_id = sg.id join
+		 shop_information shop on
+		  shop.id =  go.shop_information_id
+			where 1=1
+		<if test="shopInformationId != null">
+			and go.shop_information_id = #{shopInformationId}
+		</if>
+		<if test="orderState != null">
+			and go.order_state = #{orderState}
+		</if>
+		<if test="createTime != null">
+			and go.create_time like '%${createTime}%'
+		</if>
+		<if test="payTime != null">
+			and go.pay_time like '%${payTime}%'
+		</if>
+		group by go.goods_id )t
+	</select>
+	<select id="getIsDeliverFeeByOrderCode" parameterType="string" resultType="map">
+		select
+			si.name as shopName,
+			si.head_img,
+			go.id,
+			go.name,
+			sg.goods_name as goodsName,
+			go.order_describe,
+			go.price,
+			go.quantity,
+			go.order_state,
+			go.pay_state,
+			go.order_code,
+			sg.describe_img,
+			go.is_update_price,
+			go.is_deliver_fee,
+			sg.price,
+			sg.new_price,
+			go.deliver_fee,
+			go.is_update_price,
+			go.is_deliver_fee,
+			go.real_price
+		FROM
+			goods_order go JOIN shop_information si on si.id = go.shop_information_id JOIN shop_goods sg ON go.goods_id = sg.id
+		WHERE
+			go.order_code = #{orderCode} and is_deliver_fee = 1
+	</select>
+    <select id="getGoodsOrderList" parameterType="map" resultType="map">
+        SELECT
+          g.*,
+          cu.nick_name AS nickName,
+          sg.goods_name AS goodsName,
+          si.name AS shopName
+        FROM
+          goods_order g LEFT JOIN consumer_user cu ON g.user_id = cu.id LEFT JOIN shop_goods sg ON g.goods_id = sg.id LEFT JOIN shop_information si ON g.shop_information_id = si.id
+        WHERE 1 = 1
+            <if test="@Ognl@isNotBlank(orderCode)">
+                and order_code like CONCAT('%',#{orderCode},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(nickName)">
+                and cu.nick_name like CONCAT('%',#{nickName},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(createTime)">
+                and g.create_time like CONCAT('%',#{createTime},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(orderState)">
+                and g.order_state like CONCAT('%',#{orderState},'%')
+            </if>
+        ORDER BY g.create_time DESC
+    </select>
+    <select id="getGoodsOrderList_count" parameterType="map" resultType="int">
+        SELECT
+          COUNT(1)
+        FROM
+          goods_order g LEFT JOIN consumer_user cu ON g.user_id = cu.id LEFT JOIN shop_goods sg ON g.goods_id = sg.id LEFT JOIN shop_information si ON g.shop_information_id = si.id
+        WHERE 1 = 1
+            <if test="@Ognl@isNotBlank(orderCode)">
+                and order_code like CONCAT('%',#{orderCode},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(nickName)">
+                and cu.nick_name like CONCAT('%',#{nickName},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(createTime)">
+                and g.create_time like CONCAT('%',#{createTime},'%')
+            </if>
+            <if test="@Ognl@isNotBlank(orderState)">
+                and g.order_state like CONCAT('%',#{orderState},'%')
+            </if>
+        ORDER BY g.create_time DESC
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="Long" resultType="map">
+        SELECT
+          g.*,
+          cu.nick_name AS nickName,
+          sg.goods_name AS goodsName,
+          si.name AS shopName
+        FROM
+          goods_order g LEFT JOIN consumer_user cu ON g.user_id = cu.id LEFT JOIN shop_goods sg ON g.goods_id = sg.id LEFT JOIN shop_information si ON g.shop_information_id = si.id
+        WHERE
+          g.id = #{id}
+    </select>
+
+    <update id="deleteGoodsOrderById" parameterType="Long">
+        UPDATE
+            goods_order
+        SET
+            is_delete = 1
+        WHERE
+            id = #{id}
+    </update>
+
+    <update id="updateByOrderCode" parameterType="com.htkj.cfdScenic.app.model.GoodsOrder">
+        UPDATE
+        goods_order
+        SET
+        order_state = #{orderState}
+        WHERE
+        order_code = #{orderCode}
+    </update>
+</mapper>

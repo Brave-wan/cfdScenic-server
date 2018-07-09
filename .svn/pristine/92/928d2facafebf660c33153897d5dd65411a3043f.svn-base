@@ -1,0 +1,41 @@
+package com.htkj.cfdScenic.app.service;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.htkj.cfdScenic.app.dao.HotelOrderDao;
+import com.htkj.cfdScenic.app.model.HotelOrder;
+import com.htrj.common.base.BaseService;
+import com.htrj.common.page.DataGrid;
+import com.htrj.common.page.Page;
+import com.htrj.common.page.PageRequest;
+@Service
+@Transactional
+public class HotelOrderService extends BaseService{
+	@Autowired
+	private HotelOrderDao hotelOrderDao;
+
+	public DataGrid findOrderList(PageRequest<Map<String, Object>> pageRequest) {
+		Page returnPage = hotelOrderDao.findOrderList(pageRequest);
+		return DataGrid.pageToDataGrid(returnPage);
+	}
+
+	public HotelOrder findOrder(String orderCode) {
+		return hotelOrderDao.findOrder(orderCode);
+	}
+
+	public Integer deleteMessage(String orderCode) {
+		return hotelOrderDao.deleteMessage(orderCode);
+	}
+
+	public void updateOrderState(HotelOrder hotelOrder) {
+		hotelOrderDao.updateOrderState(hotelOrder);
+	}
+
+	public void updateState(String orderCode) {
+		hotelOrderDao.updateState(orderCode);
+	}
+}

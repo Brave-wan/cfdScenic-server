@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.TravelogsDao">
+	<select id="getTraveLogs" parameterType="map" resultType="map">
+		SELECT
+			t.id,
+			t.title,
+			t.content,
+			t.travel_img,
+			t.travel_video,
+			DATE_FORMAT(t.createdate,'%Y-%c-%d %h:%i:%s') as createdate,
+			t.address,
+			t.type,
+			cu.nick_name,
+			cu.head_img
+		from 
+			travelogs t join consumer_user cu on t.user_id = cu.id
+			
+			<if test="userId != null and userId != ''">
+			 and t.user_id=#{userId}
+			</if>
+			
+		order by t.createdate desc
+	</select>
+	<select id="getTraveLogs_count" parameterType="map" resultType="int">
+		SELECT
+			count(1)
+		from 
+			travelogs t join consumer_user cu on t.user_id = cu.id
+			
+			<if test="userId != null and userId != NULL and userId != ''">
+			 and t.user_id=#{userId}
+			</if>
+			
+		order by t.createdate desc
+	</select>
+	<select id="getWonderful" parameterType="map" resultType="map">
+		select
+			t.id,
+			t.title,
+			t.content,
+			t.travel_img,
+			t.travel_video,
+			DATE_FORMAT(t.createdate,'%Y-%c-%d %h:%i:%s') as createdate,
+			t.address,
+			t.type,
+			cu.nick_name,
+			cu.head_img
+		from
+			travelogs t join consumer_user cu on t.user_id = cu.id
+		where
+			type = #{type}
+			<if test="userId != null and userId != ''">
+			  and t.user_id=#{userId}
+			</if>
+			
+	</select>
+	<select id="getWonderful_count" parameterType="map" resultType="int">
+		select
+			count(1)
+		from
+			travelogs t join consumer_user cu on t.user_id = cu.id
+		where
+			type = #{type}
+			<if test="userId != null and userId != ''">
+			 and t.user_id=#{userId}
+			</if>
+	</select>
+	<select id="getCommentById" parameterType="map" resultType="map">
+		select
+			uc.id,
+			uc.create_time,
+			uc.have_img,
+			uc.content,cu.nick_name,cu.head_img
+		from
+			user_comment uc join consumer_user cu on uc.link_id = cu.id
+		where
+			link_id = #{id} AND comment_type = 3
+	</select>
+		<select id="getCommentById_count" parameterType="map" resultType="int">
+		select
+			count(1)
+		from
+			user_comment uc join consumer_user cu on uc.link_id = cu.id
+		where
+			link_id = #{id} AND comment_type = 3
+	</select>
+	<insert id="writeCollect" parameterType="com.htkj.cfdScenic.app.model.Travelogs" >
+
+	insert into travelogs(
+	id,
+	title,
+	content,
+	travel_img,
+	travel_video,
+	travel_date,
+	createdate,
+	travel_id,
+	travel_name,
+	type,
+	address,
+	longitude,
+	latitude,
+	user_id
+	)values(
+	#{id,jdbcType=NUMERIC},
+	#{title,jdbcType=VARCHAR},
+	#{content,jdbcType=VARCHAR},
+	#{travelImg,jdbcType=VARCHAR},
+	#{travelVideo,jdbcType=VARCHAR},
+	str_to_date(#{travelDate,jdbcType=VARCHAR},'%Y-%m-%d %H:%i:%s'),
+	now(),
+	#{travelId,jdbcType=NUMERIC},
+	#{travelName,jdbcType=VARCHAR},
+	#{type,jdbcType=NUMERIC},
+	#{address,jdbcType=VARCHAR},
+	#{longitude,jdbcType=VARCHAR},
+	#{latitude,jdbcType=VARCHAR},
+	#{userId,jdbcType=NUMERIC}
+	)
+	
+	</insert>
+	
+	
+</mapper>

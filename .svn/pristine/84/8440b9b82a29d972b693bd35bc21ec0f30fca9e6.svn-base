@@ -1,0 +1,76 @@
+/*重置代码*/
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, del, dfn, em, img, ins, kbd, q, samp, small, strong, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr,
+ th, td, article, aside, footer, header, nav, section{ margin:0; padding:0; border:0; outline:0; font-size:100%; }
+ul,ol,li{list-style:none}
+table{border-collapse:collapse;border-spacing:0;}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea{font-size:100%;font-weight:normal}
+input,img,fieldset{border:none}
+input{vertical-align:middle}
+th,td {padding: 0;}
+.clear{clear:both;}
+.clearfix:after{clear:both;height:0;overflow:hidden;display:block;content:"."}
+.clearfix{*zoom:1}	
+.marginC{ margin:0 auto}
+.clearB { clear: both; height:1px; font-size:1px; overflow: hidden;}
+.fl{float:left}
+.fr{float:right}
+.pr{position:relative}
+.pa{position:absolute}
+.tc{text-align:center !important}
+.tl{text-align:left}
+.tr{text-align:right}
+.fb{font-weight:bold}
+.cl{clear:left}
+.dis{display:block}
+.undis{display:none}
+.disline{display:inline}
+.inline-block{display: inline-block;}
+a{cursor:pointer;text-decoration:none}
+li{list-style:none}
+em,i{font-style:normal}
+*:focus {outline: none}/*去除所有浏览器默认边框*/
+input::-ms-clear{display:none}/*去除IE9以上搜索默认X*/
+
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
+input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none;}/*去除iPhone按钮样式*/
+.b1{ background:#ff4603; text-align:center; border:1px #ff0000 solid;}/*设置所有按钮的样式*/
+.fr{float: right;}
+.pl20{padding-left: 20px;}
+.pt20{padding-top: 20px;}
+.pt30{padding-top: 30px;}
+.mt5{margin-top: 5px;}
+.mt15{margin-top: 15px !important;}
+.mt35{margin-top: 35px !important;}
+.mb10{margin-bottom: 10px;}
+.mb15{margin-bottom: 15px !important;}
+.mb20{margin-bottom: 20px !important;}
+.overflow{overflow: hidden;}
+.mr10{margin-right: 10px;}
+.f12{font-size: 12px;}
+.f14{font-size: 14px;}
+.red{color:#ef7885}
+.border0{border-bottom:0px !important;}
+
+/*新登陆样式*/
+ html { height:100%;}
+ body { height:100%; text-align:center;font:14px/35px "微软雅黑"}
+ .centerDiv { display:inline-block; zoom:1; *display:inline; vertical-align:middle; text-align:center; width:539px; padding:10px; position: relative; }
+ .hiddenDiv { height:100%; overflow:hidden; display:inline-block; width:1px; overflow:hidden; margin-left:-1px; zoom:1; *display:inline; *margin-top:-1px; 
+ 			_margin-top:0; vertical-align:middle;}
+ .centerDiv .login_bg{width:380px;height: 345px;margin:0 auto;background-color: #fff;filter:alpha(opacity=30); -moz-opacity:0.3; -khtml-opacity: 0.3; opacity: 0.3;
+ 			box-shadow: 2px 2px 10px #000;}
+.centerDiv .login_ct{position: absolute;top:100px;width:380px;height: 345px;left: 90px;padding:50px 0 50px 0;}
+.centerDiv input{background-color:transparent;color:#cdd1d5;width:240px;
+				height: 35px;line-height: 35px;font-size: 20px;}
+.centerDiv label{display: inline-block;top: 5px;position: relative;margin-right: 10px;border-bottom: 1px solid #fff;}
+.centerDiv .username_lab{background: url(../../../images/sysHtkj/home/yonghuming.png) no-repeat;width:19px;height: 18px;}
+.centerDiv .password_lab{background: url(../../../images/sysHtkj/home/mima.png) no-repeat;width:15px;height: 18px;}
+.centerDiv .yz_lab{background: url(../../../images/sysHtkj/home/yanzhengma.png) no-repeat;width: 18px;height: 18px;}
+.centerDiv .ct_box{border-bottom: 1px solid #fff;width: 80%;margin:0 auto 5px;position: relative;}
+.centerDiv .yz_pic{position: absolute;top:2px;right:5px;}
+.centerDiv .ct_box .btn{background-color: #fff;font-size: 20px;border-radius: 5px;color:#5d7297;height: 40px;line-height: 40px;display: block;text-align: center;width: 240px;margin:0 auto;}
+.centerDiv .tips{height: 40px;line-height: 40px;color:#fff;}
+.centerDiv .tips span{display: inline-block;position: relative;top:-5px;margin:5px 0 0 5px;font-size: 16px;}

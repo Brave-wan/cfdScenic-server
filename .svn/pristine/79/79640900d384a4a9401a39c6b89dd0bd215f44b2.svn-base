@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.cfdScenic.app.dao.HotelOrderDao">
+
+<resultMap type="com.htkj.cfdScenic.app.model.HotelOrder" id="HotelOrder">
+<id property="id" column="id"/>
+<result property="name" column="name"/>
+<result property="orderDescribe" column="order_describe"/>
+<result property="telphone" column="telphone"/>
+<result property="price" column="price"/>
+<result property="startDate" column="start_date"/>
+<result property="endDate" column="end_date"/>
+<result property="quantity" column="quantity"/>
+<result property="payWay" column="pay_way"/>
+<result property="payState" column="payState"/>
+<result property="orderState" column="order_state"/>
+<result property="createTime" column="create_time"/>
+<result property="payTime" column="pay_time"/>
+<result property="refundTime" column="refund_time"/>
+<result property="userId" column="user_id"/>
+<result property="realPrice" column="real_price"/>
+<result property="orderCode" column="order_code"/>
+<result property="isComment" column="is_comment"/>
+<result property="goodsId" column="goods_id"/>
+<result property="shopInformationId" column="shop_information_id"/>
+<result property="checkDays" column="check_days"/>
+<result property="isBalance" column="is_balance"/>
+<result property="isDelete" column="is_delete"/>
+</resultMap>
+	<insert id="saveHotelOrder" parameterType="com.htkj.cfdScenic.app.model.HotelOrder">
+		insert into hotel_order(
+				id,
+				name,
+				order_describe,
+				telphone,
+				price,
+				start_date,
+				end_date,
+				quantity,
+				pay_way,
+				pay_state,
+				order_state,
+				create_time,
+				user_id,
+				real_price,
+				order_code,
+				is_comment,
+				goods_id,
+				shop_information_id,
+				check_days,
+				is_balance,
+				is_delete
+		)values(
+				#{id,jdbcType=NUMERIC},
+				#{name,jdbcType=VARCHAR},
+				#{orderDescribe,jdbcType=VARCHAR},
+				#{telphone,jdbcType=VARCHAR},
+				#{price,jdbcType=NUMERIC},
+				#{startDate},
+				#{endDate},
+				#{quantity,jdbcType=NUMERIC},
+				#{payWay,jdbcType=NUMERIC},
+				#{payState,jdbcType=NUMERIC},
+				#{orderState,jdbcType=NUMERIC},
+				#{createTime},
+				#{userId,jdbcType=NUMERIC},
+				#{realPrice},
+				#{orderCode,jdbcType=VARCHAR},
+				#{isComment,jdbcType=NUMERIC},
+				#{goodsId,jdbcType=NUMERIC},
+				#{shopInformationId,jdbcType=NUMERIC},
+				#{checkDays,jdbcType=NUMERIC},
+				#{isBalance,jdbcType=NUMERIC},
+				#{isDelete,jdbcType=INTEGER}
+		)
+	</insert>
+	<select id="getHotelOrder" parameterType="long" resultType="map"> 
+		select 
+			ho.id,
+			ho.price,
+			ho.name as orderName,
+			DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+			DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+			ho.quantity,
+			ho.real_price,
+			ho.order_code,
+			ho.check_days,
+			si.name as informationName,
+			group_concat(op.name) as personName,
+			ua.balance,
+			sg.goods_name
+		from 
+			hotel_order ho join shop_information si on ho.shop_information_id = si.id join order_person op on op.hotel_order_id = ho.id left join user_account ua on ho.user_id = ua.user_id left join shop_goods sg on ho.goods_id = sg.id    
+		where
+			ho.id = #{gotelOrderId}
+	</select>	
+	<select id="getCountNumberHotelOrder" parameterType="long" resultType="int">
+		select
+			sum(quantity)
+		from 
+			hotel_order
+		where 
+			goods_id = #{shopGoodsId} and (order_state = 0 or order_state = 1 or order_state=2 or order_state =3) AND
+			((end_date &gt;= #{startDate} AND start_date &lt;= #{endDate} ) OR (start_date &gt;= #{startDate} AND start_date &lt;= #{endDate}))
+	</select>
+	<update id="updateHotelOrder" parameterType="map">
+		update hotel_order set order_state = 3 AND pay_way = #{payWay} AND pay_time = #{payTime} AND pay_state = 1 where order_code = #{orderCode} 
+	</update>	
+	<update id="updateUndoHotelOrder" parameterType="long">
+		update hotel_order set order_state = 2 where id = #{id} 
+	</update>	
+	<!-- 酒店订单 -->
+	<select id="findHotelOrder" parameterType="map" resultType="map">
+		SELECT
+			ho.id,
+			ho.name,
+			ho.order_describe,
+			ho.price,
+			DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+			DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+			ho.real_price,
+			ho.order_code,
+			ho.order_state,
+			ho.pay_state,
+			sg.describe_img,
+			sg.goods_name as goodsName
+		FROM
+			hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id
+		WHERE
+			ho.user_id = #{userId,jdbcType=NUMERIC} AND ho.is_delete = 0 AND ho.pay_state in (${payState}) AND ho.order_state in (${orderState}) order by ho.create_time limit #{page},#{rows}		
+	</select>
+	
+	<select id="findHotelOrderDetail" parameterType="long" resultType="map"> 
+		SELECT
+			sg.describe_img,
+			sg.goods_name,
+			group_concat(op.name) as personName,
+			ho.id,
+			ho.name,
+			ho.order_describe,
+			ho.telphone,
+			ho.price,
+			DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+			DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+			ho.quantity,
+			ho.pay_way,
+			ho.pay_state,
+			ho.order_state,
+			DATE_FORMAT(ho.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(ho.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			DATE_FORMAT(ho.refund_time,'%Y-%m-%d %H:%i:%s') AS refund_time,
+			ho.user_id,
+			ho.real_price,
+			ho.order_code,
+			ho.is_comment,
+			ho.goods_id,
+			ho.check_days,
+			ho.is_balance,u.nick_name,u.head_img
+		FROM
+			hotel_order ho JOIN shop_goods sg ON ho.goods_id = sg.id JOIN order_person op ON op.hotel_order_id = ho.id join consumer_user u on ho.user_id = u.id  
+		WHERE
+			ho.order_code=#{orderId,jdbcType=NUMERIC}
+	</select>
+	<update id="hotelBackMoney" parameterType="map">
+		UPDATE hotel_order SET order_state = #{orderState} WHERE order_code = #{orderCode}
+		<if test="siId != null and siId != ''">
+		and shop_information_id = ${siId}
+		</if>
+	</update>
+	
+	<select id="findOrderList" resultType="map" parameterType="map">
+		select 
+		ho.id,
+		ho.name,
+		ho.quantity,
+		DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+		DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+		ho.price,
+		ho.real_price,
+		ho.order_code,
+		ho.check_days,
+		sg.describe_img,
+		u.id as consumerId,
+		u.nick_name,
+		u.head_img,
+		ho.order_state
+		from hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id  left join consumer_user u on ho.user_id = u.id 
+		where order_state in (${status}) and ho.shop_information_id=${sfId} and is_delete = 0 
+	</select>
+	
+	<select id="findOrderList_count" resultType="int" parameterType="map">
+		select 
+		count(1)   
+		from hotel_order where order_state in (${status}) and shop_information_id=${sfId}
+	</select>
+	
+	
+	
+	<select id="selectOrderBycode" resultType="map" parameterType="map">
+		select 
+		ho.id,
+		ho.name,
+		ho.quantity,
+		DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+		DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+		ho.price,
+		ho.real_price,
+		ho.order_code,
+		ho.check_days,
+		sg.describe_img,
+		u.id as consumerId,
+		u.nick_name,
+		u.head_img,
+		ho.order_state
+		from hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id  left join consumer_user u on ho.user_id = u.id 
+		where ho.shop_information_id=#{sfId}  and (ho.order_code like  CONCAT('%',#{codeOrname,jdbcType=VARCHAR},'%' ) or u.nick_name like  CONCAT('%',#{codeOrname,jdbcType=VARCHAR},'%' ) ) and ho.order_state in(3,5,6)
+	</select>
+	
+	
+	
+	<select id="findOrder" resultMap="HotelOrder" parameterType="String">
+		select * from hotel_order where order_code = #{orderCode}
+	</select>
+	
+	<delete id="deleteMessage" parameterType="String">
+		delete from hotel_order where order_code = #{orderCode}
+	</delete>
+	
+	<update id="updateOrderState" parameterType="com.htkj.cfdScenic.app.model.HotelOrder">
+	UPDATE hotel_order
+	<set>
+		<if test="quantity != null">
+			quantity = #{quantity},
+		</if>
+		<if test="payWay != null">
+			pay_way = #{payWay},
+		</if>
+		<if test="payState != null">
+			pay_state = #{payState},
+		</if>
+		<if test="orderState != null">
+			order_state = #{orderState},
+		</if>
+		<if test="createTime != null">
+			create_time = #{createTime},
+		</if>
+		<if test="payTime != null">
+			pay_time = #{payTime},
+		</if>
+		<if test="refundTime != null">
+			refund_time = #{refundTime},
+		</if>
+		<if test="realPrice != null">
+			real_price = #{realPrice},
+		</if>
+		<if test="isComment != null">
+			is_comment = #{isComment},
+		</if>
+		<if test="checkDays != null">
+			check_days = #{checkDays},
+		</if>
+		<if test="isBalance != null">
+			is_balance = #{isBalance},
+		</if>
+		<if test="isDelete != null">
+			is_delete = #{isDelete},
+		</if>
+	</set>
+	WHERE order_Code = #{orderCode}
+</update>
+	
+	<update id="updateState" parameterType="map">
+		UPDATE hotel_order SET order_state = 2,is_delete = 1  WHERE order_code = ${orderCode}
+	</update>
+	<update id="deleteState" parameterType="map">
+		delete from hotel_order WHERE order_code = ${orderCode}
+	</update>
+	<select id="getHotelOrderById" parameterType="long" resultType="double">
+		select
+			real_price
+		from 
+			hotel_order
+		where
+			id = #{hotelOrderId}
+	</select>
+	<update id="updateHotelOrderByMap" parameterType="map">
+		update hotel_order set pay_time = #{payTime},pay_way = #{payWay},pay_state = 1,order_state = #{orderState} where id = #{id}
+	</update>
+	<select id="getGoodsCount" parameterType="map" resultType="int">
+		select
+			ifnull(sum(quantity),0) as quantity
+		from
+			hotel_order
+		where
+		((start_date &lt; #{endDate} and #{endDate} &lt;=end_date) or
+		(start_date &lt;= #{startDate} and #{startDate}  &lt;end_date) or
+		(start_date &gt;= #{startDate} and #{endDate} &gt;= end_date))
+		and shop_information_id = #{id} and order_state = 3 and is_delete = 0
+	</select>
+	<select id="getHotelOrderDetail" parameterType="long" resultType="com.htkj.cfdScenic.app.model.HotelOrder">
+		select
+			*
+		from
+			hotel_order
+		where
+			id = #{hotelOrderId}	
+	</select>
+	<update id="updateHotelOrderState" parameterType="map">
+		update hotel_order set
+			pay_way = ${payWay},
+			pay_state = 1,
+			order_state = 2,
+			pay_time = now()
+		where order_code = ${id}
+	</update>
+	<select id="getHotelOrderByOrderId" parameterType="long" resultMap="HotelOrder">
+		select 
+			*
+		from 
+			hotel_order
+		where
+			id = #{id}
+	</select>
+	<delete id="deleteHotelOrder" parameterType="long">
+		delete from hotel_order where order_code = #{orderCode}
+	</delete>
+	<update id="updateHotelOrderByOrderCode" parameterType="long">
+		update hotel_order set is_delete = 1 where order_code = #{orderCode}
+	</update>
+	<select id="informationHotelOrderDetail" parameterType="map" resultType="map">
+		SELECT
+			sg.describe_img,
+			sg.goods_name,
+			group_concat(op.name) as personName,
+			ho.id,
+			ho.name,
+			ho.order_describe,
+			ho.telphone,
+			ho.price,
+			DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+			DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+			ho.quantity,
+			ho.pay_way,
+			ho.pay_state,
+			ho.order_state,
+			DATE_FORMAT(ho.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(ho.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			DATE_FORMAT(ho.refund_time,'%Y-%m-%d %H:%i:%s') AS refund_time,
+			ho.user_id,
+			ho.real_price,
+			ho.order_code,
+			ho.is_comment,
+			ho.goods_id,
+			ho.check_days,
+			ho.is_balance,u.nick_name,u.head_img
+		FROM
+			hotel_order ho JOIN shop_goods sg ON ho.goods_id = sg.id JOIN order_person op ON op.hotel_order_id = ho.id join consumer_user u on ho.user_id = u.id  
+		WHERE
+			ho.order_code=${orderCode} and ho.shop_information_id = ${informationId}	
+	</select>
+	<select id="shopFindHotelOrder" parameterType="map" resultType="map">
+		select 
+			ho.id,
+			ho.name,
+			ho.quantity,
+			DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+			DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+			ho.price,
+			ho.real_price,
+			ho.order_code,
+			ho.check_days,
+			sg.describe_img,
+			u.id as consumerId,
+			u.nick_name,
+			u.head_img,
+			ho.order_state,
+			sg.goods_name
+		FROM 
+			hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id  left join consumer_user u on ho.user_id = u.id 
+		WHERE
+			ho.shop_information_id = ${siId} AND order_state in (#{orderState}) 		
+	</select>
+	<select id="shopFindHotelOrderDetail" parameterType="map" resultType="map">
+		SELECT
+			sg.describe_img,
+			sg.goods_name,
+			group_concat(op.name) as personName,
+			ho.id,
+			ho.name,
+			ho.order_describe,
+			ho.telphone,
+			ho.price,
+			DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+			DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+			ho.quantity,
+			ho.pay_way,
+			ho.pay_state,
+			ho.order_state,
+			DATE_FORMAT(ho.create_time,'%Y-%m-%d %H:%i:%s') AS create_time,
+			DATE_FORMAT(ho.pay_time,'%Y-%m-%d %H:%i:%s') AS pay_time,
+			DATE_FORMAT(ho.refund_time,'%Y-%m-%d %H:%i:%s') AS refund_time,
+			ho.user_id,
+			ho.real_price,
+			ho.order_code,
+			ho.is_comment,
+			ho.goods_id,
+			ho.check_days,
+			ho.is_balance,u.nick_name,u.head_img
+		FROM
+			hotel_order ho JOIN shop_goods sg ON ho.goods_id = sg.id JOIN order_person op ON op.hotel_order_id = ho.id join consumer_user u on ho.user_id = u.id  
+		WHERE
+			ho.order_code=#{orderCode} and ho.shop_information_id = ${siId}
+	</select>
+	<select id="findall" parameterType="map" resultType="map">
+		
+select 
+		ho.*,
+		u.user_name as honame,
+        sg.goods_name as goodsname ,
+        si.name as siname
+	from hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id  left join consumer_user u on ho.user_id = u.id  left join  shop_information si on  ho.shop_information_id = si.id
+		 where 1=1
+		<if test="orderState == 1">
+			and ho.order_state in (2,5)
+		</if>
+		<if test="orderState == 2">
+			and ho.order_state = 4
+		</if>
+		<if test="orderState == 3">
+			and ho.order_state in (3,6,7)
+		</if>
+		<if test="id != null">
+			and ho.id = #{id}
+		</if>
+	</select>
+	<select id="findall_count" resultType="int" parameterType="map">
+		select 
+		count(1)   
+		from hotel_order where 1=1
+		<if test="orderState == 1">
+			and order_state in (2,5)
+		</if>
+		<if test="orderState == 2">
+			and order_state = 4
+		</if>
+		<if test="orderState == 3">
+			and order_state in (3,6,7)
+		</if>
+	</select>
+	<update id="updateHotelOrderById" parameterType="map">
+		update hotel_order <set>
+			order_state = #{orderState}
+		</set>
+		where id  = #{id}
+	</update>
+	<select id="getTodayMoney" parameterType="map" resultType="map">
+		select
+			IFNULL(sum(real_price),0) as realPrice,
+			count(1) as count
+		from 
+			hotel_order
+		where
+			shop_information_id = ${siId} and order_state not in (6) and pay_state = 1 and is_delete = 0
+		<if test="createTime != '' and createTime != null">
+			and DATE_FORMAT(create_time,'%Y-%m-%d') = #{createTime}
+		</if>
+	</select>
+	<select id="findHotelOrderNotIn" resultType="map" parameterType="map">
+		select 
+		ho.id,
+		ho.name,
+		ho.quantity,
+		DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+		DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+		ho.price,
+		ho.real_price,
+		ho.order_code,
+		ho.check_days,
+		sg.describe_img,
+		u.id as consumerId,
+		u.nick_name,
+		u.head_img,
+		ho.order_state,
+		sg.goods_name
+		from hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id  left join consumer_user u on ho.user_id = u.id 
+		where
+		ho.shop_information_id = ${siId} and ho.order_state not in (6) and ho.pay_state = 1 and ho.is_delete = 0
+		<if test="createTime != '' and createTime != null">
+			and DATE_FORMAT(ho.create_time,'%Y-%m-%d') = #{createTime}
+		</if> 
+	</select>
+	<select id="selectHotelOrder" resultType="map" parameterType="map">
+		select 
+		ho.id,
+		ho.name,
+		ho.quantity,
+		DATE_FORMAT(ho.start_date,'%Y-%m-%d %H:%i:%s') AS start_date,
+		DATE_FORMAT(ho.end_date,'%Y-%m-%d %H:%i:%s') AS end_date,
+		ho.price,
+		ho.real_price,
+		ho.order_code,
+		ho.check_days,
+		sg.describe_img,
+		u.id as consumerId,
+		u.nick_name,
+		u.head_img,
+		ho.order_state,
+		sg.goods_name
+		from hotel_order ho left JOIN shop_goods sg ON ho.goods_id = sg.id  left join consumer_user u on ho.user_id = u.id 
+		where
+		ho.shop_information_id = ${siId} 
+		<if test="orderCode != null">
+		and ho.order_code LIKE "%${orderCode}%"
+		</if>
+		<if test="name != null">
+		and u.nick_name LIKE "%${name}%"	
+		</if>
+	</select>
+</mapper>
