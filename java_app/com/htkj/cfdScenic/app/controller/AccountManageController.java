@@ -30,36 +30,36 @@ public class AccountManageController extends BaseController {
     private VisitorsOrderService visitorsOrderService;
 
     @RequestMapping("/toAccountManage")
-    public String toAccountManage(ModelMap model){
+    public String toAccountManage(ModelMap model) {
         ShopUser user = (ShopUser) webContext.getSessionShopUser();
         try {
-            if (user != null){
+            if (user != null) {
                 Map<String, Object> shopInformation = shopInformationService.selectByPrimaryKey(user.getShopInformationId());
-                Integer shopId =Integer.parseInt(shopInformation.get("shop_id").toString());
+                Integer shopId = Integer.parseInt(shopInformation.get("shop_id").toString());
                 if (shopId == 1) {     //酒店
                     Double todayTurnover = hotelOrderService.getTodayTurnover((Long) shopInformation.get("id"));    //今日营业额
                     Double turnover = hotelOrderService.getTurnover((Long) shopInformation.get("id"));              //总营业额
-                    model.put("todayTurnover",todayTurnover);
-                    model.put("turnover",turnover);
+                    model.put("todayTurnover", todayTurnover);
+                    model.put("turnover", turnover);
                 } else if (shopId == 2) {     //饭店
                     Double todayTurnover = restaurantOrderService.getTodayTurnover((Long) shopInformation.get("id"));    //今日营业额
                     Double turnover = restaurantOrderService.getTurnover((Long) shopInformation.get("id"));              //总营业额
-                    model.put("todayTurnover",todayTurnover);
-                    model.put("turnover",turnover);
+                    model.put("todayTurnover", todayTurnover);
+                    model.put("turnover", turnover);
                 } else {                                     //特产、小吃
                     Double todayTurnover = goodsOrderService.getTodayTurnover((Long) shopInformation.get("id"));    //今日营业额
                     Double turnover = goodsOrderService.getTurnover((Long) shopInformation.get("id"));              //总营业额
-                    model.put("todayTurnover",todayTurnover);
-                    model.put("turnover",turnover);
+                    model.put("todayTurnover", todayTurnover);
+                    model.put("turnover", turnover);
                 }
             } else {            //PC端
                 Double todayTurnover = visitorsOrderService.getTodayTurnover();    //今日营业额
                 Double turnover = visitorsOrderService.getTurnover();              //总营业额
-                model.put("todayTurnover",todayTurnover);
-                model.put("turnover",turnover);
+                model.put("todayTurnover", todayTurnover);
+                model.put("turnover", turnover);
             }
         } catch (Exception e) {
-        	e.printStackTrace();
+            e.printStackTrace();
         }
         return "/background/account/Manager";
     }

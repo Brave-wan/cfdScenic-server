@@ -1,8 +1,0 @@
-package com.htkj.cfdScenic.app.dao;
-
-import com.htkj.cfdScenic.app.model.PushMessage;
-import com.htrj.common.base.BaseDao;
-
-public class PushMessageDao extends BaseDao<PushMessage,Integer>{
-	
-}

@@ -17,92 +17,248 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommonStrings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/resources/CommonStrings.java">
+      <file leaf-file-name="ConsumerUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/ConsumerUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="-827">
+              <caret line="597" column="44" lean-forward="true" selection-start-line="597" selection-start-column="44" selection-end-line="597" selection-end-column="44" />
+              <folding>
+                <element signature="e#17674#17695#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShopUserPcController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/ShopUserPcController.java">
+      <file leaf-file-name="VisitorsMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/VisitorsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="160" column="71" lean-forward="false" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="71" />
-              <folding />
+            <state relative-caret-position="266">
+              <caret line="14" column="54" lean-forward="true" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+              <folding>
+                <marker date="1481525608042" expanded="true" signature="1018:1299" ph="SELECT * FRO... visitors" />
+                <marker date="1481525608042" expanded="true" signature="1391:1670" ph="SELECT COUNT... visitors" />
+                <marker date="1481525608042" expanded="true" signature="1767:1806" ph="SELECT * FRO... visitors" />
+                <marker date="1481525608042" expanded="true" signature="4851:6476" ph="UPDATE visit... " />
+                <marker date="1481525608042" expanded="true" signature="6557:6594" ph="DELETE FROM " />
+                <marker date="1481525608042" expanded="true" signature="6661:6816" ph="select id, h... visitors" />
+                <marker date="1481525608042" expanded="true" signature="6907:7333" ph="select v.id,... visitors" />
+                <marker date="1481525608042" expanded="true" signature="7097:7173" ph="select count... user_comment" />
+                <marker date="1481525608042" expanded="true" signature="7418:7605" ph="select id, h... visitors" />
+                <marker date="1481525608042" expanded="true" signature="7690:7980" ph="select v.id,... visitors" />
+                <marker date="1481525608042" expanded="true" signature="8041:8293" ph="select v.id,... visitors" />
+                <marker date="1481525608042" expanded="true" signature="8353:8639" ph="select v.id,... visitors" />
+                <marker date="1481525608042" expanded="true" signature="8725:8890" ph="select id, h... visitors" />
+                <marker date="1481525608042" expanded="true" signature="8953:9104" ph="select id, h... visitors" />
+                <marker date="1481525608042" expanded="true" signature="9195:9518" ph="select v.id,... visitors" />
+                <marker date="1481525608042" expanded="true" signature="9598:9712" ph="select id,he... visitors" />
+                <marker date="1481525608042" expanded="true" signature="9800:9864" ph="select count... visitors" />
+                <marker date="1481525608042" expanded="true" signature="9948:10271" ph="select id, h... visitors" />
+                <marker date="1481525608042" expanded="true" signature="10688:11218" ph="select vs.id... visitors" />
+                <marker date="1481525608042" expanded="true" signature="11456:11663" ph="select count... visitors" />
+                <marker date="1481525608042" expanded="true" signature="11749:12327" ph="select v.id,... visitors" />
+                <marker date="1481525608042" expanded="true" signature="12389:12524" ph="select id, n... visitors" />
+                <marker date="1481525608042" expanded="true" signature="12607:12777" ph="select id, h... visitors" />
+                <marker date="1481525608042" expanded="true" signature="12866:12936" ph="select count... visitors" />
+                <marker date="1481525608042" expanded="true" signature="12998:13121" ph="select id, n... visitors" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mybatis-config.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_resources/mybatis-config.xml">
+      <file leaf-file-name="ShopGoodsMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/ShopGoodsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-912">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1478480790946" expanded="true" signature="1002:1335" ph="select s.id,... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="1079:1204" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="1399:1796" ph="select id, g... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="1571:1696" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="1900:2336" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="2068:2194" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="2439:2552" ph="select count... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="2654:3361" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="2794:2942" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="3448:3907" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="3633:3759" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="4000:4718" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="4232:4380" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="4403:4509" ph="select count... user_collect" />
+                <marker date="1478480790946" expanded="true" signature="4806:5041" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="5124:5194" ph="select stock... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="5278:5473" ph="select s.id,... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="5537:5882" ph="select s.id,... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="5669:5794" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="5941:6035" ph="select id, g... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="6131:6392" ph="select sum(q... hotel_order" />
+                <marker date="1478480790946" expanded="true" signature="6473:6587" ph="select ifnul... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="6683:6775" ph="select id, g... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="6861:7120" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="7213:7638" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="7381:7507" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="7734:8356" ph="SELECT sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="8456:9298" ph="SELECT sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="9399:9786" ph="SELECT COUNT... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="13437:15339" ph="UPDATE shop_... " />
+                <marker date="1478480790946" expanded="true" signature="15418:15466" ph="DELETE FROM " />
+                <marker date="1478480790946" expanded="true" signature="15564:15686" ph="select goods... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="15785:16705" ph="SELECT sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="16810:17269" ph="SELECT COUNT... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="17364:17833" ph="select sg.id... shop_goods" />
+                <marker date="1478480790946" expanded="true" signature="17504:17630" ph="select count... goods_order" />
+                <marker date="1478480790946" expanded="true" signature="17924:18020" ph="select * fro... shop_goods" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VisitorsOrderMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/VisitorsOrderMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2166">
+              <caret line="531" column="30" lean-forward="false" selection-start-line="531" selection-start-column="30" selection-end-line="531" selection-end-column="30" />
+              <folding>
+                <marker date="1482573003862" expanded="true" signature="1698:2549" ph="SELECT vo.*,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="2655:3446" ph="SELECT COUNT... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="3561:4000" ph="SELECT vo.*,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="4097:4378" ph="SELECT COUNT... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="4490:4912" ph="SELECT vo.*,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="5008:5272" ph="SELECT COUNT... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="5360:5571" ph="SELECT vo.*,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="5642:5720" ph="UPDATE visit... " />
+                <marker date="1482573003862" expanded="true" signature="5828:7590" ph="UPDATE visit... " />
+                <marker date="1482573003862" expanded="true" signature="7696:8564" ph="insert into visitors_order... " />
+                <marker date="1482573003862" expanded="true" signature="8669:8793" ph="insert into visitors_order... " />
+                <marker date="1482573003862" expanded="true" signature="8882:9099" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="9191:9691" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="9783:10068" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="10138:10279" ph="update visit... " />
+                <marker date="1482573003862" expanded="true" signature="10346:10462" ph="update visit... " />
+                <marker date="1482573003862" expanded="true" signature="10559:11183" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="11264:11401" ph="select ifnul... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="11487:11860" ph="select o.id,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="11950:12104" ph="select count... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="12183:12707" ph="select o.id,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="12795:13182" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="13268:13508" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="13636:13979" ph="select vo.or... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="14066:14400" ph="select vo.or... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="14468:14526" ph="delete from " />
+                <marker date="1482573003862" expanded="true" signature="14592:14664" ph="update visit... " />
+                <marker date="1482573003862" expanded="true" signature="14731:14804" ph="update visit... " />
+                <marker date="1482573003862" expanded="true" signature="14886:15721" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="15799:15873" ph="update visit... " />
+                <marker date="1482573003862" expanded="true" signature="15960:16106" ph="select IFNUL... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="16193:16339" ph="select IFNUL... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="16430:17200" ph="select vo.id... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="17284:17371" ph="SELECT SUM(r... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="17459:17580" ph="SELECT SUM(r... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="17720:17780" ph="SELECT * FRO... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="17875:18122" ph="SELECT vo.*,... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="18216:19290" ph="select GROUP... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="19389:20223" ph="select count... count" />
+                <marker date="1482573003862" expanded="true" signature="19420:20211" ph="select count... visitors_order" />
+                <marker date="1482573003862" expanded="true" signature="20324:20411" ph="select order... visitors_order" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WithdrawalApplyMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/WithdrawalApplyMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-684">
+              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <folding>
+                <marker date="1477292831294" expanded="true" signature="3065:3692" ph="UPDATE withd... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AboutUsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AboutUsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="741">
+              <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pushlet.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_resources/pushlet.properties">
+      <file leaf-file-name="AdvertisementController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AdvertisementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="95">
+              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding>
+                <element signature="e#1202#1223#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_resources/sys.properties">
+      <file leaf-file-name="AdvertisementMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/AdvertisementMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="110">
+              <caret line="201" column="9" lean-forward="true" selection-start-line="201" selection-start-column="9" selection-end-line="201" selection-end-column="9" />
+              <folding>
+                <marker date="1484039874289" expanded="true" signature="256:380" ph="select link_... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="442:573" ph="select link_... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="645:776" ph="select link_... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="837:963" ph="select id,li... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="1016:1143" ph="select link_... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="1279:1515" ph="SELECT id, l... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="1606:2017" ph="SELECT id, l... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="2110:2397" ph="SELECT COUNT... advertisement" />
+                <marker date="1484039874289" expanded="true" signature="3936:4895" ph="UPDATE adver... " />
+                <marker date="1484039874289" expanded="true" signature="4968:5013" ph="DELETE FROM " />
+                <marker date="1484039874289" expanded="true" signature="5118:5195" ph="SELECT id, n... shop_information" />
+                <marker date="1484039874289" expanded="true" signature="5118:5325" ph="SELECT id, n... " />
+                <marker date="1484039874289" expanded="true" signature="5204:5272" ph="SELECT id, n... visitors" />
+                <marker date="1484039874289" expanded="true" signature="5281:5325" ph="SELECT id, n... advertising_page" />
+                <marker date="1484039874289" expanded="true" signature="5847:5992" ph="SELECT link_... advertisement" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ValidationMessages.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_resources/ValidationMessages.properties">
+      <file leaf-file-name="AdvertisementService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/service/AdvertisementService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="542">
+              <caret line="60" column="64" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="64" />
+              <folding>
+                <element signature="e#750#751#0" expanded="true" />
+                <element signature="e#795#796#0" expanded="true" />
+                <element signature="e#964#965#0" expanded="true" />
+                <element signature="e#1009#1010#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+                <element signature="e#1443#1444#0" expanded="true" />
+                <element signature="e#1487#1488#0" expanded="true" />
+                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#1755#1756#0" expanded="true" />
+                <element signature="e#1818#1819#0" expanded="true" />
+                <element signature="e#1871#1872#0" expanded="true" />
+                <element signature="e#1933#1934#0" expanded="true" />
+                <element signature="e#1974#1975#0" expanded="true" />
+                <element signature="e#2021#2022#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wx.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java_resources/wx.properties">
+      <file leaf-file-name="AdvertisementManagerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AdvertisementManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationWebConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/webmvc/ApplicationWebConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="3325">
+              <caret line="206" column="64" lean-forward="false" selection-start-line="206" selection-start-column="34" selection-end-line="206" selection-end-column="64" />
+              <folding>
+                <element signature="e#1627#1628#0" expanded="true" />
+                <element signature="e#1685#1686#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,6 +272,22 @@
       <find>login</find>
       <find>CommonStrings</find>
       <find>mvc</find>
+      <find>ApplicationWebConfig</find>
+      <find>getServletConfigClasses</find>
+      <find>welcome</find>
+      <find>VIEW_WELCOME</find>
+      <find>#subLogin</find>
+      <find>subButton</find>
+      <find>basemenu</find>
+      <find>BaseMenu</find>
+      <find>BaseMenuDao</find>
+      <find>BaseMenuService</find>
+      <find>getMenuTree</find>
+      <find>getMenuShopTree</find>
+      <find>www.cfdzhsd.com</find>
+      <find>https://www.cfdzhsd.com/</find>
+      <find>indexVisitors</find>
+      <find>head_img</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -135,6 +307,14 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/home/login.jsp" />
         <option value="$PROJECT_DIR$/java_resources/configuration.xml" />
         <option value="$PROJECT_DIR$/java_commmon/com/htrj/common/resources/CommonStrings.java" />
+        <option value="$PROJECT_DIR$/java_config/com/htrj/base/configuration/ApplicationInitializer.java" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/views-commons/header.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/scripts/sysHtkj/home/login.js" />
+        <option value="$PROJECT_DIR$/java_src/com/htrj/base/model/BaseMenu.java" />
+        <option value="$PROJECT_DIR$/java_src/com/htrj/base/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/home/shopindex.jsp" />
+        <option value="$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AboutUsController.java" />
+        <option value="$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AccountManageController.java" />
       </list>
     </option>
   </component>
@@ -178,75 +358,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="about" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="java_commmon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="java_config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="java_config" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="java_resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views-commons" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -287,19 +399,85 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="java_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="java_app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="java_app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="java_app" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="java_commmon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="java_commmon" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfdScenic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfdScenic" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -313,7 +491,79 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.cfd">
+  <component name="RunManager" selected="Tomcat Server.Unnamed">
+    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.90" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="cfd">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_cfdScenic_2" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="37769" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="cfd" />
+        </option>
+      </method>
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -456,78 +706,6 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="cfd" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.90" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="cfd">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_cfdScenic" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="37769" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="cfd" />
-        </option>
-      </method>
-    </configuration>
   </component>
   <component name="SbtLocalSettings">
     <option name="externalProjectsViewState">
@@ -550,47 +728,48 @@
       <updated>1531097646423</updated>
       <workItem from="1531097652181" duration="2999000" />
       <workItem from="1531131811267" duration="3597000" />
-      <workItem from="1531135446557" duration="67000" />
+      <workItem from="1531135446557" duration="8396000" />
+      <workItem from="1531210640741" duration="4204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6663000" />
+    <option name="totallyTimeSpent" value="19196000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="215" y="86" width="1922" height="1056" extended-state="6" />
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21641791" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25531915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6791045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.114072494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1663113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25797874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6791045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,173 +783,63 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/java_resources/sys.properties">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/background/news/Manager.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/ValidationMessages.properties">
+    <entry file="file://$PROJECT_DIR$/WebContent/scripts/sysHtkj/home/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="475">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/wx.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/webmvc/ApplicationWebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/beanutils/converter/StringConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/beanutils/BeanUtils.java">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/background/userAccount/Manager.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-285">
-          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/beanutils/PropertyUtils.java">
+    <entry file="file://$PROJECT_DIR$/java_resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="608">
+          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/controller/CheckLoginInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/controller/UpAndDownFileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="51" column="52" lean-forward="false" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/images/2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/images/1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/images/3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/images/4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/images/dontUpdate.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/BaseMenuDao.java">
+    <entry file="file://$PROJECT_DIR$/java_resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
-          <caret line="24" column="55" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="55" />
+          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/BaseRoleDao.java">
+    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/ApplicationInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="265">
+          <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/PermissionDao.java">
+    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/app/ApplicationConfigServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/PerRoleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/RoleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/SysUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="152">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/AdvertisingPageDao.java">
+    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/app/ApplicationConfigProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/service/HtmlTextService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/RestaurantOrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+        <state relative-caret-position="114">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -782,87 +851,213 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfdScenic.iml">
+    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/app/ApplicationConfigDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/webmvc/ApplicationWebConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="64" column="19" lean-forward="true" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+          <caret line="130" column="34" lean-forward="true" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AboutUsController.java">
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="551">
+          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AccountManageController.java">
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/resources/CommonStrings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="152">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AdvertisementController.java">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/home/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+        <state relative-caret-position="95">
+          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/aopalliance-1.0.jar!/org/aopalliance/intercept/Joinpoint.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views-commons/taglibs.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views-commons/meta.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/home/login.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views-commons/messages.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/controller/ImageRandServlet.java">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/home/uppwd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2827">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/home/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/mapper/PermissionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/service/BaseMenuService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/BaseMenuDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/model/BaseMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/dao/mapper/BaseMenuMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="48" column="58" lean-forward="false" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/controller/PermissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/controller/BaseRoleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        <state relative-caret-position="532">
+          <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="34" />
+          <folding>
+            <element signature="e#1239#1240#0" expanded="false" />
+            <element signature="e#1273#1274#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/net/sf/log4jdbc/DataSourceSpyInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/base/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        <state relative-caret-position="95">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/base/BaseEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/base/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/excelTools/ExcelBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_src/com/htrj/base/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="84" column="46" lean-forward="false" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/base/WebContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="307" column="24" lean-forward="false" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/base/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/home/shopindex.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/controller/CheckLoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/java_resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-598">
-          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="428">
+          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/upload/UploadFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -876,61 +1071,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/java_resources/ehcache.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="456">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/logback.xml">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/ConsumerUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="-827">
+          <caret line="597" column="44" lean-forward="true" selection-start-line="597" selection-start-column="44" selection-end-line="597" selection-end-column="44" />
+          <folding>
+            <element signature="e#17674#17695#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_commmon/com/htrj/common/resources/CommonStrings.java">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/VisitorsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="266">
+          <caret line="14" column="54" lean-forward="true" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+          <folding>
+            <marker date="1481525608042" expanded="true" signature="1018:1299" ph="SELECT * FRO... visitors" />
+            <marker date="1481525608042" expanded="true" signature="1391:1670" ph="SELECT COUNT... visitors" />
+            <marker date="1481525608042" expanded="true" signature="1767:1806" ph="SELECT * FRO... visitors" />
+            <marker date="1481525608042" expanded="true" signature="4851:6476" ph="UPDATE visit... " />
+            <marker date="1481525608042" expanded="true" signature="6557:6594" ph="DELETE FROM " />
+            <marker date="1481525608042" expanded="true" signature="6661:6816" ph="select id, h... visitors" />
+            <marker date="1481525608042" expanded="true" signature="6907:7333" ph="select v.id,... visitors" />
+            <marker date="1481525608042" expanded="true" signature="7097:7173" ph="select count... user_comment" />
+            <marker date="1481525608042" expanded="true" signature="7418:7605" ph="select id, h... visitors" />
+            <marker date="1481525608042" expanded="true" signature="7690:7980" ph="select v.id,... visitors" />
+            <marker date="1481525608042" expanded="true" signature="8041:8293" ph="select v.id,... visitors" />
+            <marker date="1481525608042" expanded="true" signature="8353:8639" ph="select v.id,... visitors" />
+            <marker date="1481525608042" expanded="true" signature="8725:8890" ph="select id, h... visitors" />
+            <marker date="1481525608042" expanded="true" signature="8953:9104" ph="select id, h... visitors" />
+            <marker date="1481525608042" expanded="true" signature="9195:9518" ph="select v.id,... visitors" />
+            <marker date="1481525608042" expanded="true" signature="9598:9712" ph="select id,he... visitors" />
+            <marker date="1481525608042" expanded="true" signature="9800:9864" ph="select count... visitors" />
+            <marker date="1481525608042" expanded="true" signature="9948:10271" ph="select id, h... visitors" />
+            <marker date="1481525608042" expanded="true" signature="10688:11218" ph="select vs.id... visitors" />
+            <marker date="1481525608042" expanded="true" signature="11456:11663" ph="select count... visitors" />
+            <marker date="1481525608042" expanded="true" signature="11749:12327" ph="select v.id,... visitors" />
+            <marker date="1481525608042" expanded="true" signature="12389:12524" ph="select id, n... visitors" />
+            <marker date="1481525608042" expanded="true" signature="12607:12777" ph="select id, h... visitors" />
+            <marker date="1481525608042" expanded="true" signature="12866:12936" ph="select count... visitors" />
+            <marker date="1481525608042" expanded="true" signature="12998:13121" ph="select id, n... visitors" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/ShopUserPcController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="160" column="71" lean-forward="false" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/pushlet.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/sys.properties">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/ShopGoodsMapper.xml.bak">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -938,34 +1129,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/ValidationMessages.properties">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/ShopGoodsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-912">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1478480790946" expanded="true" signature="1002:1335" ph="select s.id,... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="1079:1204" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="1399:1796" ph="select id, g... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="1571:1696" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="1900:2336" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="2068:2194" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="2439:2552" ph="select count... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="2654:3361" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="2794:2942" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="3448:3907" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="3633:3759" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="4000:4718" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="4232:4380" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="4403:4509" ph="select count... user_collect" />
+            <marker date="1478480790946" expanded="true" signature="4806:5041" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="5124:5194" ph="select stock... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="5278:5473" ph="select s.id,... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="5537:5882" ph="select s.id,... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="5669:5794" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="5941:6035" ph="select id, g... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="6131:6392" ph="select sum(q... hotel_order" />
+            <marker date="1478480790946" expanded="true" signature="6473:6587" ph="select ifnul... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="6683:6775" ph="select id, g... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="6861:7120" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="7213:7638" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="7381:7507" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="7734:8356" ph="SELECT sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="8456:9298" ph="SELECT sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="9399:9786" ph="SELECT COUNT... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="13437:15339" ph="UPDATE shop_... " />
+            <marker date="1478480790946" expanded="true" signature="15418:15466" ph="DELETE FROM " />
+            <marker date="1478480790946" expanded="true" signature="15564:15686" ph="select goods... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="15785:16705" ph="SELECT sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="16810:17269" ph="SELECT COUNT... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="17364:17833" ph="select sg.id... shop_goods" />
+            <marker date="1478480790946" expanded="true" signature="17504:17630" ph="select count... goods_order" />
+            <marker date="1478480790946" expanded="true" signature="17924:18020" ph="select * fro... shop_goods" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/VisitorsOrderMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2166">
+          <caret line="531" column="30" lean-forward="false" selection-start-line="531" selection-start-column="30" selection-end-line="531" selection-end-column="30" />
+          <folding>
+            <marker date="1482573003862" expanded="true" signature="1698:2549" ph="SELECT vo.*,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="2655:3446" ph="SELECT COUNT... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="3561:4000" ph="SELECT vo.*,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="4097:4378" ph="SELECT COUNT... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="4490:4912" ph="SELECT vo.*,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="5008:5272" ph="SELECT COUNT... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="5360:5571" ph="SELECT vo.*,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="5642:5720" ph="UPDATE visit... " />
+            <marker date="1482573003862" expanded="true" signature="5828:7590" ph="UPDATE visit... " />
+            <marker date="1482573003862" expanded="true" signature="7696:8564" ph="insert into visitors_order... " />
+            <marker date="1482573003862" expanded="true" signature="8669:8793" ph="insert into visitors_order... " />
+            <marker date="1482573003862" expanded="true" signature="8882:9099" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="9191:9691" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="9783:10068" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="10138:10279" ph="update visit... " />
+            <marker date="1482573003862" expanded="true" signature="10346:10462" ph="update visit... " />
+            <marker date="1482573003862" expanded="true" signature="10559:11183" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="11264:11401" ph="select ifnul... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="11487:11860" ph="select o.id,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="11950:12104" ph="select count... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="12183:12707" ph="select o.id,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="12795:13182" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="13268:13508" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="13636:13979" ph="select vo.or... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="14066:14400" ph="select vo.or... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="14468:14526" ph="delete from " />
+            <marker date="1482573003862" expanded="true" signature="14592:14664" ph="update visit... " />
+            <marker date="1482573003862" expanded="true" signature="14731:14804" ph="update visit... " />
+            <marker date="1482573003862" expanded="true" signature="14886:15721" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="15799:15873" ph="update visit... " />
+            <marker date="1482573003862" expanded="true" signature="15960:16106" ph="select IFNUL... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="16193:16339" ph="select IFNUL... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="16430:17200" ph="select vo.id... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="17284:17371" ph="SELECT SUM(r... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="17459:17580" ph="SELECT SUM(r... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="17720:17780" ph="SELECT * FRO... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="17875:18122" ph="SELECT vo.*,... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="18216:19290" ph="select GROUP... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="19389:20223" ph="select count... count" />
+            <marker date="1482573003862" expanded="true" signature="19420:20211" ph="select count... visitors_order" />
+            <marker date="1482573003862" expanded="true" signature="20324:20411" ph="select order... visitors_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/WithdrawalApplyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-684">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <marker date="1477292831294" expanded="true" signature="3065:3692" ph="UPDATE withd... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AccountManageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="55" column="90" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_resources/wx.properties">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AboutUsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="741">
+          <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-webmvc-4.2.3.RELEASE.jar!/org/springframework/web/servlet/view/InternalResourceViewResolver.class">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/service/AdvertisementService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="542">
+          <caret line="60" column="64" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="64" />
+          <folding>
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
+            <element signature="e#1871#1872#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2021#2022#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java_config/com/htrj/base/configuration/webmvc/ApplicationWebConfig.java">
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AdvertisementManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="3325">
+          <caret line="206" column="64" lean-forward="false" selection-start-line="206" selection-start-column="34" selection-end-line="206" selection-end-column="64" />
+          <folding>
+            <element signature="e#1627#1628#0" expanded="true" />
+            <element signature="e#1685#1686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/controller/AdvertisementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#1202#1223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java_app/com/htkj/cfdScenic/app/dao/mapper/AdvertisementMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="201" column="9" lean-forward="true" selection-start-line="201" selection-start-column="9" selection-end-line="201" selection-end-column="9" />
+          <folding>
+            <marker date="1484039874289" expanded="true" signature="256:380" ph="select link_... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="442:573" ph="select link_... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="645:776" ph="select link_... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="837:963" ph="select id,li... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="1016:1143" ph="select link_... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="1279:1515" ph="SELECT id, l... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="1606:2017" ph="SELECT id, l... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="2110:2397" ph="SELECT COUNT... advertisement" />
+            <marker date="1484039874289" expanded="true" signature="3936:4895" ph="UPDATE adver... " />
+            <marker date="1484039874289" expanded="true" signature="4968:5013" ph="DELETE FROM " />
+            <marker date="1484039874289" expanded="true" signature="5118:5195" ph="SELECT id, n... shop_information" />
+            <marker date="1484039874289" expanded="true" signature="5118:5325" ph="SELECT id, n... " />
+            <marker date="1484039874289" expanded="true" signature="5204:5272" ph="SELECT id, n... visitors" />
+            <marker date="1484039874289" expanded="true" signature="5281:5325" ph="SELECT id, n... advertising_page" />
+            <marker date="1484039874289" expanded="true" signature="5847:5992" ph="SELECT link_... advertisement" />
+          </folding>
         </state>
       </provider>
     </entry>

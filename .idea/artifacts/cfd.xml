@@ -18,6 +18,7 @@
           <element id="library" level="module" name="ueditor-1.1.2.jar" module-name="cfdScenic" />
         </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/WebContent" />
     </root>
   </artifact>
 </component>
